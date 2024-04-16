@@ -1,0 +1,6 @@
+AnimationTree
+MeshInstance3D
+CollisionShape3D
+CharacterBody3D
+Skeleton3D
+GridMap
