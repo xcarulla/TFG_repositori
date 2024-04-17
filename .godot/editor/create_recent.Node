@@ -1,6 +1,8 @@
-AnimationTree
-MeshInstance3D
+Camera3D
 CollisionShape3D
 CharacterBody3D
+DirectionalLight3D
+AnimationTree
+MeshInstance3D
 Skeleton3D
 GridMap
