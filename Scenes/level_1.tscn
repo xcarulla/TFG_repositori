@@ -17,3 +17,4 @@ data = {
 transform = Transform3D(0.788557, 0.228263, 0.571029, -0.54107, 0.69884, 0.467831, -0.29227, -0.677878, 0.674581, 5.47366, 0, 11.0101)
 
 [node name="Dummy" parent="." instance=ExtResource("2_m6v80")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.54014, 0)
