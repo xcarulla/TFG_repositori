@@ -1,4 +1,3 @@
-res://Scenes/tiles.tscn
-res://Scenes/Dummy.tscn
 res://Scenes/level_1.tscn
+res://Scenes/Dummy.tscn
 res://Scripts/Dummy.gd
