@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://t6rvb3651te1"
+path="res://.godot/imported/Cube_Prototype_Large_B.obj-165eadfbf88a57a4bc0d6aea3bbe5d09.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Cube_Prototype_Large_B.obj-165eadfbf88a57a4bc0d6aea3bbe5d09.mesh"]
+
+source_file="res://Assets/LevelElements/Cube_Prototype_Large_B.obj"
+dest_files=["res://.godot/imported/Cube_Prototype_Large_B.obj-165eadfbf88a57a4bc0d6aea3bbe5d09.mesh", "res://.godot/imported/Cube_Prototype_Large_B.obj-165eadfbf88a57a4bc0d6aea3bbe5d09.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

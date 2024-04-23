@@ -1,7 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://cte24k0uu5ply"]
+[gd_scene load_steps=13 format=3 uid="uid://cte24k0uu5ply"]
 
 [ext_resource type="MeshLibrary" uid="uid://br0n6rsrsapfg" path="res://MeshLib/tiles.meshlib" id="1_3grlv"]
 [ext_resource type="PackedScene" uid="uid://jvv6wfc4p6ra" path="res://Scenes/Dummy.tscn" id="2_m6v80"]
+[ext_resource type="PackedScene" uid="uid://dmj6ij4boo4ie" path="res://Scenes/ui.tscn" id="3_k30h6"]
+[ext_resource type="Texture2D" uid="uid://qm5vy42e07xg" path="res://Assets/Dummy_prototypebits_texture.png" id="4_0113a"]
+[ext_resource type="ArrayMesh" uid="uid://ddhl1tvru78pk" path="res://Assets/LevelElements/Cube_Prototype_Large_A.obj" id="5_gple7"]
+[ext_resource type="ArrayMesh" uid="uid://bbg4ktwapi7ww" path="res://Assets/LevelElements/Cube_Prototype_Small.obj" id="6_5ea0d"]
+[ext_resource type="ArrayMesh" uid="uid://t6rvb3651te1" path="res://Assets/LevelElements/Cube_Prototype_Large_B.obj" id="7_n1t16"]
+[ext_resource type="ArrayMesh" uid="uid://bwwg0wl84hseo" path="res://Assets/LevelElements/Floor_Prototype.obj" id="8_r2ay5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dcgbn"]
+albedo_texture = ExtResource("4_0113a")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wnabi"]
+albedo_texture = ExtResource("4_0113a")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8dwqp"]
+albedo_texture = ExtResource("4_0113a")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l40j7"]
+albedo_texture = ExtResource("4_0113a")
 
 [node name="Level_1" type="Node3D"]
 
@@ -18,3 +36,26 @@ transform = Transform3D(0.788557, 0.228263, 0.571029, -0.54107, 0.69884, 0.46783
 
 [node name="Dummy" parent="." instance=ExtResource("2_m6v80")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.54014, 0)
+
+[node name="UI" parent="." node_paths=PackedStringArray("dummy") instance=ExtResource("3_k30h6")]
+dummy = NodePath("../Dummy")
+
+[node name="CubePrototypeLargeA" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.9089, -2.77198, 0.118507)
+material_override = SubResource("StandardMaterial3D_dcgbn")
+mesh = ExtResource("5_gple7")
+
+[node name="CubePrototypeSmall" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2111, -2.01633, 0.118507)
+material_override = SubResource("StandardMaterial3D_wnabi")
+mesh = ExtResource("6_5ea0d")
+
+[node name="CubePrototypeLargeB" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.9236, -3.04676, 0.118507)
+material_override = SubResource("StandardMaterial3D_8dwqp")
+mesh = ExtResource("7_n1t16")
+
+[node name="FloorPrototype" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3976, 2.55189, 0.118507)
+material_override = SubResource("StandardMaterial3D_l40j7")
+mesh = ExtResource("8_r2ay5")
