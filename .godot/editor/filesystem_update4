@@ -1,8 +1,5 @@
-res://Scenes/Dummy.tscn
+res://Scenes/menu.tscn
 res://Scenes/level_1.tscn
-res://Scenes/player.tscn
+res://Scenes/Dummy.tscn
 res://Scenes/tiles.tscn
-res://Scripts/Dummy.gd
-res://Scripts/UI.gd
-res://Scripts/difficultySettings.gd
 res://Scenes/ui.tscn

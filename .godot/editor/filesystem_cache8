@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1713905878
+::res://::1713914514
 icon.svg::CompressedTexture2D::3705301688983904095::1713266783::1713798571::1::::<><>::
 ::res://Assets/::1713905879
 Dummy_prototypebits_texture.png::CompressedTexture2D::1149654349305085884::1713266783::1713905879::1::::<><>::
@@ -13,12 +13,12 @@ Cube_Prototype_Small.obj::Mesh::2470775476534515634::1713905829::1713905830::1::
 Floor_Prototype.obj::Mesh::3976401675168320326::1713905969::1713905969::1::::<><>::
 ::res://MeshLib/::1713266783
 tiles.meshlib::MeshLibrary::3632086071408067500::1713266783::0::1::::<><>::
-::res://Scenes/::1713905878
-Dummy.tscn::PackedScene::676383105404670086::1713905878::0::1::::<><>::res://Scripts/Dummy.gd<>uid://qm5vy42e07xg::::res://Assets/Dummy_prototypebits_texture.png<>uid://dqkw34len5c6::::res://Assets/Characters/Bat.obj
-level_1.tscn::PackedScene::6116378619143236922::1713905500::0::1::::<><>::uid://br0n6rsrsapfg::::res://MeshLib/tiles.meshlib<>uid://jvv6wfc4p6ra::::res://Scenes/Dummy.tscn<>uid://dmj6ij4boo4ie::::res://Scenes/ui.tscn
-tiles.tscn::PackedScene::6959108270291271880::1713886944::0::1::::<><>::
-ui.tscn::PackedScene::8022004605223436856::1713890616::0::1::::<><>::res://Scripts/UI.gd
-::res://Scripts/::1713905500
+::res://Scenes/::1713914483
+Dummy.tscn::PackedScene::676383105404670086::1713914483::0::1::::<><>::res://Scripts/Dummy.gd<>uid://qm5vy42e07xg::::res://Assets/Dummy_prototypebits_texture.png<>uid://dqkw34len5c6::::res://Assets/Characters/Bat.obj
+level_1.tscn::PackedScene::6116378619143236922::1713914483::0::1::::<><>::uid://br0n6rsrsapfg::::res://MeshLib/tiles.meshlib<>uid://jvv6wfc4p6ra::::res://Scenes/Dummy.tscn<>uid://dmj6ij4boo4ie::::res://Scenes/ui.tscn<>uid://qm5vy42e07xg::::res://Assets/Dummy_prototypebits_texture.png<>uid://ddhl1tvru78pk::::res://Assets/LevelElements/Cube_Prototype_Large_A.obj<>uid://bbg4ktwapi7ww::::res://Assets/LevelElements/Cube_Prototype_Small.obj<>uid://t6rvb3651te1::::res://Assets/LevelElements/Cube_Prototype_Large_B.obj<>uid://bwwg0wl84hseo::::res://Assets/LevelElements/Floor_Prototype.obj
+tiles.tscn::PackedScene::6959108270291271880::1713914483::0::1::::<><>::
+ui.tscn::PackedScene::8022004605223436856::1713914483::0::1::::<><>::res://Scripts/UI.gd
+::res://Scripts/::1713906161
 difficultySettings.gd::GDScript::-1::1713905500::0::1::::<>Node<>::
-Dummy.gd::GDScript::-1::1713889800::0::1::::<>CharacterBody3D<>::
-UI.gd::GDScript::-1::1713890429::0::1::::<>Control<>::
+Dummy.gd::GDScript::-1::1713906108::0::1::::<>CharacterBody3D<>::
+UI.gd::GDScript::-1::1713906161::0::1::::<>Control<>::
