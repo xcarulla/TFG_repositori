@@ -1,0 +1,68 @@
+# Blender MTL File: 'practiceDummy.blend'
+# Material Count: 6
+
+newmtl prototype_texture.001
+Ns 359.999995
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\Usuari\\Downloads\\KayKit_Prototype_Bits_1.0_EXTRA\\KayKit_Prototype_Bits_1.0_EXTRA\\Assets\\obj\\prototypebits_texture.png
+
+newmtl prototype_texture.002
+Ns 359.999995
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\Usuari\\Downloads\\KayKit_Prototype_Bits_1.0_EXTRA\\KayKit_Prototype_Bits_1.0_EXTRA\\Assets\\obj\\prototypebits_texture.png
+
+newmtl prototype_texture.003
+Ns 359.999995
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\Usuari\\Downloads\\KayKit_Prototype_Bits_1.0_EXTRA\\KayKit_Prototype_Bits_1.0_EXTRA\\Assets\\obj\\prototypebits_texture.png
+
+newmtl prototype_texture.004
+Ns 359.999995
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\Usuari\\Downloads\\KayKit_Prototype_Bits_1.0_EXTRA\\KayKit_Prototype_Bits_1.0_EXTRA\\Assets\\obj\\prototypebits_texture.png
+
+newmtl prototype_texture.005
+Ns 359.999995
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\Usuari\\Downloads\\KayKit_Prototype_Bits_1.0_EXTRA\\KayKit_Prototype_Bits_1.0_EXTRA\\Assets\\obj\\prototypebits_texture.png
+
+newmtl texture
+Ns 359.999995
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\Usuari\\Downloads\\KayKit_Prototype_Bits_1.0_EXTRA\\KayKit_Prototype_Bits_1.0_EXTRA\\Assets\\obj\\prototypebits_texture.png

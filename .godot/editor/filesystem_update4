@@ -1,5 +1,11 @@
 res://Scenes/menu.tscn
+res://Scripts/bigButton.gd
 res://Scenes/level_1.tscn
 res://Scenes/Dummy.tscn
 res://Scenes/tiles.tscn
 res://Scenes/ui.tscn
+res://Scripts/mainMenu.gd
+res://practiceDummy.gd
+res://Scenes/PracticeDummy.tscn
+res://Scripts/Dummy.gd
+res://Scripts/UI.gd

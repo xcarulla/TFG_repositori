@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://dhbe1aqlmbvt6"]
+
+[ext_resource type="Script" path="res://practiceDummy.gd" id="1_k67x2"]
+[ext_resource type="Texture2D" uid="uid://qm5vy42e07xg" path="res://Assets/Dummy_prototypebits_texture.png" id="2_2yym0"]
+[ext_resource type="ArrayMesh" uid="uid://chtjda1nqeujw" path="res://Assets/Characters/practiceDummy.obj" id="3_qqm6y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qk25o"]
+albedo_texture = ExtResource("2_2yym0")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_demx4"]
+radius = 0.591559
+height = 2.04357
+
+[node name="PracticeDummy" type="Node3D"]
+script = ExtResource("1_k67x2")
+
+[node name="PracticeDummyRig" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.894225, 0, 0.447619, 0, 1, 0, -0.447619, 0, 0.894225, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_qk25o")
+mesh = ExtResource("3_qqm6y")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(0.894225, 0, 0.447619, 0, 1, 0, -0.447619, 0, 0.894225, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.18312, 0)
+shape = SubResource("CapsuleShape3D_demx4")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

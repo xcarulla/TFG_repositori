@@ -18,9 +18,11 @@ var facing_right : bool = true
 var jump_in_queue : bool = false
 var was_on_floor : bool = false
 var still_can_jump : bool = false
+var is_attacking : bool = false
 
 var anim_stateAttacking = ""
 var anim_stateGrounded = ""
+var anim_stateAttacks = ""
 
 func _process(delta):
 	jump_buffer_timer -= delta
@@ -52,6 +54,9 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
+	if Input.is_action_pressed("game_attack_light"):
+		is_attacking = true
+	
 	# Flipping the character
 	if move_dir < 0 and facing_right:
 		_flip()
@@ -61,13 +66,17 @@ func _physics_process(delta):
 	# Animations
 	if grounded:
 		_changeAnimState("grounded","yes")
-		_changeAnimState("attacking","no")
-		
-		if move_dir == 0:
+		if is_attacking: # attack
+			is_attacking = false
+			_changeAnimState("attacking/request",AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+			_changeAnimState("attacks","light_attack")
+		if move_dir == 0: # idle
+			_changeAnimState("attacking","no")
 			_changeAnimState("base_move/blend_position", 0)
-		else:
+		else: # run
+			_changeAnimState("attacking","no")
 			_changeAnimState("base_move/blend_position", 1)
-	else:
+	else: # jump
 		_changeAnimState("grounded","no")
 
 
@@ -96,6 +105,8 @@ func _changeAnimState(stateName, newState):
 			anim_stateAttacking = newState
 		"grounded":
 			anim_stateGrounded = newState
+		"attacks":
+			anim_stateAttacks = newState
 	anim_tree.set("parameters/%s" % stateName, newState)
 
 func _returnTransitionState(transition:String):
@@ -104,6 +115,8 @@ func _returnTransitionState(transition:String):
 			return anim_stateAttacking
 		"grounded":
 			return anim_stateGrounded
+		"attacks":
+			return anim_stateAttacks
 		_:
 			return ""
 	

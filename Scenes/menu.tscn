@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://ry0uwh2umqmd"]
+[gd_scene load_steps=3 format=3 uid="uid://ry0uwh2umqmd"]
+
+[ext_resource type="Script" path="res://Scripts/bigButton.gd" id="1_fnoq7"]
+[ext_resource type="Script" path="res://Scripts/mainMenu.gd" id="1_roa1j"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -11,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_roa1j")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/Control"]
 layout_mode = 1
@@ -28,8 +32,8 @@ grow_vertical = 2
 
 [node name="Title" type="Label" parent="CanvasLayer/Control/Panel"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_right = 574.0
+offset_bottom = 137.0
 theme_override_font_sizes/font_size = 100
 text = "GAME TITLE"
 horizontal_alignment = 1
@@ -54,18 +58,17 @@ theme_override_constants/separation = 25
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "PLAY"
-
-[node name="ButtonConfig" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-text = "CONFIGURATION"
-
-[node name="ButtonCredits" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-text = "CREDITS"
+script = ExtResource("1_fnoq7")
 
 [node name="ButtonQuit" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "QUIT"
+script = ExtResource("1_fnoq7")
+
+[connection signal="mouse_entered" from="CanvasLayer/Control/VBoxContainer/ButtonPlay" to="CanvasLayer/Control/VBoxContainer/ButtonPlay" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Control/VBoxContainer/ButtonPlay" to="CanvasLayer/Control/VBoxContainer/ButtonPlay" method="_on_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/ButtonPlay" to="CanvasLayer/Control" method="_play"]
+[connection signal="mouse_entered" from="CanvasLayer/Control/VBoxContainer/ButtonQuit" to="CanvasLayer/Control/VBoxContainer/ButtonQuit" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Control/VBoxContainer/ButtonQuit" to="CanvasLayer/Control/VBoxContainer/ButtonQuit" method="_on_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/ButtonQuit" to="CanvasLayer/Control" method="_quit"]

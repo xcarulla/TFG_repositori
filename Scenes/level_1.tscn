@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cte24k0uu5ply"]
+[gd_scene load_steps=14 format=3 uid="uid://cte24k0uu5ply"]
 
 [ext_resource type="MeshLibrary" uid="uid://br0n6rsrsapfg" path="res://MeshLib/tiles.meshlib" id="1_3grlv"]
 [ext_resource type="PackedScene" uid="uid://jvv6wfc4p6ra" path="res://Scenes/Dummy.tscn" id="2_m6v80"]
@@ -8,6 +8,7 @@
 [ext_resource type="ArrayMesh" uid="uid://bbg4ktwapi7ww" path="res://Assets/LevelElements/Cube_Prototype_Small.obj" id="6_5ea0d"]
 [ext_resource type="ArrayMesh" uid="uid://t6rvb3651te1" path="res://Assets/LevelElements/Cube_Prototype_Large_B.obj" id="7_n1t16"]
 [ext_resource type="ArrayMesh" uid="uid://bwwg0wl84hseo" path="res://Assets/LevelElements/Floor_Prototype.obj" id="8_r2ay5"]
+[ext_resource type="PackedScene" uid="uid://dhbe1aqlmbvt6" path="res://Scenes/PracticeDummy.tscn" id="9_pplos"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dcgbn"]
 albedo_texture = ExtResource("4_0113a")
@@ -59,3 +60,6 @@ mesh = ExtResource("7_n1t16")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3976, 2.55189, 0.118507)
 material_override = SubResource("StandardMaterial3D_l40j7")
 mesh = ExtResource("8_r2ay5")
+
+[node name="PracticeDummy" parent="." instance=ExtResource("9_pplos")]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 11, 4, 0)
