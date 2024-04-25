@@ -23,6 +23,10 @@ DifficultySettings="*res://Scripts/difficultySettings.gd"
 
 import/fbx/enabled=false
 
+[gui]
+
+theme/custom_font="res://Resources/new_font.tres"
+
 [input]
 
 game_move_right={

@@ -1,12 +1,5 @@
-res://Scenes/Dummy.tscn
 res://Scenes/level_1.tscn
-res://Scenes/PracticeDummy.tscn
-res://Scenes/ui.tscn
-res://Scripts/mainMenu.gd
-res://Scripts/Dummy.gd
-res://default_bus_layout.tres
-res://Scripts/Volume_Slider.gd
-res://Resources/enviroment.tres
-res://Scenes/tiles.tscn
-res://Scripts/difficultySettings.gd
 res://MeshLib/tiles.meshlib
+res://Resources/enviroment.tres
+res://Scenes/ui.tscn
+res://Scenes/menu.tscn

@@ -17,15 +17,16 @@ offset_right = 54.0
 offset_bottom = 53.0
 
 [node name="GridContainer" type="GridContainer" parent="AnimationStates"]
-layout_mode = 0
-offset_right = 298.0
-offset_bottom = 113.0
+layout_mode = 2
+offset_right = 334.0
+offset_bottom = 119.0
 scale = Vector2(0.602942, 0.602942)
 theme_override_constants/h_separation = 25
 columns = 2
 
 [node name="groundedLabel" type="Label" parent="AnimationStates/GridContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
 text = "grounded:"
 horizontal_alignment = 2
@@ -33,12 +34,14 @@ vertical_alignment = 1
 
 [node name="grounded" type="Label" parent="AnimationStates/GridContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
 text = "grounded"
 vertical_alignment = 1
 
 [node name="attackingLabel" type="Label" parent="AnimationStates/GridContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
 text = "attacking:"
 horizontal_alignment = 2
@@ -46,12 +49,14 @@ vertical_alignment = 1
 
 [node name="attacking" type="Label" parent="AnimationStates/GridContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
 text = "attacking"
 vertical_alignment = 1
 
 [node name="attackTypeLabel" type="Label" parent="AnimationStates/GridContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
 text = "attackType:"
 horizontal_alignment = 2
@@ -59,6 +64,7 @@ vertical_alignment = 1
 
 [node name="attackType" type="Label" parent="AnimationStates/GridContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
 text = "attackType"
 vertical_alignment = 1

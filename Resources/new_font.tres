@@ -1,0 +1,6 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://e5308wvog5ox"]
+
+[ext_resource type="FontFile" uid="uid://cpbricfwgu7p2" path="res://Resources/shrikhand.regular.ttf" id="1_uxa1p"]
+
+[resource]
+base_font = ExtResource("1_uxa1p")
