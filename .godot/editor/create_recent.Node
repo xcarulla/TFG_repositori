@@ -1,7 +1,10 @@
+Node3D
 CollisionShape3D
+StaticBody3D
+WorldEnvironment
+HSlider
 Area3D
 Label
-Node3D
 Control
 Button
 VBoxContainer
@@ -9,6 +12,3 @@ Panel
 CanvasLayer
 GridContainer
 HBoxContainer
-Container
-TextEdit
-ColorRect

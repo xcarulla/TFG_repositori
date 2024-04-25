@@ -54,7 +54,7 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
-	if Input.is_action_pressed("game_attack_light"):
+	if Input.is_action_just_pressed("game_attack_light"):
 		is_attacking = true
 	
 	# Flipping the character
@@ -71,10 +71,8 @@ func _physics_process(delta):
 			_changeAnimState("attacking/request",AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 			_changeAnimState("attacks","light_attack")
 		if move_dir == 0: # idle
-			_changeAnimState("attacking","no")
 			_changeAnimState("base_move/blend_position", 0)
 		else: # run
-			_changeAnimState("attacking","no")
 			_changeAnimState("base_move/blend_position", 1)
 	else: # jump
 		_changeAnimState("grounded","no")

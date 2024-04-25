@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dhbe1aqlmbvt6"]
 
-[ext_resource type="Script" path="res://practiceDummy.gd" id="1_k67x2"]
+[ext_resource type="Script" path="res://Scripts/practiceDummy.gd" id="1_k67x2"]
 [ext_resource type="Texture2D" uid="uid://qm5vy42e07xg" path="res://Assets/Dummy_prototypebits_texture.png" id="2_2yym0"]
 [ext_resource type="ArrayMesh" uid="uid://chtjda1nqeujw" path="res://Assets/Characters/practiceDummy.obj" id="3_qqm6y"]
 
