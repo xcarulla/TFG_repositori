@@ -1,14 +1,110 @@
-[gd_scene load_steps=4 format=3 uid="uid://ry0uwh2umqmd"]
+[gd_scene load_steps=14 format=3 uid="uid://ry0uwh2umqmd"]
 
 [ext_resource type="Script" path="res://Scripts/bigButton.gd" id="1_fnoq7"]
 [ext_resource type="Script" path="res://Scripts/mainMenu.gd" id="1_roa1j"]
 [ext_resource type="FontVariation" uid="uid://e5308wvog5ox" path="res://Resources/new_font.tres" id="2_uh4nm"]
+[ext_resource type="Environment" uid="uid://do8nu04t8kj8f" path="res://Resources/enviroment.tres" id="4_7s1ww"]
+[ext_resource type="Script" path="res://Scripts/menuClouds.gd" id="5_nq0b7"]
+[ext_resource type="PackedScene" uid="uid://u4p0lsqy3h4w" path="res://Assets/LevelElements/cloud2.glb" id="5_preei"]
+[ext_resource type="PackedScene" uid="uid://bwixuosag5uew" path="res://Assets/LevelElements/cloud3.glb" id="6_r6ner"]
+[ext_resource type="PackedScene" uid="uid://owr4441vitc0" path="res://Assets/LevelElements/cloud.glb" id="7_0cibs"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_krdg2"]
+size = Vector3(7.34625, 4.92114, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4l5xy"]
+size = Vector3(1, 8.85889, 23.1669)
+
+[sub_resource type="Animation" id="Animation_dhhwk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Control/Title:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Control/Title:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(126, 141.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Control/VBoxContainer:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(455, 304)]
+}
+
+[sub_resource type="Animation" id="Animation_i4gdr"]
+resource_name = "title_anim"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Control/Title:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 1.8),
+"transitions": PackedFloat32Array(1, 1.8025, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(0.65, 0.65)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Control/Title:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 1.8),
+"transitions": PackedFloat32Array(1, 2.14355, 0.466516),
+"update": 0,
+"values": [Vector2(126, 141.5), Vector2(126, 141.5), Vector2(126, -54)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Control/VBoxContainer:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2, 2.5),
+"transitions": PackedFloat32Array(1, 0.482968, 1),
+"update": 0,
+"values": [Vector2(455, 678), Vector2(455, 678), Vector2(455, 304)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_muofe"]
+_data = {
+"RESET": SubResource("Animation_dhhwk"),
+"title_anim": SubResource("Animation_i4gdr")
+}
 
 [node name="Node3D" type="Node3D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="Control" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("anim_player")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,28 +112,26 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_roa1j")
+anim_player = NodePath("../../anim_player")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Control"]
+[node name="Title" type="Label" parent="CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -282.0
-offset_top = -285.0
-offset_right = 326.0
-offset_bottom = -132.0
+offset_left = 126.0
+offset_top = 141.5
+offset_right = 1026.0
+offset_bottom = 506.5
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Title" type="Label" parent="CanvasLayer/Control/Panel"]
-layout_mode = 0
-offset_right = 574.0
-offset_bottom = 137.0
+pivot_offset = Vector2(445, 174)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_uh4nm")
-theme_override_font_sizes/font_size = 100
-text = "Titol del joc"
+theme_override_font_sizes/font_size = 250
+text = "Title"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -48,10 +142,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -121.0
-offset_top = -72.0
-offset_right = 121.0
-offset_bottom = 203.0
+offset_left = 455.0
+offset_top = 304.0
+offset_right = 697.0
+offset_bottom = 504.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 25
@@ -68,9 +162,163 @@ layout_mode = 2
 text = "QUIT"
 script = ExtResource("1_fnoq7")
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("4_7s1ww")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.817366, -0.576118, 0, 0.576118, 0.817366, 0, 0, 0)
+
+[node name="Clouds" type="Node3D" parent="."]
+visible = false
+script = ExtResource("5_nq0b7")
+cloud_speed = 2
+
+[node name="cloud" parent="Clouds" instance=ExtResource("7_0cibs")]
+transform = Transform3D(1, 0, 0, 0, 0.90254, -0.430606, 0, 0.430606, 0.90254, 1.19548, 21.2989, -23.921)
+
+[node name="Area3D" type="Area3D" parent="Clouds/cloud"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.856598, -0.0987558, -3.8147e-06)
+shape = SubResource("BoxShape3D_krdg2")
+
+[node name="cloud2" parent="Clouds" instance=ExtResource("5_preei")]
+transform = Transform3D(1, 0, 0, 0, 0.90254, -0.430606, 0, 0.430606, 0.90254, -18.8331, 21.2989, -19.8105)
+
+[node name="Area3D" type="Area3D" parent="Clouds/cloud2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud2/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.856598, -0.0987558, -3.8147e-06)
+shape = SubResource("BoxShape3D_krdg2")
+
+[node name="cloud13" parent="Clouds" instance=ExtResource("5_preei")]
+transform = Transform3D(1, 0, 0, 0, 0.90254, -0.430606, 0, 0.430606, 0.90254, -60.5467, 21.2989, -32.5987)
+
+[node name="Area3D" type="Area3D" parent="Clouds/cloud13"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud13/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.856598, -0.0987558, -3.8147e-06)
+shape = SubResource("BoxShape3D_krdg2")
+
+[node name="cloud3" parent="Clouds" instance=ExtResource("6_r6ner")]
+transform = Transform3D(1, 0, 0, 0, 0.90254, -0.430606, 0, 0.430606, 0.90254, 18.8127, 21.2989, -18.4404)
+
+[node name="Area3D" type="Area3D" parent="Clouds/cloud3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud3/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.856598, -0.0987558, -3.8147e-06)
+shape = SubResource("BoxShape3D_krdg2")
+
+[node name="cloud4" parent="Clouds" instance=ExtResource("7_0cibs")]
+transform = Transform3D(1, 0, 0, 0, 0.90254, -0.430606, 0, 0.430606, 0.90254, 39.809, 21.2989, -19.8105)
+
+[node name="Area3D" type="Area3D" parent="Clouds/cloud4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud4/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.856598, -0.0987558, -3.8147e-06)
+shape = SubResource("BoxShape3D_krdg2")
+
+[node name="cloud5" parent="Clouds" instance=ExtResource("6_r6ner")]
+transform = Transform3D(1, 0, 0, 0, 0.90254, -0.430606, 0, 0.430606, 0.90254, -5.76283, 21.2989, -16.3091)
+
+[node name="Area3D" type="Area3D" parent="Clouds/cloud5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud5/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.856598, -0.0987558, -3.8147e-06)
+shape = SubResource("BoxShape3D_krdg2")
+
+[node name="cloud6" parent="Clouds" instance=ExtResource("5_preei")]
+transform = Transform3D(1, 0, 0, 0, 0.90254, -0.430606, 0, 0.430606, 0.90254, -13.6841, 21.2989, -31.6852)
+
+[node name="Area3D" type="Area3D" parent="Clouds/cloud6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud6/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.856598, -0.0987558, -3.8147e-06)
+shape = SubResource("BoxShape3D_krdg2")
+
+[node name="cloud7" parent="Clouds" instance=ExtResource("7_0cibs")]
+transform = Transform3D(1, 0, 0, 0, 0.90254, -0.430606, 0, 0.430606, 0.90254, -37.1254, 21.2989, -28.4882)
+
+[node name="Area3D" type="Area3D" parent="Clouds/cloud7"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud7/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.856598, -0.0987558, -3.8147e-06)
+shape = SubResource("BoxShape3D_krdg2")
+
+[node name="cloud11" parent="Clouds" instance=ExtResource("7_0cibs")]
+transform = Transform3D(1, 0, 0, 0, 0.90254, -0.430606, 0, 0.430606, 0.90254, -70.9226, 21.2989, -23.6165)
+
+[node name="Area3D" type="Area3D" parent="Clouds/cloud11"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud11/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.856598, -0.0987558, -3.8147e-06)
+shape = SubResource("BoxShape3D_krdg2")
+
+[node name="cloud8" parent="Clouds" instance=ExtResource("5_preei")]
+transform = Transform3D(1, 0, 0, 0, 0.90254, -0.430606, 0, 0.430606, 0.90254, 35.2805, 21.2989, -28.6404)
+
+[node name="Area3D" type="Area3D" parent="Clouds/cloud8"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud8/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.856598, -0.0987558, -3.8147e-06)
+shape = SubResource("BoxShape3D_krdg2")
+
+[node name="cloud14" parent="Clouds" instance=ExtResource("5_preei")]
+transform = Transform3D(1, 0, 0, 0, 0.90254, -0.430606, 0, 0.430606, 0.90254, -84.9886, 21.2989, -30.7718)
+
+[node name="Area3D" type="Area3D" parent="Clouds/cloud14"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud14/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.856598, -0.0987558, -3.8147e-06)
+shape = SubResource("BoxShape3D_krdg2")
+
+[node name="cloud9" parent="Clouds" instance=ExtResource("6_r6ner")]
+transform = Transform3D(1, 0, 0, 0, 0.90254, -0.430606, 0, 0.430606, 0.90254, 12.9629, 21.2989, -30.0106)
+
+[node name="Area3D" type="Area3D" parent="Clouds/cloud9"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud9/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.856598, -0.0987558, -3.8147e-06)
+shape = SubResource("BoxShape3D_krdg2")
+
+[node name="cloud10" parent="Clouds" instance=ExtResource("6_r6ner")]
+transform = Transform3D(1, 0, 0, 0, 0.90254, -0.430606, 0, 0.430606, 0.90254, -31.8293, 21.2989, -17.6573)
+
+[node name="Area3D" type="Area3D" parent="Clouds/cloud10"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud10/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.856598, -0.0987558, -3.8147e-06)
+shape = SubResource("BoxShape3D_krdg2")
+
+[node name="cloud12" parent="Clouds" instance=ExtResource("6_r6ner")]
+transform = Transform3D(1, 0, 0, 0, 0.90254, -0.430606, 0, 0.430606, 0.90254, -51.7726, 21.2989, -19.7886)
+
+[node name="Area3D" type="Area3D" parent="Clouds/cloud12"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud12/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.856598, -0.0987558, -3.8147e-06)
+shape = SubResource("BoxShape3D_krdg2")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.909055, -0.328341, -0.256537, 0.00404149, 0.622595, -0.782534, 0.416657, 0.710329, 0.5673, 5.47366, 0, 11.0101)
+light_color = Color(0.956863, 0.701961, 0.6, 1)
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.3948, 21.5359, -24.1463)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.166748, 0.490631)
+shape = SubResource("BoxShape3D_4l5xy")
+
+[node name="anim_player" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_muofe")
+}
+
 [connection signal="mouse_entered" from="CanvasLayer/Control/VBoxContainer/ButtonPlay" to="CanvasLayer/Control/VBoxContainer/ButtonPlay" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Control/VBoxContainer/ButtonPlay" to="CanvasLayer/Control/VBoxContainer/ButtonPlay" method="_on_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/ButtonPlay" to="CanvasLayer/Control" method="_play"]
 [connection signal="mouse_entered" from="CanvasLayer/Control/VBoxContainer/ButtonQuit" to="CanvasLayer/Control/VBoxContainer/ButtonQuit" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Control/VBoxContainer/ButtonQuit" to="CanvasLayer/Control/VBoxContainer/ButtonQuit" method="_on_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/ButtonQuit" to="CanvasLayer/Control" method="_quit"]
+[connection signal="area_entered" from="Area3D" to="Clouds" method="_on_area_3d_area_entered"]

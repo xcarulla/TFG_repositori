@@ -1,10 +1,10 @@
 extends Control
 
-
+@export var anim_player: AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	anim_player.play("title_anim")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -15,3 +15,4 @@ func _play():
 	
 func _quit():
 	get_tree().quit()
+
