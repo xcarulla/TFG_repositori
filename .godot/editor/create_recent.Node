@@ -1,3 +1,10 @@
+Label
+Panel
+Button
+VBoxContainer
+HBoxContainer
+ColorRect
+Control
 AnimationPlayer
 CollisionShape3D
 Area3D
@@ -6,10 +13,3 @@ Camera3D
 WorldEnvironment
 Container
 StaticBody3D
-HSlider
-Label
-Control
-Button
-VBoxContainer
-Panel
-CanvasLayer

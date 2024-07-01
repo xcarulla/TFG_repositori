@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://ry0uwh2umqmd"]
+[gd_scene load_steps=15 format=3 uid="uid://ry0uwh2umqmd"]
 
 [ext_resource type="Script" path="res://Scripts/bigButton.gd" id="1_fnoq7"]
 [ext_resource type="Script" path="res://Scripts/mainMenu.gd" id="1_roa1j"]
 [ext_resource type="FontVariation" uid="uid://e5308wvog5ox" path="res://Resources/new_font.tres" id="2_uh4nm"]
 [ext_resource type="Environment" uid="uid://do8nu04t8kj8f" path="res://Resources/enviroment.tres" id="4_7s1ww"]
+[ext_resource type="StyleBox" uid="uid://cm2mptcsyeflw" path="res://Resources/UIBackground.tres" id="4_jc77v"]
 [ext_resource type="Script" path="res://Scripts/menuClouds.gd" id="5_nq0b7"]
 [ext_resource type="PackedScene" uid="uid://u4p0lsqy3h4w" path="res://Assets/LevelElements/cloud2.glb" id="5_preei"]
 [ext_resource type="PackedScene" uid="uid://bwixuosag5uew" path="res://Assets/LevelElements/cloud3.glb" id="6_r6ner"]
@@ -20,7 +21,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Control/Title:scale")
+tracks/0/path = NodePath("CanvasLayer/Main Menu/Title:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -32,7 +33,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/Control/Title:position")
+tracks/1/path = NodePath("CanvasLayer/Main Menu/Title:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -44,7 +45,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/Control/VBoxContainer:position")
+tracks/2/path = NodePath("CanvasLayer/Main Menu/VBoxContainer:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -60,7 +61,7 @@ length = 2.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Control/Title:scale")
+tracks/0/path = NodePath("CanvasLayer/Main Menu/Title:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -72,7 +73,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/Control/Title:position")
+tracks/1/path = NodePath("CanvasLayer/Main Menu/Title:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -84,7 +85,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/Control/VBoxContainer:position")
+tracks/2/path = NodePath("CanvasLayer/Main Menu/VBoxContainer:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -104,7 +105,7 @@ _data = {
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("anim_player")]
+[node name="Main Menu" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("anim_player")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -114,7 +115,7 @@ grow_vertical = 2
 script = ExtResource("1_roa1j")
 anim_player = NodePath("../../anim_player")
 
-[node name="Title" type="Label" parent="CanvasLayer/Control"]
+[node name="Title" type="Label" parent="CanvasLayer/Main Menu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -135,7 +136,7 @@ text = "Title"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Main Menu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -150,17 +151,112 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 25
 
-[node name="ButtonPlay" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
+[node name="ButtonPlay" type="Button" parent="CanvasLayer/Main Menu/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "PLAY"
 script = ExtResource("1_fnoq7")
 
-[node name="ButtonQuit" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
+[node name="ButtonOptions" type="Button" parent="CanvasLayer/Main Menu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "OPTIONS"
+script = ExtResource("1_fnoq7")
+
+[node name="ButtonQuit" type="Button" parent="CanvasLayer/Main Menu/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "QUIT"
 script = ExtResource("1_fnoq7")
+
+[node name="Options Menu" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Options Menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.231
+anchor_top = 0.315
+anchor_right = 0.77
+anchor_bottom = 0.955
+offset_left = 0.118988
+offset_top = 0.249985
+offset_right = -0.27002
+offset_bottom = 0.25
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("4_jc77v")
+
+[node name="OptionsTitle" type="Label" parent="CanvasLayer/Options Menu/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -125.5
+offset_right = 125.5
+offset_bottom = 88.0
+grow_horizontal = 2
+pivot_offset = Vector2(445, 174)
+theme_override_colors/font_color = Color(0.5647, 0.185125, 0.16599, 1)
+theme_override_fonts/font = ExtResource("2_uh4nm")
+theme_override_font_sizes/font_size = 50
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Options Menu/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -277.0
+offset_top = -121.0
+offset_right = 272.0
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Options Menu/Panel/HBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Options Menu/Panel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Controls"
+
+[node name="Button4" type="Button" parent="CanvasLayer/Options Menu/Panel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Gameplay"
+
+[node name="Button2" type="Button" parent="CanvasLayer/Options Menu/Panel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Sound"
+
+[node name="Button3" type="Button" parent="CanvasLayer/Options Menu/Panel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Screen"
+
+[node name="Button5" type="Button" parent="CanvasLayer/Options Menu/Panel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Exit
+"
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Options Menu/Panel/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Options Menu/Panel/HBoxContainer/Panel"]
+layout_mode = 0
+offset_right = 453.0
+offset_bottom = 129.0
+text = "Aquest és un Panel de prova, on aniran tots els ajustes"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("4_7s1ww")
@@ -315,10 +411,13 @@ libraries = {
 "": SubResource("AnimationLibrary_muofe")
 }
 
-[connection signal="mouse_entered" from="CanvasLayer/Control/VBoxContainer/ButtonPlay" to="CanvasLayer/Control/VBoxContainer/ButtonPlay" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="CanvasLayer/Control/VBoxContainer/ButtonPlay" to="CanvasLayer/Control/VBoxContainer/ButtonPlay" method="_on_mouse_exited"]
-[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/ButtonPlay" to="CanvasLayer/Control" method="_play"]
-[connection signal="mouse_entered" from="CanvasLayer/Control/VBoxContainer/ButtonQuit" to="CanvasLayer/Control/VBoxContainer/ButtonQuit" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="CanvasLayer/Control/VBoxContainer/ButtonQuit" to="CanvasLayer/Control/VBoxContainer/ButtonQuit" method="_on_mouse_exited"]
-[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/ButtonQuit" to="CanvasLayer/Control" method="_quit"]
+[connection signal="mouse_entered" from="CanvasLayer/Main Menu/VBoxContainer/ButtonPlay" to="CanvasLayer/Main Menu/VBoxContainer/ButtonPlay" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Main Menu/VBoxContainer/ButtonPlay" to="CanvasLayer/Main Menu/VBoxContainer/ButtonPlay" method="_on_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/Main Menu/VBoxContainer/ButtonPlay" to="CanvasLayer/Main Menu" method="_play"]
+[connection signal="mouse_entered" from="CanvasLayer/Main Menu/VBoxContainer/ButtonOptions" to="CanvasLayer/Main Menu/VBoxContainer/ButtonOptions" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Main Menu/VBoxContainer/ButtonOptions" to="CanvasLayer/Main Menu/VBoxContainer/ButtonOptions" method="_on_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/Main Menu/VBoxContainer/ButtonOptions" to="CanvasLayer/Main Menu" method="_play"]
+[connection signal="mouse_entered" from="CanvasLayer/Main Menu/VBoxContainer/ButtonQuit" to="CanvasLayer/Main Menu/VBoxContainer/ButtonQuit" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Main Menu/VBoxContainer/ButtonQuit" to="CanvasLayer/Main Menu/VBoxContainer/ButtonQuit" method="_on_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/Main Menu/VBoxContainer/ButtonQuit" to="CanvasLayer/Main Menu" method="_quit"]
 [connection signal="area_entered" from="Area3D" to="Clouds" method="_on_area_3d_area_entered"]

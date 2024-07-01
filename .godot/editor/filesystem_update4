@@ -1,4 +1,4 @@
-res://Scenes/level_1.tscn
-res://MeshLib/tiles.meshlib
-res://Resources/enviroment.tres
 res://Scenes/menu.tscn
+res://Resources/enviroment.tres
+res://Scripts/bigButton.gd
+res://Scripts/mainMenu.gd
