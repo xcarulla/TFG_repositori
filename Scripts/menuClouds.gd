@@ -1,5 +1,6 @@
 extends Node3D
 
+# SCRIPT NO UTILITZAT
 
 @export var cloud_speed: int
 var clouds

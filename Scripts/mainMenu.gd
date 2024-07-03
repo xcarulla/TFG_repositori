@@ -4,6 +4,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$"../Options Menu".position = Vector2(0,650) # BUG: per algun motiu sense aquesta linia sempre surt al 0,0 encara que el mogui
 	anim_player.play("title_anim")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -11,10 +12,11 @@ func _process(_delta):
 	pass
 
 func _play():
-	get_tree().change_scene_to_file("res://Scenes/level_1.tscn")
+	anim_player.play("showPlay")
 	
 func _options():
-	pass
+	anim_player.play("showOptions")
+	
 func _quit():
 	get_tree().quit()
 
