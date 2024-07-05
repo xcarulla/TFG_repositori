@@ -1,7 +1,5 @@
 res://Scenes/menu.tscn
 res://Resources/enviroment.tres
 res://Resources/UIBackground.tres
-res://Scripts/mainMenu.gd
-res://Scripts/optionsMenu.gd
 res://Scripts/playMenu.gd
-res://Scripts/menuClouds.gd
+res://Scripts/mainMenu.gd
