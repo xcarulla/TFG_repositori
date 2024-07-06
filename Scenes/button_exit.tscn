@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://di6a2b3acnkkq"]
+
+[ext_resource type="Texture2D" uid="uid://ckpj6egh1jym0" path="res://Assets/UIElements/whiteCross.svg" id="1_gxtl8"]
+[ext_resource type="Texture2D" uid="uid://bsrlsn3lpwq2e" path="res://Assets/UIElements/grayCross.svg" id="2_n70ip"]
+
+[node name="ButtonExit" type="TextureButton"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -38.0
+offset_top = 18.0
+offset_right = -18.0
+offset_bottom = 38.0
+grow_horizontal = 0
+pivot_offset = Vector2(10, 10)
+texture_normal = ExtResource("1_gxtl8")
+texture_hover = ExtResource("2_n70ip")
+ignore_texture_size = true
+stretch_mode = 4

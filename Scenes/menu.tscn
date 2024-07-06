@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ry0uwh2umqmd"]
+[gd_scene load_steps=24 format=3 uid="uid://ry0uwh2umqmd"]
 
 [ext_resource type="Script" path="res://Scripts/bigButton.gd" id="1_fnoq7"]
 [ext_resource type="Script" path="res://Scripts/mainMenu.gd" id="1_roa1j"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://Scripts/playMenu.gd" id="5_yc2ea"]
 [ext_resource type="PackedScene" uid="uid://bwixuosag5uew" path="res://Assets/LevelElements/cloud3.glb" id="6_r6ner"]
 [ext_resource type="PackedScene" uid="uid://owr4441vitc0" path="res://Assets/LevelElements/cloud.glb" id="7_0cibs"]
+[ext_resource type="PackedScene" uid="uid://di6a2b3acnkkq" path="res://Scenes/button_exit.tscn" id="7_lqe4t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slalx"]
 bg_color = Color(0.691694, 0.688346, 0.66668, 1)
@@ -105,6 +106,66 @@ tracks/4/keys = {
 "values": [Vector2(0, 650)]
 }
 
+[sub_resource type="Animation" id="Animation_1qy6h"]
+resource_name = "hideOptions"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Options Menu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.267943, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 650)]
+}
+
+[sub_resource type="Animation" id="Animation_8uqts"]
+resource_name = "hidePlay"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Play Menu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.267, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 650)]
+}
+
+[sub_resource type="Animation" id="Animation_tdwg2"]
+resource_name = "showOptions"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Options Menu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.125, 1),
+"update": 0,
+"values": [Vector2(0, 650), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_q43a0"]
+resource_name = "showPlay"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Play Menu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.125, 1),
+"update": 0,
+"values": [Vector2(0, 650), Vector2(0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_i4gdr"]
 resource_name = "title_anim"
 length = 2.5
@@ -143,66 +204,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 0.482968, 1),
 "update": 0,
 "values": [Vector2(455, 678), Vector2(455, 678), Vector2(455, 304)]
-}
-
-[sub_resource type="Animation" id="Animation_tdwg2"]
-resource_name = "showOptions"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Options Menu:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.125, 1),
-"update": 0,
-"values": [Vector2(0, 650), Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_1qy6h"]
-resource_name = "hideOptions"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Options Menu:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.267943, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 650)]
-}
-
-[sub_resource type="Animation" id="Animation_q43a0"]
-resource_name = "showPlay"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Play Menu:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.125, 1),
-"update": 0,
-"values": [Vector2(0, 650), Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_8uqts"]
-resource_name = "hidePlay"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Play Menu:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.267, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 650)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_muofe"]
@@ -327,52 +328,9 @@ text = "Options"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Options Menu/Panel"]
+[node name="ButtonExit" parent="CanvasLayer/Options Menu/Panel" instance=ExtResource("7_lqe4t")]
+self_modulate = Color(0.333333, 0.329412, 0.34902, 1)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -277.0
-offset_top = -121.0
-offset_right = 272.0
-offset_bottom = 184.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Options Menu/Panel/HBoxContainer"]
-layout_mode = 2
-
-[node name="ButtonControls" type="Button" parent="CanvasLayer/Options Menu/Panel/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-text = "Controls"
-
-[node name="ButtonGameplay" type="Button" parent="CanvasLayer/Options Menu/Panel/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-text = "Gameplay"
-
-[node name="ButtonSound" type="Button" parent="CanvasLayer/Options Menu/Panel/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-text = "Sound"
-
-[node name="ButtonScreen" type="Button" parent="CanvasLayer/Options Menu/Panel/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-text = "Screen"
-
-[node name="ButtonReturn" type="Button" parent="CanvasLayer/Options Menu/Panel/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-text = "Return
-"
-
-[node name="Panel" type="Panel" parent="CanvasLayer/Options Menu/Panel/HBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/Options Menu/Panel/HBoxContainer/Panel"]
-layout_mode = 0
-offset_right = 453.0
-offset_bottom = 129.0
-text = "Aquest és un Panel de prova, on aniran tots els ajustes"
 
 [node name="Play Menu" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("anim_player")]
 layout_mode = 3
@@ -419,18 +377,9 @@ text = "Play"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ButtonReturnPlay" type="Button" parent="CanvasLayer/Play Menu/Panel"]
+[node name="ButtonExit" parent="CanvasLayer/Play Menu/Panel" instance=ExtResource("7_lqe4t")]
+self_modulate = Color(0.0980392, 0.333333, 0.596078, 1)
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 25.0
-offset_top = -45.0
-offset_right = 113.0
-offset_bottom = -13.0
-grow_vertical = 0
-text = "X"
-icon_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Play Menu/Panel"]
 layout_mode = 1
@@ -662,7 +611,7 @@ libraries = {
 [connection signal="mouse_entered" from="CanvasLayer/Main Menu/VBoxContainer/ButtonQuit" to="CanvasLayer/Main Menu/VBoxContainer/ButtonQuit" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Main Menu/VBoxContainer/ButtonQuit" to="CanvasLayer/Main Menu/VBoxContainer/ButtonQuit" method="_on_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/Main Menu/VBoxContainer/ButtonQuit" to="CanvasLayer/Main Menu" method="_quit"]
-[connection signal="pressed" from="CanvasLayer/Options Menu/Panel/HBoxContainer/VBoxContainer/ButtonReturn" to="CanvasLayer/Options Menu" method="_return"]
-[connection signal="pressed" from="CanvasLayer/Play Menu/Panel/ButtonReturnPlay" to="CanvasLayer/Play Menu" method="_return"]
+[connection signal="pressed" from="CanvasLayer/Options Menu/Panel/ButtonExit" to="CanvasLayer/Options Menu" method="_return"]
+[connection signal="pressed" from="CanvasLayer/Play Menu/Panel/ButtonExit" to="CanvasLayer/Play Menu" method="_return"]
 [connection signal="pressed" from="CanvasLayer/Play Menu/Panel/HBoxContainer/Nivell1/Panel/ButtonPlayLevel" to="CanvasLayer/Play Menu" method="_playLevel"]
 [connection signal="area_entered" from="Area3D" to="Clouds" method="_on_area_3d_area_entered"]
