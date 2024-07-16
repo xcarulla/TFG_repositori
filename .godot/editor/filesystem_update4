@@ -1,3 +1,6 @@
 res://Scenes/menu.tscn
 res://Resources/enviroment.tres
 res://Resources/UIBackground.tres
+res://Scenes/level_1.tscn
+res://MeshLib/tiles.meshlib
+res://Scenes/ui.tscn

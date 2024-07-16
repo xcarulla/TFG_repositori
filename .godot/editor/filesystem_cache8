@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1720277987
+::res://::1721058804
 default_bus_layout.tres::AudioBusLayout::5006221733160010891::1714046902::0::1::::<><>::
 icon.svg::CompressedTexture2D::3705301688983904095::1713266783::1720264728::1::::<><>::
 Logo.png::CompressedTexture2D::4220831571400480749::1714235072::1714235073::1::::<><>::
@@ -21,7 +21,7 @@ Cube_Prototype_Large_A.obj::Mesh::7384994575018747948::1713905817::1720264728::1
 Cube_Prototype_Large_B.obj::Mesh::1398653527275007102::1713905824::1720264728::1::::<><>::
 Cube_Prototype_Small.obj::Mesh::2470775476534515634::1713905829::1720264728::1::::<><>::
 Floor_Prototype.obj::Mesh::3976401675168320326::1713905969::1720264729::1::::<><>::
-::res://Assets/UIElements/::1720279047
+::res://Assets/UIElements/::1720279054
 grayCross.svg::CompressedTexture2D::3685615048786213722::1720265333::1720265370::1::::<><>::
 leftArrow.svg::CompressedTexture2D::5735608988393045242::1720278284::1720278300::1::::<><>::
 leftGrayArrow.svg::CompressedTexture2D::4659124049788007250::1720279047::1720279054::1::::<><>::
@@ -35,20 +35,20 @@ DockedDefault2.png::CompressedTexture2D::3951558987568739863::1714235072::171423
 DockedDefault.png::CompressedTexture2D::8272278809006602000::1714235072::1714235072::1::::<><>::
 FloatingWindow.png::CompressedTexture2D::6774530916361326010::1714235072::1714235072::1::::<><>::
 Tool.png::CompressedTexture2D::4959476056742022897::1714235072::1714235072::1::::<><>::
-::res://MeshLib/::1714235367
-tiles.meshlib::MeshLibrary::3632086071408067500::1714235367::0::1::::<><>::uid://qm5vy42e07xg::::res://Assets/Dummy_prototypebits_texture.png
-::res://Resources/::1720278012
-enviroment.tres::Environment::8210856723470649483::1720278012::0::1::::<><>::
+::res://MeshLib/::1721058598
+tiles.meshlib::MeshLibrary::3632086071408067500::1721058598::0::1::::<><>::uid://qm5vy42e07xg::::res://Assets/Dummy_prototypebits_texture.png
+::res://Resources/::1721058516
+enviroment.tres::Environment::8210856723470649483::1721058028::0::1::::<><>::
 new_font.tres::FontVariation::344433196048381723::1714059788::0::1::::<><>::uid://cpbricfwgu7p2::::res://Resources/shrikhand.regular.ttf
 shrikhand.regular.ttf::FontFile::5828784988718160025::1714059500::1714059501::1::::<><>::
-UIBackground.tres::StyleBoxFlat::5671602083107310336::1720278012::0::1::::<><>::
+UIBackground.tres::StyleBoxFlat::5671602083107310336::1721058516::0::1::::<><>::
 ::res://Resources/Editor Theme/::1714234659
 editor_theme_high_ppi.tres::Theme::2543409764832985853::1714234659::0::1::::<><>::
-::res://Scenes/::1720278046
+::res://Scenes/::1721058598
 button_exit.tscn::PackedScene::7784816822775916820::1720265566::0::1::::<><>::uid://ckpj6egh1jym0::::res://Assets/UIElements/whiteCross.svg<>uid://bsrlsn3lpwq2e::::res://Assets/UIElements/grayCross.svg
-Dummy.tscn::PackedScene::676383105404670086::1714050743::0::1::::<><>::res://Scripts/Dummy.gd<>uid://qm5vy42e07xg::::res://Assets/Dummy_prototypebits_texture.png<>uid://dqkw34len5c6::::res://Assets/Characters/Bat.obj
-level_1.tscn::PackedScene::6116378619143236922::1714235367::0::1::::<><>::uid://br0n6rsrsapfg::::res://MeshLib/tiles.meshlib<>uid://jvv6wfc4p6ra::::res://Scenes/Dummy.tscn<>uid://dmj6ij4boo4ie::::res://Scenes/ui.tscn<>uid://owr4441vitc0::::res://Assets/LevelElements/cloud.glb<>uid://u4p0lsqy3h4w::::res://Assets/LevelElements/cloud2.glb<>uid://bwixuosag5uew::::res://Assets/LevelElements/cloud3.glb<>uid://dhbe1aqlmbvt6::::res://Scenes/PracticeDummy.tscn<>uid://do8nu04t8kj8f::::res://Resources/enviroment.tres
-menu.tscn::PackedScene::1244310216222552475::1720278046::0::1::::<><>::res://Scripts/bigButton.gd<>res://Scripts/mainMenu.gd<>uid://e5308wvog5ox::::res://Resources/new_font.tres<>uid://do8nu04t8kj8f::::res://Resources/enviroment.tres<>uid://cm2mptcsyeflw::::res://Resources/UIBackground.tres<>res://Scripts/optionsMenu.gd<>res://Scripts/menuClouds.gd<>uid://u4p0lsqy3h4w::::res://Assets/LevelElements/cloud2.glb<>res://Scripts/playMenu.gd<>uid://bwixuosag5uew::::res://Assets/LevelElements/cloud3.glb<>uid://owr4441vitc0::::res://Assets/LevelElements/cloud.glb<>uid://di6a2b3acnkkq::::res://Scenes/button_exit.tscn
+Dummy.tscn::PackedScene::676383105404670086::1721058005::0::1::::<><>::res://Scripts/Dummy.gd<>uid://qm5vy42e07xg::::res://Assets/Dummy_prototypebits_texture.png<>uid://dqkw34len5c6::::res://Assets/Characters/Bat.obj
+level_1.tscn::PackedScene::6116378619143236922::1721058598::0::1::::<><>::uid://br0n6rsrsapfg::::res://MeshLib/tiles.meshlib<>uid://jvv6wfc4p6ra::::res://Scenes/Dummy.tscn<>uid://dmj6ij4boo4ie::::res://Scenes/ui.tscn<>uid://owr4441vitc0::::res://Assets/LevelElements/cloud.glb<>uid://u4p0lsqy3h4w::::res://Assets/LevelElements/cloud2.glb<>uid://bwixuosag5uew::::res://Assets/LevelElements/cloud3.glb<>uid://dhbe1aqlmbvt6::::res://Scenes/PracticeDummy.tscn<>uid://do8nu04t8kj8f::::res://Resources/enviroment.tres
+menu.tscn::PackedScene::1244310216222552475::1721058598::0::1::::<><>::res://Scripts/bigButton.gd<>res://Scripts/mainMenu.gd<>uid://e5308wvog5ox::::res://Resources/new_font.tres<>uid://do8nu04t8kj8f::::res://Resources/enviroment.tres<>uid://cm2mptcsyeflw::::res://Resources/UIBackground.tres<>res://Scripts/optionsMenu.gd<>res://Scripts/menuClouds.gd<>uid://u4p0lsqy3h4w::::res://Assets/LevelElements/cloud2.glb<>res://Scripts/playMenu.gd<>uid://bwixuosag5uew::::res://Assets/LevelElements/cloud3.glb<>uid://owr4441vitc0::::res://Assets/LevelElements/cloud.glb<>uid://di6a2b3acnkkq::::res://Scenes/button_exit.tscn<>uid://cnymv3hmm203g::::res://Assets/UIElements/leftArrow.svg<>uid://b7m6de2oyj6eg::::res://Assets/UIElements/leftGrayArrow.svg<>uid://doulaekgcqdqg::::res://Assets/UIElements/rightArrow.svg<>uid://cjoymo7vm6aet::::res://Assets/UIElements/rightGrayArrow.svg
 PracticeDummy.tscn::PackedScene::7652937658144943393::1714047479::0::1::::<><>::res://Scripts/practiceDummy.gd<>uid://qm5vy42e07xg::::res://Assets/Dummy_prototypebits_texture.png<>uid://chtjda1nqeujw::::res://Assets/Characters/practiceDummy.obj
 tiles.tscn::PackedScene::6959108270291271880::1714054164::0::1::::<><>::uid://qm5vy42e07xg::::res://Assets/Dummy_prototypebits_texture.png<>uid://ddhl1tvru78pk::::res://Assets/LevelElements/Cube_Prototype_Large_A.obj<>uid://t6rvb3651te1::::res://Assets/LevelElements/Cube_Prototype_Large_B.obj<>uid://bwwg0wl84hseo::::res://Assets/LevelElements/Floor_Prototype.obj<>uid://bbg4ktwapi7ww::::res://Assets/LevelElements/Cube_Prototype_Small.obj
 ui.tscn::PackedScene::8022004605223436856::1714060336::0::1::::<><>::res://Scripts/UI.gd
