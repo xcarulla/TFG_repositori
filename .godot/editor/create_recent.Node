@@ -1,3 +1,10 @@
+Node3D
+Node
+Area3D
+CollisionShape3D
+SpotLight3D
+AnimationTree
+AnimationPlayer
 RichTextLabel
 TextureButton
 Label
@@ -6,10 +13,3 @@ HBoxContainer
 Panel
 Control
 VBoxContainer
-ColorRect
-AnimationPlayer
-CollisionShape3D
-Area3D
-Node3D
-Camera3D
-WorldEnvironment

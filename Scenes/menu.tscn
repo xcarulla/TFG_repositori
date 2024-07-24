@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Scripts/bigButton.gd" id="1_fnoq7"]
 [ext_resource type="Script" path="res://Scripts/mainMenu.gd" id="1_roa1j"]
-[ext_resource type="FontVariation" uid="uid://e5308wvog5ox" path="res://Resources/new_font.tres" id="2_uh4nm"]
-[ext_resource type="Environment" uid="uid://do8nu04t8kj8f" path="res://Resources/enviroment.tres" id="4_7s1ww"]
-[ext_resource type="StyleBox" uid="uid://cm2mptcsyeflw" path="res://Resources/UIBackground.tres" id="4_jc77v"]
+[ext_resource type="FontVariation" uid="uid://e5308wvog5ox" path="res://Resources/Fonts/new_font.tres" id="2_uh4nm"]
+[ext_resource type="Environment" uid="uid://do8nu04t8kj8f" path="res://Resources/Visuals/enviroment.tres" id="4_7s1ww"]
+[ext_resource type="StyleBox" uid="uid://cm2mptcsyeflw" path="res://Resources/Visuals/UIBackground.tres" id="4_jc77v"]
 [ext_resource type="Script" path="res://Scripts/optionsMenu.gd" id="4_wm21b"]
 [ext_resource type="Script" path="res://Scripts/menuClouds.gd" id="5_nq0b7"]
 [ext_resource type="PackedScene" uid="uid://u4p0lsqy3h4w" path="res://Assets/LevelElements/cloud2.glb" id="5_preei"]

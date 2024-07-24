@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://cpbricfwgu7p2"
-path="res://.godot/imported/shrikhand.regular.ttf-fd3602534690f37e98bccc2031776865.fontdata"
+path="res://.godot/imported/shrikhand.regular.ttf-b591cbaf311e9bac066b0b3098227cc4.fontdata"
 
 [deps]
 
-source_file="res://Resources/shrikhand.regular.ttf"
-dest_files=["res://.godot/imported/shrikhand.regular.ttf-fd3602534690f37e98bccc2031776865.fontdata"]
+source_file="res://Resources/Fonts/shrikhand.regular.ttf"
+dest_files=["res://.godot/imported/shrikhand.regular.ttf-b591cbaf311e9bac066b0b3098227cc4.fontdata"]
 
 [params]
 

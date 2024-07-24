@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name Player
 
 # Variables:
 @export var move_speed = 10

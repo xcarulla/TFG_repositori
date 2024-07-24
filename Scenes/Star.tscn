@@ -1,0 +1,157 @@
+[gd_scene load_steps=8 format=3 uid="uid://dbe71reccp0yi"]
+
+[ext_resource type="Script" path="res://Scripts/Star.gd" id="1_l55qt"]
+[ext_resource type="PackedScene" uid="uid://dipq3kkk2x5or" path="res://Assets/LevelElements/star.glb" id="1_ow0je"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_i4623"]
+radius = 1.06635
+
+[sub_resource type="Animation" id="Animation_3pyej"]
+resource_name = "Collect Star"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("starMesh:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 1),
+"transitions": PackedFloat32Array(15.455, 2.07053, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1.5, 1.5, 1.5), Vector3(0, 0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"selfDelete"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("starMesh:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 12.5664, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_k1wmu"]
+resource_name = "Idle Star"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("starMesh:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.5, 0), Vector3(0, 0, 0), Vector3(0, 0.5, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("starMesh:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_08b1p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("starMesh:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.125335)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("starMesh:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0.216665)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("starMesh:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yuuys"]
+_data = {
+"Collect Star": SubResource("Animation_3pyej"),
+"Idle Star": SubResource("Animation_k1wmu"),
+"RESET": SubResource("Animation_08b1p")
+}
+
+[node name="Star" type="Node3D"]
+script = ExtResource("1_l55qt")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.999985, -0.00461352, -0.00287091, 0.00313953, 0.92177, -0.387725, 0.0044351, 0.38771, 0.921771, -1.19209e-07, -0.713229, 1.53455)
+light_color = Color(1, 0.690196, 0.886275, 1)
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+transform = Transform3D(0.0849837, 0.386078, 0.918543, 0.197463, 0.897067, -0.395321, -0.97662, 0.214974, -6.28785e-08, 2.29039, -0.622645, 0.143031)
+light_color = Color(0.298039, 0.690196, 0.886275, 1)
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="."]
+transform = Transform3D(0.17068, -0.428563, -0.887244, 0.197463, 0.897067, -0.395321, 0.965338, -0.107724, 0.237737, -2.4257, -0.622645, 0.171219)
+light_color = Color(0.298039, 0.690196, 0.886275, 1)
+
+[node name="starMesh" parent="." instance=ExtResource("1_ow0je")]
+transform = Transform3D(0.97662, -0.214974, 0, 0.214974, 0.97662, 0, 0, 0, 1, 0, 0, -0.125335)
+
+[node name="Area3D" type="Area3D" parent="starMesh"]
+transform = Transform3D(0.545784, 0.214772, 0.809933, -0.12002, 0.976664, -0.178108, -0.829286, -7.45058e-09, 0.558825, -0.0668484, -0.303989, 2.31901e-09)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="starMesh/Area3D"]
+transform = Transform3D(1, -2.44427e-12, 0, 1.64846e-12, 1, 2.27374e-13, 2.98023e-08, 1.27898e-12, 1, -0.0245867, 0.34477, -0.0278133)
+shape = SubResource("CylinderShape3D_i4623")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yuuys")
+}
+autoplay = "Idle Star"
+
+[connection signal="body_entered" from="starMesh/Area3D" to="." method="getCollected"]

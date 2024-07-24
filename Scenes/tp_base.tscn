@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cl1esy7ss5w6r"]
+
+[ext_resource type="PackedScene" uid="uid://bpeqdn5qhkpyx" path="res://Resources/Blender/TPBase.blend" id="1_m0pow"]
+[ext_resource type="Script" path="res://Scripts/TPBase.gd" id="2_a2pcp"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_l27pb"]
+height = 1.92452
+radius = 0.314952
+
+[node name="TPBase" instance=ExtResource("1_m0pow")]
+script = ExtResource("2_a2pcp")
+
+[node name="Area3D" type="Area3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.14426, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+shape = SubResource("CylinderShape3D_l27pb")
+
+[connection signal="body_entered" from="Area3D" to="." method="tp"]
+[connection signal="body_exited" from="Area3D" to="." method="reset_state"]
