@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cl1esy7ss5w6r"]
+[gd_scene load_steps=5 format=3 uid="uid://cl1esy7ss5w6r"]
 
 [ext_resource type="PackedScene" uid="uid://bpeqdn5qhkpyx" path="res://Resources/Blender/TPBase.blend" id="1_m0pow"]
 [ext_resource type="Script" path="res://Scripts/TPBase.gd" id="2_a2pcp"]
+[ext_resource type="PackedScene" uid="uid://dhndwa10r305l" path="res://Scenes/tp_vfx.tscn" id="3_inw6s"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_l27pb"]
 height = 1.92452
@@ -16,5 +17,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.14426, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
 shape = SubResource("CylinderShape3D_l27pb")
 
+[node name="tp_vfx" parent="." index="2" instance=ExtResource("3_inw6s")]
+
 [connection signal="body_entered" from="Area3D" to="." method="tp"]
 [connection signal="body_exited" from="Area3D" to="." method="reset_state"]
+
+[editable path="tp_vfx"]

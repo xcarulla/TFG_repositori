@@ -68,3 +68,34 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
 text = "attackType"
 vertical_alignment = 1
+
+[node name="Stars" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GridContainer" type="GridContainer" parent="Stars"]
+layout_mode = 0
+offset_right = 334.0
+offset_bottom = 119.0
+scale = Vector2(0.602942, 0.602942)
+theme_override_constants/h_separation = 25
+columns = 2
+
+[node name="level1name" type="Label" parent="Stars/GridContainer"]
+layout_mode = 2
+
+[node name="starsCollected1" type="Label" parent="Stars/GridContainer"]
+layout_mode = 2
+
+[node name="level2name" type="Label" parent="Stars/GridContainer"]
+layout_mode = 2
+
+[node name="starsCollected2" type="Label" parent="Stars/GridContainer"]
+layout_mode = 2
+
+[node name="level3name" type="Label" parent="Stars/GridContainer"]
+layout_mode = 2
+
+[node name="starsCollected3" type="Label" parent="Stars/GridContainer"]
+layout_mode = 2

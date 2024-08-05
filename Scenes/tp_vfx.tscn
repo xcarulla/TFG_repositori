@@ -1,0 +1,68 @@
+[gd_scene load_steps=15 format=3 uid="uid://dhndwa10r305l"]
+
+[ext_resource type="Shader" uid="uid://cvqk1cjbu2py" path="res://Resources/Shaders/aura_tp.tres" id="1_gu6vs"]
+[ext_resource type="Material" uid="uid://bqawwlsrylf01" path="res://Resources/Shaders/particlesGeometry.tres" id="1_nn415"]
+[ext_resource type="Texture2D" uid="uid://cklltfw0l6uno" path="res://Resources/TexturesAlpha/T_disort_test2.PNG" id="2_a54bk"]
+[ext_resource type="Material" uid="uid://27h3qautp6qs" path="res://Resources/Shaders/processMat.tres" id="2_abqur"]
+[ext_resource type="ArrayMesh" uid="uid://0vapeygkileo" path="res://Resources/Blender/cylinder_tp.obj" id="3_5iiho"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_cy7bu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wdrus"]
+render_priority = 0
+shader = ExtResource("1_gu6vs")
+shader_parameter/Speed = Vector2(0.5, 3)
+shader_parameter/Aura_Texture = ExtResource("2_a54bk")
+
+[sub_resource type="Curve" id="Curve_w1xby"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.479167, 1), 0.0, 0.0, 0, 0, Vector2(0.953125, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ltgg5"]
+texture_mode = 1
+curve = SubResource("Curve_w1xby")
+
+[sub_resource type="Curve" id="Curve_8o5lo"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_mx6tq"]
+_data = [Vector2(0, 0.736264), 0.0, 0.0, 0, 0, Vector2(0.479167, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.747253), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_8bao5"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_33kbc"]
+curve_x = SubResource("Curve_8o5lo")
+curve_y = SubResource("Curve_mx6tq")
+curve_z = SubResource("Curve_8bao5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nt3u2"]
+gravity = Vector3(0, 0, 0)
+scale_min = 1.7
+scale_max = 1.7
+scale_curve = SubResource("CurveXYZTexture_33kbc")
+color = Color(0, 0, 1, 1)
+alpha_curve = SubResource("CurveTexture_ltgg5")
+
+[node name="tp_vfx" type="Node3D"]
+
+[node name="LittleParticles" type="GPUParticles3D" parent="."]
+visible = false
+material_override = ExtResource("1_nn415")
+emitting = false
+amount = 30
+lifetime = 1.1
+randomness = 1.0
+process_material = ExtResource("2_abqur")
+draw_pass_1 = SubResource("QuadMesh_cy7bu")
+
+[node name="Aura" type="GPUParticles3D" parent="."]
+material_override = SubResource("ShaderMaterial_wdrus")
+cast_shadow = 0
+amount = 1
+lifetime = 600.0
+process_material = SubResource("ParticleProcessMaterial_nt3u2")
+draw_pass_1 = ExtResource("3_5iiho")
