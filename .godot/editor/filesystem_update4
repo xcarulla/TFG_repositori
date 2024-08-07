@@ -1,5 +1,10 @@
 res://Scenes/menu.tscn
 res://Resources/Visuals/enviroment.tres
 res://Resources/Shaders/aura_tp.tres
-res://Scripts/playMenu.gd
-res://Scripts/Levels_menuUI.gd
+res://MeshLib/tiles.meshlib
+res://Resources/Shaders/processMat.tres
+res://Resources/Shaders/hitGeometryShader.tres
+res://Resources/Shaders/hitSparksGeometryShader.tres
+res://Scenes/level_1.tscn
+res://Scenes/PracticeDummy.tscn
+res://Scenes/hit_vfx.tscn

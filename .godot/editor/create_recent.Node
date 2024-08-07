@@ -1,3 +1,6 @@
+AnimationPlayer
+Node3D
+GPUParticles3D
 VSeparator
 TextureRect
 HBoxContainer
@@ -5,11 +8,7 @@ Control
 Label
 CollisionShape3D
 Area3D
-Node3D
-GPUParticles3D
 Node
 SpotLight3D
 AnimationTree
-AnimationPlayer
 RichTextLabel
-TextureButton

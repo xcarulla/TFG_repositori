@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dhbe1aqlmbvt6"]
+[gd_scene load_steps=7 format=3 uid="uid://dhbe1aqlmbvt6"]
 
 [ext_resource type="Script" path="res://Scripts/practiceDummy.gd" id="1_k67x2"]
 [ext_resource type="Texture2D" uid="uid://qm5vy42e07xg" path="res://Assets/Dummy_prototypebits_texture.png" id="2_2yym0"]
 [ext_resource type="ArrayMesh" uid="uid://chtjda1nqeujw" path="res://Assets/Characters/practiceDummy.obj" id="3_qqm6y"]
+[ext_resource type="PackedScene" uid="uid://r01mbqo13vpp" path="res://Scenes/hit_vfx.tscn" id="4_7b2m2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qk25o"]
 albedo_texture = ExtResource("2_2yym0")
@@ -25,5 +26,7 @@ transform = Transform3D(0.894225, 0, 0.447619, 0, 1, 0, -0.447619, 0, 0.894225, 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.18312, 0)
 shape = SubResource("CapsuleShape3D_demx4")
+
+[node name="Hit_VFX" parent="." instance=ExtResource("4_7b2m2")]
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
