@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1723028223
+::res://::1723030642
 default_bus_layout.tres::AudioBusLayout::5006221733160010891::1714046902::0::1::::<><>::
 icon.svg::CompressedTexture2D::3705301688983904095::1713266783::1720264728::1::::<><>::
 Logo.png::CompressedTexture2D::4220831571400480749::1714235072::1714235073::1::::<><>::
@@ -23,7 +23,7 @@ Cube_Prototype_Small.obj::Mesh::2470775476534515634::1713905829::1720264728::1::
 Floor_Prototype.obj::Mesh::3976401675168320326::1713905969::1720264729::1::::<><>::
 star.glb::PackedScene::7752760481780979469::1721241621::1721241658::1::::<><>::uid://fkgnwmmjd51e::::res://Assets/LevelElements/star_Star_texture.png
 star_Star_texture.png::CompressedTexture2D::371976687616883864::1721241658::1721241658::1::::<><>::
-::res://Assets/UIElements/::1723030521
+::res://Assets/UIElements/::1723030591
 grayCross.svg::CompressedTexture2D::3685615048786213722::1720265333::1720265370::1::::<><>::
 leftArrow.svg::CompressedTexture2D::5735608988393045242::1720278284::1720278300::1::::<><>::
 leftGrayArrow.svg::CompressedTexture2D::4659124049788007250::1720279047::1720279054::1::::<><>::
@@ -62,11 +62,11 @@ T_VFX_Glo31.png::CompressedTexture2D::8623724674027446081::1721856666::172185683
 ::res://Resources/Visuals/::1723028287
 enviroment.tres::Environment::8210856723470649483::1723028287::0::1::::<><>::
 UIBackground.tres::StyleBoxFlat::5671602083107310336::1721058814::0::1::::<><>::
-::res://Scenes/::1723029925
+::res://Scenes/::1723030604
 button_exit.tscn::PackedScene::7784816822775916820::1720265566::0::1::::<><>::uid://ckpj6egh1jym0::::res://Assets/UIElements/whiteCross.svg<>uid://bsrlsn3lpwq2e::::res://Assets/UIElements/grayCross.svg
 Dummy.tscn::PackedScene::676383105404670086::1721782548::0::1::::<><>::res://Scripts/Dummy.gd<>uid://qm5vy42e07xg::::res://Assets/Dummy_prototypebits_texture.png<>uid://dqkw34len5c6::::res://Assets/Characters/Bat.obj
 final_objective.tscn::PackedScene::1495455739117254708::1723029753::0::1::::<><>::uid://6cf231raxk8v::::res://Resources/Blender/FinalObjective.blend<>res://Scripts/final_objective.gd
-level_1.tscn::PackedScene::6116378619143236922::1723029925::0::1::::<><>::uid://br0n6rsrsapfg::::res://MeshLib/tiles.meshlib<>res://Scripts/level_1.gd<>uid://jvv6wfc4p6ra::::res://Scenes/Dummy.tscn<>uid://dmj6ij4boo4ie::::res://Scenes/ui.tscn<>uid://owr4441vitc0::::res://Assets/LevelElements/cloud.glb<>uid://u4p0lsqy3h4w::::res://Assets/LevelElements/cloud2.glb<>uid://bwixuosag5uew::::res://Assets/LevelElements/cloud3.glb<>uid://dbe71reccp0yi::::res://Scenes/Star.tscn<>uid://dhbe1aqlmbvt6::::res://Scenes/PracticeDummy.tscn<>uid://do8nu04t8kj8f::::res://Resources/Visuals/enviroment.tres<>uid://vkn6414a7gdw::::res://Scenes/final_objective.tscn<>uid://cl1esy7ss5w6r::::res://Scenes/tp_base.tscn
+level_1.tscn::PackedScene::6116378619143236922::1723030604::0::1::::<><>::uid://br0n6rsrsapfg::::res://MeshLib/tiles.meshlib<>res://Scripts/level_1.gd<>uid://jvv6wfc4p6ra::::res://Scenes/Dummy.tscn<>uid://dmj6ij4boo4ie::::res://Scenes/ui.tscn<>uid://owr4441vitc0::::res://Assets/LevelElements/cloud.glb<>uid://u4p0lsqy3h4w::::res://Assets/LevelElements/cloud2.glb<>uid://bwixuosag5uew::::res://Assets/LevelElements/cloud3.glb<>uid://dbe71reccp0yi::::res://Scenes/Star.tscn<>uid://dhbe1aqlmbvt6::::res://Scenes/PracticeDummy.tscn<>uid://do8nu04t8kj8f::::res://Resources/Visuals/enviroment.tres<>uid://vkn6414a7gdw::::res://Scenes/final_objective.tscn<>uid://cl1esy7ss5w6r::::res://Scenes/tp_base.tscn
 menu.tscn::PackedScene::1244310216222552475::1721736350::0::1::::<><>::res://Scripts/bigButton.gd<>res://Scripts/mainMenu.gd<>uid://e5308wvog5ox::::res://Resources/Fonts/new_font.tres<>uid://do8nu04t8kj8f::::res://Resources/Visuals/enviroment.tres<>uid://cm2mptcsyeflw::::res://Resources/Visuals/UIBackground.tres<>res://Scripts/optionsMenu.gd<>res://Scripts/menuClouds.gd<>uid://u4p0lsqy3h4w::::res://Assets/LevelElements/cloud2.glb<>res://Scripts/playMenu.gd<>uid://bwixuosag5uew::::res://Assets/LevelElements/cloud3.glb<>uid://owr4441vitc0::::res://Assets/LevelElements/cloud.glb<>uid://di6a2b3acnkkq::::res://Scenes/button_exit.tscn<>uid://cnymv3hmm203g::::res://Assets/UIElements/leftArrow.svg<>uid://b7m6de2oyj6eg::::res://Assets/UIElements/leftGrayArrow.svg<>uid://doulaekgcqdqg::::res://Assets/UIElements/rightArrow.svg<>uid://cjoymo7vm6aet::::res://Assets/UIElements/rightGrayArrow.svg
 PracticeDummy.tscn::PackedScene::7652937658144943393::1721780071::0::1::::<><>::res://Scripts/practiceDummy.gd<>uid://qm5vy42e07xg::::res://Assets/Dummy_prototypebits_texture.png<>uid://chtjda1nqeujw::::res://Assets/Characters/practiceDummy.obj
 Star.tscn::PackedScene::7239698679313961716::1721780071::0::1::::<><>::res://Scripts/Star.gd<>uid://dipq3kkk2x5or::::res://Assets/LevelElements/star.glb

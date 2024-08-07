@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://ry0uwh2umqmd"]
+[gd_scene load_steps=30 format=3 uid="uid://ry0uwh2umqmd"]
 
 [ext_resource type="Script" path="res://Scripts/bigButton.gd" id="1_fnoq7"]
 [ext_resource type="Script" path="res://Scripts/mainMenu.gd" id="1_roa1j"]
@@ -12,7 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://bwixuosag5uew" path="res://Assets/LevelElements/cloud3.glb" id="6_r6ner"]
 [ext_resource type="PackedScene" uid="uid://owr4441vitc0" path="res://Assets/LevelElements/cloud.glb" id="7_0cibs"]
 [ext_resource type="PackedScene" uid="uid://di6a2b3acnkkq" path="res://Scenes/button_exit.tscn" id="7_lqe4t"]
+[ext_resource type="Script" path="res://Scripts/Levels_menuUI.gd" id="8_2texk"]
 [ext_resource type="Texture2D" uid="uid://cnymv3hmm203g" path="res://Assets/UIElements/leftArrow.svg" id="8_bkt1d"]
+[ext_resource type="Texture2D" uid="uid://kyen78iigwk7" path="res://Assets/UIElements/whiteStar.svg" id="8_s6lar"]
 [ext_resource type="Texture2D" uid="uid://b7m6de2oyj6eg" path="res://Assets/UIElements/leftGrayArrow.svg" id="9_ssoc2"]
 [ext_resource type="Texture2D" uid="uid://doulaekgcqdqg" path="res://Assets/UIElements/rightArrow.svg" id="10_ikb46"]
 [ext_resource type="Texture2D" uid="uid://cjoymo7vm6aet" path="res://Assets/UIElements/rightGrayArrow.svg" id="11_q8ohy"]
@@ -386,29 +388,18 @@ vertical_alignment = 1
 self_modulate = Color(0.254902, 0.596078, 1, 1)
 layout_mode = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Play Menu/Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -175.0
-offset_top = 9.00064
-offset_right = 175.0
-offset_bottom = 49.0006
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(20, 20)
-theme_override_constants/separation = 350
-alignment = 1
-
-[node name="Nivell1" type="Control" parent="CanvasLayer/Play Menu/Panel/HBoxContainer"]
+[node name="Level_1" type="Control" parent="CanvasLayer/Play Menu/Panel"]
 layout_mode = 2
+anchors_preset = 0
+offset_left = 310.0
+offset_top = 236.0
+offset_right = 310.0
+offset_bottom = 236.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+script = ExtResource("8_2texk")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Play Menu/Panel/HBoxContainer/Nivell1"]
+[node name="Panel" type="Panel" parent="CanvasLayer/Play Menu/Panel/Level_1"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -418,13 +409,13 @@ anchor_bottom = 0.5
 offset_left = -150.0
 offset_top = -137.5
 offset_right = 150.0
-offset_bottom = 137.5
+offset_bottom = 138.5
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(150, 150)
+pivot_offset = Vector2(150, 138)
 theme_override_styles/panel = SubResource("StyleBoxFlat_ca8ff")
 
-[node name="Label" type="Label" parent="CanvasLayer/Play Menu/Panel/HBoxContainer/Nivell1/Panel"]
+[node name="Label" type="Label" parent="CanvasLayer/Play Menu/Panel/Level_1/Panel"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -440,166 +431,43 @@ text = "Level 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ButtonPlayLevel" type="Button" parent="CanvasLayer/Play Menu/Panel/HBoxContainer/Nivell1/Panel"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -44.0
-offset_top = -43.0
-offset_right = 44.0
-offset_bottom = -11.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "Play level"
-
-[node name="Nivell2" type="Control" parent="CanvasLayer/Play Menu/Panel/HBoxContainer"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="Panel" type="Panel" parent="CanvasLayer/Play Menu/Panel/HBoxContainer/Nivell2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Play Menu/Panel/Level_1/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -137.5
-offset_right = 150.0
-offset_bottom = 137.5
+offset_left = -1207.5
+offset_top = -371.0
+offset_right = 1207.5
+offset_bottom = 303.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(150, 150)
-theme_override_styles/panel = SubResource("StyleBoxFlat_ca8ff")
+scale = Vector2(0.07, 0.07)
+pivot_offset = Vector2(1207.5, 337)
+theme_override_constants/separation = 150
+alignment = 1
 
-[node name="Label" type="Label" parent="CanvasLayer/Play Menu/Panel/HBoxContainer/Nivell2/Panel"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -60.0
-offset_top = 7.0
-offset_right = 60.0
-offset_bottom = 59.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0.0308735, 0.253099, 0.521552, 1)
-theme_override_font_sizes/font_size = 35
-text = "Level 2"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ButtonPlayLevel" type="Button" parent="CanvasLayer/Play Menu/Panel/HBoxContainer/Nivell2/Panel"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -44.0
-offset_top = -43.0
-offset_right = 44.0
-offset_bottom = -11.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "Play level"
-
-[node name="Nivell3" type="Control" parent="CanvasLayer/Play Menu/Panel/HBoxContainer"]
-visible = false
+[node name="Star1" type="TextureRect" parent="CanvasLayer/Play Menu/Panel/Level_1/Panel/HBoxContainer"]
+self_modulate = Color(0.0980392, 0.333333, 0.596078, 1)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+texture = ExtResource("8_s6lar")
+stretch_mode = 4
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Play Menu/Panel/HBoxContainer/Nivell3"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -137.5
-offset_right = 150.0
-offset_bottom = 137.5
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(150, 150)
-theme_override_styles/panel = SubResource("StyleBoxFlat_ca8ff")
-
-[node name="Label" type="Label" parent="CanvasLayer/Play Menu/Panel/HBoxContainer/Nivell3/Panel"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -60.0
-offset_top = 7.0
-offset_right = 60.0
-offset_bottom = 59.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0.0308735, 0.253099, 0.521552, 1)
-theme_override_font_sizes/font_size = 35
-text = "Level 3"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ButtonPlayLevel" type="Button" parent="CanvasLayer/Play Menu/Panel/HBoxContainer/Nivell3/Panel"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -44.0
-offset_top = -43.0
-offset_right = 44.0
-offset_bottom = -11.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "Play level"
-
-[node name="Nivell4" type="Control" parent="CanvasLayer/Play Menu/Panel/HBoxContainer"]
-visible = false
+[node name="Star2" type="TextureRect" parent="CanvasLayer/Play Menu/Panel/Level_1/Panel/HBoxContainer"]
+self_modulate = Color(0.0980392, 0.333333, 0.596078, 1)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+texture = ExtResource("8_s6lar")
+stretch_mode = 4
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Play Menu/Panel/HBoxContainer/Nivell4"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -137.5
-offset_right = 150.0
-offset_bottom = 137.5
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(150, 150)
-theme_override_styles/panel = SubResource("StyleBoxFlat_ca8ff")
+[node name="Star3" type="TextureRect" parent="CanvasLayer/Play Menu/Panel/Level_1/Panel/HBoxContainer"]
+self_modulate = Color(0.0980392, 0.333333, 0.596078, 1)
+layout_mode = 2
+texture = ExtResource("8_s6lar")
+stretch_mode = 4
 
-[node name="Label" type="Label" parent="CanvasLayer/Play Menu/Panel/HBoxContainer/Nivell4/Panel"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -60.0
-offset_top = 7.0
-offset_right = 60.0
-offset_bottom = 59.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0.0308735, 0.253099, 0.521552, 1)
-theme_override_font_sizes/font_size = 35
-text = "Level 4"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ButtonPlayLevel" type="Button" parent="CanvasLayer/Play Menu/Panel/HBoxContainer/Nivell4/Panel"]
+[node name="ButtonPlayLevel" type="Button" parent="CanvasLayer/Play Menu/Panel/Level_1/Panel"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -813,8 +681,5 @@ libraries = {
 [connection signal="pressed" from="CanvasLayer/Main Menu/VBoxContainer/ButtonQuit" to="CanvasLayer/Main Menu" method="_quit"]
 [connection signal="pressed" from="CanvasLayer/Options Menu/Panel/ButtonExit" to="CanvasLayer/Options Menu" method="_return"]
 [connection signal="pressed" from="CanvasLayer/Play Menu/Panel/ButtonExit" to="CanvasLayer/Play Menu" method="_return"]
-[connection signal="pressed" from="CanvasLayer/Play Menu/Panel/HBoxContainer/Nivell1/Panel/ButtonPlayLevel" to="CanvasLayer/Play Menu" method="_playLevel"]
-[connection signal="pressed" from="CanvasLayer/Play Menu/Panel/HBoxContainer/Nivell2/Panel/ButtonPlayLevel" to="CanvasLayer/Play Menu" method="_playLevel"]
-[connection signal="pressed" from="CanvasLayer/Play Menu/Panel/HBoxContainer/Nivell3/Panel/ButtonPlayLevel" to="CanvasLayer/Play Menu" method="_playLevel"]
-[connection signal="pressed" from="CanvasLayer/Play Menu/Panel/HBoxContainer/Nivell4/Panel/ButtonPlayLevel" to="CanvasLayer/Play Menu" method="_playLevel"]
+[connection signal="pressed" from="CanvasLayer/Play Menu/Panel/Level_1/Panel/ButtonPlayLevel" to="CanvasLayer/Play Menu" method="_playLevel"]
 [connection signal="area_entered" from="Area3D" to="Clouds" method="_on_area_3d_area_entered"]
