@@ -5,7 +5,7 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_vngfu"]
 height = 2.65204
-radius = 0.563751
+radius = 0.293367
 
 [node name="FinalObjective" instance=ExtResource("1_qvxsy")]
 script = ExtResource("2_wv3xi")

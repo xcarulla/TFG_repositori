@@ -12,6 +12,5 @@ func tp(player_area: Node3D):
 		player_area.position = paired_tp.tp_coords
 		paired_tp.ready_to_tp = false
 
-
 func reset_state(_player_area: Node3D):
 	ready_to_tp = true

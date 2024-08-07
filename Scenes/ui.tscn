@@ -10,6 +10,7 @@ offset_bottom = 40.0
 script = ExtResource("1_mno6t")
 
 [node name="AnimationStates" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_left = 14.0
 offset_top = 13.0

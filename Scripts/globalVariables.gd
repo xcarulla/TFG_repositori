@@ -1,7 +1,7 @@
 extends Node
 
 var gameLevels = {
-	"firstLevel": {
+	"Level_1": {
 		"cleared": false,
 		"Stars": {
 			"Star1" : false,
@@ -9,7 +9,7 @@ var gameLevels = {
 			"Star3" : false
 		}
 	},
-	"secondLevel": {
+	"Level_2": {
 		"cleared": false,
 		"Stars": {
 			"Star1" : false,
@@ -17,7 +17,7 @@ var gameLevels = {
 			"Star3" : false
 		}
 	},
-	"thirdLevel": {
+	"Level_3": {
 		"cleared": false,
 		"Stars": {
 			"Star1" : false,
@@ -37,3 +37,6 @@ func resetLevel(nLevel: String):
 	
 func addStar(nLevel: String, nStar: String):
 	gameLevels[nLevel]["Stars"][nStar] = true
+
+func getStars(nLevel: String):
+	return gameLevels[nLevel]["Stars"]

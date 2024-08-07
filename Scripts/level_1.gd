@@ -1,20 +1,19 @@
 extends Node3D
 
-@export var levelName: String
+var starsDict
 
-var star1collected: bool = false
-var star2collected: bool = false
-var star3collected: bool = false
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	if levelName == null:
-		print("ASSIGN LEVEL NAME")
+	starsDict = GlobalVariables.getStars(name)
+	print(starsDict)
+	hideCollectedStars()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func hideCollectedStars():
+	if starsDict["Star1"]:
+		find_child("Star1").visible = false
+	if starsDict["Star2"]:
+		find_child("Star2").visible = false
+	if starsDict["Star3"]:
+		find_child("Star3").visible = false
 
 func pickUpStar(nStar: String):
-	GlobalVariables.addStar(levelName, nStar)
+	GlobalVariables.addStar(name, nStar)

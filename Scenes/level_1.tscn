@@ -15,7 +15,6 @@
 
 [node name="Level_1" type="Node3D"]
 script = ExtResource("1_fco5q")
-levelName = "firstLevel"
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("1_3grlv")

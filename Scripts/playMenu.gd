@@ -2,12 +2,6 @@ extends Control
 
 @export var anim_player: AnimationPlayer
 
-func _ready():
-	pass
-
-func _process(delta):
-	pass
-
 func _return():
 	anim_player.play("hidePlay")
 
