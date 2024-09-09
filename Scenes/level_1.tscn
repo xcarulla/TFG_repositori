@@ -1,23 +1,23 @@
 [gd_scene load_steps=13 format=3 uid="uid://cte24k0uu5ply"]
 
-[ext_resource type="MeshLibrary" uid="uid://br0n6rsrsapfg" path="res://MeshLib/tiles.meshlib" id="1_3grlv"]
-[ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_fco5q"]
-[ext_resource type="PackedScene" uid="uid://jvv6wfc4p6ra" path="res://Scenes/Dummy.tscn" id="2_m6v80"]
-[ext_resource type="PackedScene" uid="uid://dmj6ij4boo4ie" path="res://Scenes/ui.tscn" id="3_k30h6"]
-[ext_resource type="PackedScene" uid="uid://owr4441vitc0" path="res://Assets/LevelElements/cloud.glb" id="6_5yqeg"]
-[ext_resource type="PackedScene" uid="uid://u4p0lsqy3h4w" path="res://Assets/LevelElements/cloud2.glb" id="7_e7xmo"]
-[ext_resource type="PackedScene" uid="uid://bwixuosag5uew" path="res://Assets/LevelElements/cloud3.glb" id="8_dguu2"]
-[ext_resource type="PackedScene" uid="uid://dbe71reccp0yi" path="res://Scenes/Star.tscn" id="9_k3qjf"]
-[ext_resource type="PackedScene" uid="uid://dhbe1aqlmbvt6" path="res://Scenes/PracticeDummy.tscn" id="9_pplos"]
-[ext_resource type="Environment" uid="uid://do8nu04t8kj8f" path="res://Resources/Visuals/enviroment.tres" id="10_66jpv"]
-[ext_resource type="PackedScene" uid="uid://vkn6414a7gdw" path="res://Scenes/final_objective.tscn" id="11_qy5pn"]
-[ext_resource type="PackedScene" uid="uid://cl1esy7ss5w6r" path="res://Scenes/tp_base.tscn" id="11_yigxw"]
+[ext_resource type="Script" path="res://Scripts/level.gd" id="1_6l3gm"]
+[ext_resource type="MeshLibrary" uid="uid://br0n6rsrsapfg" path="res://MeshLib/tiles.meshlib" id="2_v5thc"]
+[ext_resource type="PackedScene" uid="uid://jvv6wfc4p6ra" path="res://Scenes/Dummy.tscn" id="3_8rcsi"]
+[ext_resource type="PackedScene" uid="uid://dmj6ij4boo4ie" path="res://Scenes/ui.tscn" id="4_yhhpr"]
+[ext_resource type="PackedScene" uid="uid://dhbe1aqlmbvt6" path="res://Scenes/PracticeDummy.tscn" id="5_vgsmv"]
+[ext_resource type="Environment" uid="uid://do8nu04t8kj8f" path="res://Resources/Visuals/enviroment.tres" id="6_28tsq"]
+[ext_resource type="PackedScene" uid="uid://owr4441vitc0" path="res://Assets/LevelElements/cloud.glb" id="7_64fs8"]
+[ext_resource type="PackedScene" uid="uid://u4p0lsqy3h4w" path="res://Assets/LevelElements/cloud2.glb" id="8_xbqjf"]
+[ext_resource type="PackedScene" uid="uid://bwixuosag5uew" path="res://Assets/LevelElements/cloud3.glb" id="9_jjs3u"]
+[ext_resource type="PackedScene" uid="uid://dbe71reccp0yi" path="res://Scenes/Star.tscn" id="10_6akv2"]
+[ext_resource type="PackedScene" uid="uid://cl1esy7ss5w6r" path="res://Scenes/tp_base.tscn" id="11_mxok3"]
+[ext_resource type="PackedScene" uid="uid://vkn6414a7gdw" path="res://Scenes/final_objective.tscn" id="12_iwhgy"]
 
 [node name="Level_1" type="Node3D"]
-script = ExtResource("1_fco5q")
+script = ExtResource("1_6l3gm")
 
 [node name="GridMap" type="GridMap" parent="."]
-mesh_library = ExtResource("1_3grlv")
+mesh_library = ExtResource("2_v5thc")
 cell_size = Vector3(1, 1, 1)
 cell_center_z = false
 data = {
@@ -27,58 +27,58 @@ data = {
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.788557, 0.228263, 0.571029, -0.54107, 0.69884, 0.467831, -0.29227, -0.677878, 0.674581, 5.47366, 0, 11.0101)
 
-[node name="Dummy" parent="." instance=ExtResource("2_m6v80")]
+[node name="Dummy" parent="." instance=ExtResource("3_8rcsi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.54014, 0)
 
-[node name="UI" parent="." node_paths=PackedStringArray("dummy") instance=ExtResource("3_k30h6")]
+[node name="UI" parent="." node_paths=PackedStringArray("dummy") instance=ExtResource("4_yhhpr")]
 currentLevel = "firstLevel"
 dummy = NodePath("../Dummy")
 
-[node name="PracticeDummy" parent="." instance=ExtResource("9_pplos")]
+[node name="PracticeDummy" parent="." instance=ExtResource("5_vgsmv")]
 transform = Transform3D(0.881097, 0, 0.472935, 0, 1, 0, -0.472935, 0, 0.881097, -8.56808, 0.438681, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("10_66jpv")
+environment = ExtResource("6_28tsq")
 
 [node name="Clouds" type="Node3D" parent="."]
 
-[node name="cloud" parent="Clouds" instance=ExtResource("6_5yqeg")]
+[node name="cloud" parent="Clouds" instance=ExtResource("7_64fs8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.926, 19.008, -23.9326)
 
-[node name="cloud4" parent="Clouds" instance=ExtResource("6_5yqeg")]
+[node name="cloud4" parent="Clouds" instance=ExtResource("7_64fs8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.6675, 19.008, -13.167)
 
-[node name="cloud2" parent="Clouds" instance=ExtResource("7_e7xmo")]
+[node name="cloud2" parent="Clouds" instance=ExtResource("8_xbqjf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.635787, 18.747, -10.678)
 
-[node name="cloud5" parent="Clouds" instance=ExtResource("7_e7xmo")]
+[node name="cloud5" parent="Clouds" instance=ExtResource("8_xbqjf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.4232, 18.747, -15.6739)
 
-[node name="cloud3" parent="Clouds" instance=ExtResource("8_dguu2")]
+[node name="cloud3" parent="Clouds" instance=ExtResource("9_jjs3u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8832, 18.298, -5.13726)
 
-[node name="cloud6" parent="Clouds" instance=ExtResource("8_dguu2")]
+[node name="cloud6" parent="Clouds" instance=ExtResource("9_jjs3u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.3138, 18.298, -22.1598)
 
-[node name="cloud7" parent="Clouds" instance=ExtResource("8_dguu2")]
+[node name="cloud7" parent="Clouds" instance=ExtResource("9_jjs3u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.91464, 18.298, -28.0248)
 
-[node name="Star1" parent="." instance=ExtResource("9_k3qjf")]
+[node name="Star1" parent="." instance=ExtResource("10_6akv2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.3627, 5.8564, 0)
 
-[node name="Star2" parent="." instance=ExtResource("9_k3qjf")]
+[node name="Star2" parent="." instance=ExtResource("10_6akv2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.5403, 6.14783, 0)
 
-[node name="Star3" parent="." instance=ExtResource("9_k3qjf")]
+[node name="Star3" parent="." instance=ExtResource("10_6akv2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.5, 6, 0)
 
-[node name="TPBase" parent="." node_paths=PackedStringArray("paired_tp") instance=ExtResource("11_yigxw")]
+[node name="TPBase" parent="." node_paths=PackedStringArray("paired_tp") instance=ExtResource("11_mxok3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.5, -3.5, 0)
 paired_tp = NodePath("../TPBase2")
 
-[node name="TPBase2" parent="." node_paths=PackedStringArray("paired_tp") instance=ExtResource("11_yigxw")]
+[node name="TPBase2" parent="." node_paths=PackedStringArray("paired_tp") instance=ExtResource("11_mxok3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.5, 4.5, 0)
 paired_tp = NodePath("../TPBase")
 
-[node name="FinalObjective" parent="." instance=ExtResource("11_qy5pn")]
+[node name="FinalObjective" parent="." instance=ExtResource("12_iwhgy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115.5, 4.5, 0)

@@ -2,9 +2,11 @@ extends Control
 
 var starsDict
 
+
 func _ready():
 	starsDict = GlobalVariables.getStars(name)
 	setStarsVisibility()
+
 
 func setStarsVisibility():
 	var star = find_child("Star1")
@@ -24,3 +26,7 @@ func setStarsVisibility():
 		star.self_modulate = "#ffcb00"
 	else:
 		star.self_modulate = "#195598"
+
+
+func _playLevel():
+	get_tree().change_scene_to_file("res://Scenes/" + name + ".tscn")

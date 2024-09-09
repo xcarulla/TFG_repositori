@@ -34,7 +34,7 @@ func _physics_process(delta):
 	var grounded = is_on_floor()
 	
 	# Gravity
-	velocity.y += get_gravity() * delta
+	velocity.y += get_current_gravity() * delta
 	
 	# Movement
 	move_dir = _update_input()
@@ -79,7 +79,7 @@ func _physics_process(delta):
 		_changeAnimState("grounded","no")
 
 
-func get_gravity() -> float:
+func get_current_gravity() -> float:
 	return jump_gravity if velocity.y < 0.0 else fall_gravity
 	
 func _update_input() -> float:

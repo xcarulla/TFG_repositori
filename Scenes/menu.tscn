@@ -1,14 +1,12 @@
-[gd_scene load_steps=30 format=3 uid="uid://ry0uwh2umqmd"]
+[gd_scene load_steps=28 format=3 uid="uid://ry0uwh2umqmd"]
 
 [ext_resource type="Script" path="res://Scripts/bigButton.gd" id="1_fnoq7"]
 [ext_resource type="Script" path="res://Scripts/mainMenu.gd" id="1_roa1j"]
 [ext_resource type="FontVariation" uid="uid://e5308wvog5ox" path="res://Resources/Fonts/new_font.tres" id="2_uh4nm"]
 [ext_resource type="Environment" uid="uid://do8nu04t8kj8f" path="res://Resources/Visuals/enviroment.tres" id="4_7s1ww"]
 [ext_resource type="StyleBox" uid="uid://cm2mptcsyeflw" path="res://Resources/Visuals/UIBackground.tres" id="4_jc77v"]
-[ext_resource type="Script" path="res://Scripts/optionsMenu.gd" id="4_wm21b"]
 [ext_resource type="Script" path="res://Scripts/menuClouds.gd" id="5_nq0b7"]
 [ext_resource type="PackedScene" uid="uid://u4p0lsqy3h4w" path="res://Assets/LevelElements/cloud2.glb" id="5_preei"]
-[ext_resource type="Script" path="res://Scripts/playMenu.gd" id="5_yc2ea"]
 [ext_resource type="PackedScene" uid="uid://bwixuosag5uew" path="res://Assets/LevelElements/cloud3.glb" id="6_r6ner"]
 [ext_resource type="PackedScene" uid="uid://owr4441vitc0" path="res://Assets/LevelElements/cloud.glb" id="7_0cibs"]
 [ext_resource type="PackedScene" uid="uid://di6a2b3acnkkq" path="res://Scenes/button_exit.tscn" id="7_lqe4t"]
@@ -243,10 +241,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 126.0
-offset_top = 141.5
-offset_right = 1026.0
-offset_bottom = 506.5
+offset_left = -450.0
+offset_top = -182.5
+offset_right = 450.0
+offset_bottom = 182.5
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(445, 174)
@@ -264,10 +262,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 455.0
-offset_top = 304.0
-offset_right = 697.0
-offset_bottom = 504.0
+offset_left = -121.0
+offset_top = 354.0
+offset_right = 121.0
+offset_bottom = 554.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 25
@@ -290,18 +288,13 @@ layout_mode = 2
 text = "QUIT"
 script = ExtResource("1_fnoq7")
 
-[node name="Options Menu" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("anim_player")]
-visible = false
+[node name="Options Menu" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 1151.0
-offset_bottom = 649.998
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("4_wm21b")
-anim_player = NodePath("../../anim_player")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/Options Menu"]
 layout_mode = 1
@@ -339,18 +332,13 @@ vertical_alignment = 1
 self_modulate = Color(0.333333, 0.329412, 0.34902, 1)
 layout_mode = 1
 
-[node name="Play Menu" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("anim_player")]
+[node name="Play Menu" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 650.0
-offset_right = 1151.0
-offset_bottom = 1300.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("5_yc2ea")
-anim_player = NodePath("../../anim_player")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/Play Menu"]
 layout_mode = 1
@@ -482,6 +470,196 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Play level"
 
+[node name="Level_2" type="Control" parent="CanvasLayer/Play Menu/Panel"]
+visible = false
+layout_mode = 2
+anchors_preset = 0
+offset_left = 310.0
+offset_top = 236.0
+offset_right = 310.0
+offset_bottom = 236.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("8_2texk")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Play Menu/Panel/Level_2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -137.5
+offset_right = 150.0
+offset_bottom = 138.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(150, 138)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ca8ff")
+
+[node name="Label" type="Label" parent="CanvasLayer/Play Menu/Panel/Level_2/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -60.0
+offset_top = 7.0
+offset_right = 60.0
+offset_bottom = 59.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.0308735, 0.253099, 0.521552, 1)
+theme_override_font_sizes/font_size = 35
+text = "Level 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Play Menu/Panel/Level_2/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1207.5
+offset_top = -371.0
+offset_right = 1207.5
+offset_bottom = 303.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.07, 0.07)
+pivot_offset = Vector2(1207.5, 337)
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="Star1" type="TextureRect" parent="CanvasLayer/Play Menu/Panel/Level_2/Panel/HBoxContainer"]
+self_modulate = Color(0.0980392, 0.333333, 0.596078, 1)
+layout_mode = 2
+texture = ExtResource("8_s6lar")
+stretch_mode = 4
+
+[node name="Star2" type="TextureRect" parent="CanvasLayer/Play Menu/Panel/Level_2/Panel/HBoxContainer"]
+self_modulate = Color(0.0980392, 0.333333, 0.596078, 1)
+layout_mode = 2
+texture = ExtResource("8_s6lar")
+stretch_mode = 4
+
+[node name="Star3" type="TextureRect" parent="CanvasLayer/Play Menu/Panel/Level_2/Panel/HBoxContainer"]
+self_modulate = Color(0.0980392, 0.333333, 0.596078, 1)
+layout_mode = 2
+texture = ExtResource("8_s6lar")
+stretch_mode = 4
+
+[node name="ButtonPlayLevel" type="Button" parent="CanvasLayer/Play Menu/Panel/Level_2/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -44.0
+offset_top = -43.0
+offset_right = 44.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Play level"
+
+[node name="Level_3" type="Control" parent="CanvasLayer/Play Menu/Panel"]
+visible = false
+layout_mode = 2
+anchors_preset = 0
+offset_left = 310.0
+offset_top = 236.0
+offset_right = 310.0
+offset_bottom = 236.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("8_2texk")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Play Menu/Panel/Level_3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -137.5
+offset_right = 150.0
+offset_bottom = 138.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(150, 138)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ca8ff")
+
+[node name="Label" type="Label" parent="CanvasLayer/Play Menu/Panel/Level_3/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -60.0
+offset_top = 7.0
+offset_right = 60.0
+offset_bottom = 59.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.0308735, 0.253099, 0.521552, 1)
+theme_override_font_sizes/font_size = 35
+text = "Level 3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Play Menu/Panel/Level_3/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1207.5
+offset_top = -371.0
+offset_right = 1207.5
+offset_bottom = 303.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.07, 0.07)
+pivot_offset = Vector2(1207.5, 337)
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="Star1" type="TextureRect" parent="CanvasLayer/Play Menu/Panel/Level_3/Panel/HBoxContainer"]
+self_modulate = Color(0.0980392, 0.333333, 0.596078, 1)
+layout_mode = 2
+texture = ExtResource("8_s6lar")
+stretch_mode = 4
+
+[node name="Star2" type="TextureRect" parent="CanvasLayer/Play Menu/Panel/Level_3/Panel/HBoxContainer"]
+self_modulate = Color(0.0980392, 0.333333, 0.596078, 1)
+layout_mode = 2
+texture = ExtResource("8_s6lar")
+stretch_mode = 4
+
+[node name="Star3" type="TextureRect" parent="CanvasLayer/Play Menu/Panel/Level_3/Panel/HBoxContainer"]
+self_modulate = Color(0.0980392, 0.333333, 0.596078, 1)
+layout_mode = 2
+texture = ExtResource("8_s6lar")
+stretch_mode = 4
+
+[node name="ButtonPlayLevel" type="Button" parent="CanvasLayer/Play Menu/Panel/Level_3/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -44.0
+offset_top = -43.0
+offset_right = 44.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Play level"
+
 [node name="ButtonLeft" type="TextureButton" parent="CanvasLayer/Play Menu/Panel"]
 self_modulate = Color(0.254902, 0.596078, 1, 1)
 layout_mode = 1
@@ -498,7 +676,7 @@ texture_hover = ExtResource("9_ssoc2")
 ignore_texture_size = true
 stretch_mode = 4
 
-[node name="ButtonLeft2" type="TextureButton" parent="CanvasLayer/Play Menu/Panel"]
+[node name="ButtonRight" type="TextureButton" parent="CanvasLayer/Play Menu/Panel"]
 self_modulate = Color(0.254902, 0.596078, 1, 1)
 layout_mode = 1
 anchors_preset = 6
@@ -679,7 +857,9 @@ libraries = {
 [connection signal="mouse_entered" from="CanvasLayer/Main Menu/VBoxContainer/ButtonQuit" to="CanvasLayer/Main Menu/VBoxContainer/ButtonQuit" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Main Menu/VBoxContainer/ButtonQuit" to="CanvasLayer/Main Menu/VBoxContainer/ButtonQuit" method="_on_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/Main Menu/VBoxContainer/ButtonQuit" to="CanvasLayer/Main Menu" method="_quit"]
-[connection signal="pressed" from="CanvasLayer/Options Menu/Panel/ButtonExit" to="CanvasLayer/Options Menu" method="_return"]
-[connection signal="pressed" from="CanvasLayer/Play Menu/Panel/ButtonExit" to="CanvasLayer/Play Menu" method="_return"]
-[connection signal="pressed" from="CanvasLayer/Play Menu/Panel/Level_1/Panel/ButtonPlayLevel" to="CanvasLayer/Play Menu" method="_playLevel"]
+[connection signal="pressed" from="CanvasLayer/Options Menu/Panel/ButtonExit" to="CanvasLayer/Main Menu" method="_closeOptions"]
+[connection signal="pressed" from="CanvasLayer/Play Menu/Panel/ButtonExit" to="CanvasLayer/Main Menu" method="_closePlay"]
+[connection signal="pressed" from="CanvasLayer/Play Menu/Panel/Level_1/Panel/ButtonPlayLevel" to="CanvasLayer/Play Menu/Panel/Level_1" method="_playLevel"]
+[connection signal="pressed" from="CanvasLayer/Play Menu/Panel/Level_2/Panel/ButtonPlayLevel" to="CanvasLayer/Play Menu/Panel/Level_2" method="_playLevel"]
+[connection signal="pressed" from="CanvasLayer/Play Menu/Panel/Level_3/Panel/ButtonPlayLevel" to="CanvasLayer/Play Menu/Panel/Level_3" method="_playLevel"]
 [connection signal="area_entered" from="Area3D" to="Clouds" method="_on_area_3d_area_entered"]
