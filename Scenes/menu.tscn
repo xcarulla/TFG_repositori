@@ -263,9 +263,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -121.0
-offset_top = 354.0
+offset_top = -20.0
 offset_right = 121.0
-offset_bottom = 554.0
+offset_bottom = 180.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 25
@@ -289,6 +289,7 @@ text = "QUIT"
 script = ExtResource("1_fnoq7")
 
 [node name="Options Menu" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -337,6 +338,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 650.0
+offset_bottom = 650.0
 grow_horizontal = 2
 grow_vertical = 2
 
