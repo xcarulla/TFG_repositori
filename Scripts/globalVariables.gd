@@ -1,5 +1,17 @@
 extends Node
 
+# -------------------------------
+# DIFFICULTY RELATED GLOBAL VARS:
+# -------------------------------
+
+var DIFFICULTY_LIST = {
+	
+}
+
+# -------------------------------
+# LEVEL RELATED GLOBAL VARS:
+# -------------------------------
+
 var gameLevels = {
 	"Level_1": {
 		"cleared": false,
@@ -26,6 +38,11 @@ var gameLevels = {
 		}
 	}
 }
+
+
+# -------------------------------
+# LEVEL RELATED GLOBAL FUNCTIONS:
+# -------------------------------
 
 func resetLevel(nLevel: String):
 	gameLevels[nLevel]["cleared"] = false

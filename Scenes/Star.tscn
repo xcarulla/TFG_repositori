@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dbe71reccp0yi"]
 
-[ext_resource type="Script" path="res://Scripts/Star.gd" id="1_l55qt"]
+[ext_resource type="Script" uid="uid://ds58uvcq30773" path="res://Scripts/Star.gd" id="1_l55qt"]
 [ext_resource type="PackedScene" uid="uid://dipq3kkk2x5or" path="res://Assets/LevelElements/star.glb" id="1_ow0je"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_i4623"]
@@ -118,9 +118,9 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yuuys"]
 _data = {
-"Collect Star": SubResource("Animation_3pyej"),
-"Idle Star": SubResource("Animation_k1wmu"),
-"RESET": SubResource("Animation_08b1p")
+&"Collect Star": SubResource("Animation_3pyej"),
+&"Idle Star": SubResource("Animation_k1wmu"),
+&"RESET": SubResource("Animation_08b1p")
 }
 
 [node name="Star" type="Node3D"]

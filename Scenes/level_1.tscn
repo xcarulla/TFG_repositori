@@ -1,6 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://cte24k0uu5ply"]
+[gd_scene load_steps=14 format=3 uid="uid://cte24k0uu5ply"]
 
-[ext_resource type="Script" path="res://Scripts/level.gd" id="1_6l3gm"]
+[ext_resource type="Script" uid="uid://cvb75ey71s6n4" path="res://Scripts/level.gd" id="1_6l3gm"]
 [ext_resource type="MeshLibrary" uid="uid://br0n6rsrsapfg" path="res://MeshLib/tiles.meshlib" id="2_v5thc"]
 [ext_resource type="PackedScene" uid="uid://jvv6wfc4p6ra" path="res://Scenes/Dummy.tscn" id="3_8rcsi"]
 [ext_resource type="PackedScene" uid="uid://dmj6ij4boo4ie" path="res://Scenes/ui.tscn" id="4_yhhpr"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dbe71reccp0yi" path="res://Scenes/Star.tscn" id="10_6akv2"]
 [ext_resource type="PackedScene" uid="uid://cl1esy7ss5w6r" path="res://Scenes/tp_base.tscn" id="11_mxok3"]
 [ext_resource type="PackedScene" uid="uid://vkn6414a7gdw" path="res://Scenes/final_objective.tscn" id="12_iwhgy"]
+[ext_resource type="PackedScene" uid="uid://decexpoh8sh6j" path="res://Scenes/enemy.tscn" id="13_pdmgb"]
 
 [node name="Level_1" type="Node3D"]
 script = ExtResource("1_6l3gm")
@@ -20,6 +21,8 @@ script = ExtResource("1_6l3gm")
 mesh_library = ExtResource("2_v5thc")
 cell_size = Vector3(1, 1, 1)
 cell_center_z = false
+collision_layer = 2
+collision_mask = 13
 data = {
 "cells": PackedInt32Array(-196617, 0, 1, -196613, 0, 1, -196609, 0, 1, -262141, 0, 1, -262125, 0, 1, -262121, 0, 1, -262117, 0, 1, -196621, 0, 1, 65523, 0, 1, 327667, 0, 2, -458765, 0, 1, -720909, 0, 1, -720905, 0, 1, -458761, 0, 1, -458757, 0, 1, -458753, 0, 1, -720901, 0, 1, -720897, 0, 1, -786429, 0, 1, -524285, 0, 1, -524281, 0, 1, -786425, 0, 1, -786421, 0, 1, -524277, 0, 1, -524273, 0, 1, -786417, 0, 1, -786413, 0, 1, -524269, 0, 1, -524265, 0, 1, -786409, 0, 1, -786405, 0, 1, -524261, 0, 1, -262137, 0, 1, -262133, 0, 1, -262129, 0, 1, 589811, 0, 1, -262113, 0, 1, -262109, 0, 1, -524249, 0, 1, -524253, 0, 1, -524257, 0, 1, -786401, 0, 1, -786397, 0, 1, -786393, 0, 1, -262106, 0, 4, 17, 0, 4, 24, 0, 4, 26, 0, 4, 131097, 0, 4, -524245, 0, 1, -524241, 0, 1, -524237, 0, 1, -524233, 0, 1, -786389, 0, 1, -786385, 0, 1, -786381, 0, 1, -786377, 0, 1, 196652, 0, 3, 59, 0, 1, -262085, 0, 1, -524229, 0, 1, -786373, 0, 1, 196660, 0, 3, 63, 0, 1, -262081, 0, 1, -524225, 0, 1, -786369, 0, 1, 67, 0, 1, 71, 0, 1, -262077, 0, 1, -262073, 0, 1, -524221, 0, 1, -786365, 0, 1, -786361, 0, 1, -524217, 0, 1, -524213, 0, 1, -786357, 0, 1, -786353, 0, 1, -524209, 0, 1, -524205, 0, 1, -524201, 0, 1, -786349, 0, 1, -786345, 0, 1, -524197, 0, 1, -786341, 0, 1, -524193, 0, 1, -786337, 0, 1, -786333, 0, 1, -524189, 0, 1, -524185, 0, 1, -786329, 0, 1, 99, 0, 1, 103, 0, 1, -262041, 0, 1, 107, 0, 1, -262037, 0, 1, -524181, 0, 1, -786325, 0, 1, 111, 0, 1, -262033, 0, 1, -524177, 0, 1, -786321, 0, 1, 589807, 0, 1, 327663, 0, 1, 65519, 0, 1, -196625, 0, 1, -458769, 0, 1, -720913, 0, 1, 115, 0, 1, -262029, 0, 1, -524173, 0, 1, -786317, 0, 1, 262263, 0, 1, 119, 0, 1, -262025, 0, 1, -524169, 0, 1, -786313, 0, 1, 524407, 0, 1, 786551, 0, 1, 1048695, 0, 1, 1048699, 0, 1, 786555, 0, 1, 524411, 0, 1, 262267, 0, 1, 123, 0, 1, -262021, 0, 1, -524165, 0, 1, -786309, 0, 1)
 }
@@ -82,3 +85,8 @@ paired_tp = NodePath("../TPBase")
 
 [node name="FinalObjective" parent="." instance=ExtResource("12_iwhgy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115.5, 4.5, 0)
+
+[node name="Enemies" type="Node3D" parent="."]
+
+[node name="Enemy1" parent="Enemies" instance=ExtResource("13_pdmgb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.276, 1, 0)

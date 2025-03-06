@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://vkn6414a7gdw"]
 
 [ext_resource type="PackedScene" uid="uid://6cf231raxk8v" path="res://Resources/Blender/FinalObjective.blend" id="1_qvxsy"]
-[ext_resource type="Script" path="res://Scripts/final_objective.gd" id="2_wv3xi"]
+[ext_resource type="Script" uid="uid://bxque6rojn5wj" path="res://Scripts/final_objective.gd" id="2_wv3xi"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_vngfu"]
 height = 2.65204

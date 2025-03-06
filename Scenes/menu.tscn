@@ -1,16 +1,16 @@
 [gd_scene load_steps=28 format=3 uid="uid://ry0uwh2umqmd"]
 
-[ext_resource type="Script" path="res://Scripts/bigButton.gd" id="1_fnoq7"]
-[ext_resource type="Script" path="res://Scripts/mainMenu.gd" id="1_roa1j"]
+[ext_resource type="Script" uid="uid://doye1lwxtjrf" path="res://Scripts/bigButton.gd" id="1_fnoq7"]
+[ext_resource type="Script" uid="uid://c26rf765gp284" path="res://Scripts/mainMenu.gd" id="1_roa1j"]
 [ext_resource type="FontVariation" uid="uid://e5308wvog5ox" path="res://Resources/Fonts/new_font.tres" id="2_uh4nm"]
 [ext_resource type="Environment" uid="uid://do8nu04t8kj8f" path="res://Resources/Visuals/enviroment.tres" id="4_7s1ww"]
 [ext_resource type="StyleBox" uid="uid://cm2mptcsyeflw" path="res://Resources/Visuals/UIBackground.tres" id="4_jc77v"]
-[ext_resource type="Script" path="res://Scripts/menuClouds.gd" id="5_nq0b7"]
+[ext_resource type="Script" uid="uid://htjce7vrklok" path="res://Scripts/menuClouds.gd" id="5_nq0b7"]
 [ext_resource type="PackedScene" uid="uid://u4p0lsqy3h4w" path="res://Assets/LevelElements/cloud2.glb" id="5_preei"]
 [ext_resource type="PackedScene" uid="uid://bwixuosag5uew" path="res://Assets/LevelElements/cloud3.glb" id="6_r6ner"]
 [ext_resource type="PackedScene" uid="uid://owr4441vitc0" path="res://Assets/LevelElements/cloud.glb" id="7_0cibs"]
 [ext_resource type="PackedScene" uid="uid://di6a2b3acnkkq" path="res://Scenes/button_exit.tscn" id="7_lqe4t"]
-[ext_resource type="Script" path="res://Scripts/Levels_menuUI.gd" id="8_2texk"]
+[ext_resource type="Script" uid="uid://c02it0nuteh8t" path="res://Scripts/Levels_menuUI.gd" id="8_2texk"]
 [ext_resource type="Texture2D" uid="uid://cnymv3hmm203g" path="res://Assets/UIElements/leftArrow.svg" id="8_bkt1d"]
 [ext_resource type="Texture2D" uid="uid://kyen78iigwk7" path="res://Assets/UIElements/whiteStar.svg" id="8_s6lar"]
 [ext_resource type="Texture2D" uid="uid://b7m6de2oyj6eg" path="res://Assets/UIElements/leftGrayArrow.svg" id="9_ssoc2"]
@@ -212,12 +212,12 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_muofe"]
 _data = {
-"RESET": SubResource("Animation_dhhwk"),
-"hideOptions": SubResource("Animation_1qy6h"),
-"hidePlay": SubResource("Animation_8uqts"),
-"showOptions": SubResource("Animation_tdwg2"),
-"showPlay": SubResource("Animation_q43a0"),
-"title_anim": SubResource("Animation_i4gdr")
+&"RESET": SubResource("Animation_dhhwk"),
+&"hideOptions": SubResource("Animation_1qy6h"),
+&"hidePlay": SubResource("Animation_8uqts"),
+&"showOptions": SubResource("Animation_tdwg2"),
+&"showPlay": SubResource("Animation_q43a0"),
+&"title_anim": SubResource("Animation_i4gdr")
 }
 
 [node name="Node3D" type="Node3D"]
