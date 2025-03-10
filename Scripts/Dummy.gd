@@ -25,6 +25,8 @@ var anim_stateAttacking = ""
 var anim_stateGrounded = ""
 var anim_stateAttacks = ""
 
+var playerHasKey := true
+
 func _process(delta):
 	jump_buffer_timer -= delta
 	coyote_timer -= delta
@@ -119,3 +121,7 @@ func _returnTransitionState(transition:String):
 		_:
 			return ""
 	
+	
+	
+func hasKey() -> bool:
+	return playerHasKey

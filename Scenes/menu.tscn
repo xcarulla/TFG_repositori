@@ -848,7 +848,7 @@ shape = SubResource("BoxShape3D_4l5xy")
 
 [node name="anim_player" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_muofe")
+&"": SubResource("AnimationLibrary_muofe")
 }
 
 [connection signal="mouse_entered" from="CanvasLayer/Main Menu/VBoxContainer/ButtonPlay" to="CanvasLayer/Main Menu/VBoxContainer/ButtonPlay" method="_on_mouse_entered"]

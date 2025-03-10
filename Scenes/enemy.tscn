@@ -12,7 +12,7 @@ height = 1.88241
 
 [node name="Enemy" type="CharacterBody3D"]
 collision_layer = 8
-collision_mask = 3
+collision_mask = 2
 script = ExtResource("1_j27s2")
 
 [node name="CanviarPerModelFinal" type="MeshInstance3D" parent="."]

@@ -5,7 +5,7 @@ var collected: bool = false
 var level
 
 func _ready():
-	level = get_parent()
+	level = get_parent().get_parent() # Level/StarFolder/.
 
 func getCollected(_area): # Area3D signal trigger function
 	if(!collected):

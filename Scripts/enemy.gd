@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 
+
 const SPEED = 5.0
 
 @export var direction := Vector3(1,0,0)

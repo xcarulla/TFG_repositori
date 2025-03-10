@@ -4,7 +4,7 @@ var starsDict
 
 func _ready():
 	starsDict = GlobalVariables.getStars(name)
-	print(starsDict)
+	# print(starsDict)
 	hideCollectedStars()
 
 
@@ -19,7 +19,6 @@ func hideCollectedStars():
 
 func pickUpStar(nStar: String):
 	GlobalVariables.addStar(name, nStar)
-
 
 func endLevel():
 	GlobalVariables.gameLevels[name]["cleared"] = true
