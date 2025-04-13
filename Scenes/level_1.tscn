@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cte24k0uu5ply"]
+[gd_scene load_steps=18 format=3 uid="uid://cte24k0uu5ply"]
 
 [ext_resource type="Script" uid="uid://cvb75ey71s6n4" path="res://Scripts/level.gd" id="1_6l3gm"]
 [ext_resource type="MeshLibrary" uid="uid://br0n6rsrsapfg" path="res://MeshLib/tiles.meshlib" id="2_v5thc"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dbe71reccp0yi" path="res://Scenes/Star.tscn" id="10_6akv2"]
 [ext_resource type="PackedScene" uid="uid://cl1esy7ss5w6r" path="res://Scenes/tp_base.tscn" id="11_mxok3"]
 [ext_resource type="PackedScene" uid="uid://vkn6414a7gdw" path="res://Scenes/final_objective.tscn" id="12_iwhgy"]
+[ext_resource type="Script" uid="uid://dqvwtmgqcgg42" path="res://Scripts/enemy_manager.gd" id="12_neuul"]
 [ext_resource type="PackedScene" uid="uid://decexpoh8sh6j" path="res://Scenes/enemy.tscn" id="13_pdmgb"]
 [ext_resource type="PackedScene" uid="uid://cr43qb8btncs6" path="res://Scenes/door.tscn" id="14_2jeek"]
 [ext_resource type="PackedScene" uid="uid://b6y5xod0xd6i0" path="res://Scenes/key.tscn" id="15_yytvd"]
@@ -43,7 +44,7 @@ currentLevel = "firstLevel"
 dummy = NodePath("../Dummy")
 
 [node name="PracticeDummy" parent="." instance=ExtResource("5_vgsmv")]
-transform = Transform3D(0.881097, 0, 0.472935, 0, 1, 0, -0.472935, 0, 0.881097, -8.56808, 0.438681, 0)
+transform = Transform3D(0.881097, 0, 0.472935, 0, 1, 0, -0.472935, 0, 0.881097, 6.87552, 0.438681, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("6_28tsq")
@@ -94,7 +95,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.5, 4.5, 0)
 auraColor = Color(0, 0, 1, 1)
 paired_tp = NodePath("../TPBase")
 
-[node name="Enemies" type="Node3D" parent="."]
+[node name="Enemies" type="Node3D" parent="." node_paths=PackedStringArray("key")]
+script = ExtResource("12_neuul")
+key = NodePath("../key")
 
 [node name="Enemy1" parent="Enemies" instance=ExtResource("13_pdmgb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.841, -2.71564, 0)
@@ -113,5 +116,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.73436, -1.50845, 0.0038452
 shape = SubResource("BoxShape3D_yytvd")
 
 [node name="key" parent="." node_paths=PackedStringArray("target") instance=ExtResource("15_yytvd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.75097, 1.5365, 0)
-target = NodePath("../Dummy")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.1262, 3.10549, 0)
+target = NodePath("../Enemies/Enemy1")
+
+[connection signal="tree_exiting" from="Enemies/Enemy1" to="Enemies" method="_on_enemy_1_tree_exiting"]

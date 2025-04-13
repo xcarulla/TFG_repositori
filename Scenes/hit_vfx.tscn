@@ -1,6 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://r01mbqo13vpp"]
+[gd_scene load_steps=23 format=3 uid="uid://r01mbqo13vpp"]
 
 [ext_resource type="Shader" uid="uid://dvlxtgly45krn" path="res://Resources/Shaders/hitGeometryShader.tres" id="1_8amco"]
+[ext_resource type="Script" uid="uid://c3t8crppqtnwx" path="res://Scripts/hit_vfx.gd" id="1_d5mku"]
 [ext_resource type="Texture2D" uid="uid://ccluqc5hagbs6" path="res://Resources/TexturesAlpha/T_fl81_vfx.png" id="2_anin4"]
 [ext_resource type="Shader" uid="uid://cage3eeyywgwf" path="res://Resources/Shaders/hitSparksGeometryShader.tres" id="3_lgt4o"]
 [ext_resource type="Texture2D" uid="uid://bcel8e7ehptl1" path="res://Resources/TexturesAlpha/T_basic1_vfx.PNG" id="4_3dh8h"]
@@ -132,6 +133,7 @@ _data = {
 }
 
 [node name="Hit_VFX" type="Node3D"]
+script = ExtResource("1_d5mku")
 
 [node name="GPUParticlesHitTexture" type="GPUParticles3D" parent="."]
 material_override = SubResource("ShaderMaterial_xklnw")
@@ -155,6 +157,6 @@ draw_pass_1 = SubResource("QuadMesh_t2p1m")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_17ege")
+&"": SubResource("AnimationLibrary_17ege")
 }
 autoplay = "hit"

@@ -1,6 +1,6 @@
+AnimationPlayer
 CollisionShape3D
 Area3D
-AnimationPlayer
 CharacterBody3D
 MeshInstance3D
 StaticBody3D

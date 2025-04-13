@@ -4,8 +4,21 @@ extends Node
 # DIFFICULTY RELATED GLOBAL VARS:
 # -------------------------------
 
-var DIFFICULTY_LIST = {
-	
+var difficulty := "normal" # easy normal hard
+
+var enemyStats = {
+	"easy": {
+		"health": 1,
+		"damage": 0,
+	},
+	"normal": {
+		"health": 2,
+		"damage": 1,
+	},
+	"hard": {
+		"health": 3,
+		"damage": 3,
+	},
 }
 
 # -------------------------------

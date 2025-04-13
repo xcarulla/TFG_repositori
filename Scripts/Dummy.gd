@@ -9,6 +9,8 @@ class_name Player
 @export var jump_buffer_time : float
 @export var coyote_time : float
 
+@export var hitVFX : hit_effect
+
 @onready var jump_velocity : float = (2.0 * jump_height) / jump_time_to_peak
 @onready var jump_gravity : float = (-2.0 * jump_height) / pow(jump_time_to_peak,2)
 @onready var fall_gravity : float = (-2.0 * jump_height) / pow(jump_time_to_descend,2)
@@ -25,7 +27,8 @@ var anim_stateAttacking = ""
 var anim_stateGrounded = ""
 var anim_stateAttacks = ""
 
-var playerHasKey := true
+var playerHasKey := false
+var key_ref
 
 func _process(delta):
 	jump_buffer_timer -= delta
@@ -80,26 +83,6 @@ func _physics_process(delta):
 	else: # jump
 		_changeAnimState("grounded","no")
 
-
-func get_current_gravity() -> float:
-	return jump_gravity if velocity.y < 0.0 else fall_gravity
-	
-func _update_input() -> float:
-	var move_dir = 0
-	if Input.is_action_pressed("game_move_right"):
-		move_dir += 1
-	if Input.is_action_pressed("game_move_left"):
-		move_dir -= 1
-	return move_dir
-	
-func _jump():
-	velocity.y = jump_velocity
-	was_on_floor = false
-	
-func _flip():
-	$Rig.rotation_degrees.y *= -1
-	facing_right = !facing_right
-	
 func _changeAnimState(stateName, newState):
 	match stateName:
 		"attacking":
@@ -120,8 +103,40 @@ func _returnTransitionState(transition:String):
 			return anim_stateAttacks
 		_:
 			return ""
+
+
+func get_current_gravity() -> float:
+	return jump_gravity if velocity.y < 0.0 else fall_gravity
 	
+func _update_input() -> float:
+	var move_dir = 0
+	if Input.is_action_pressed("game_move_right"):
+		move_dir += 1
+	if Input.is_action_pressed("game_move_left"):
+		move_dir -= 1
+	return move_dir
 	
+func _jump():
+	velocity.y = jump_velocity
+	was_on_floor = false
 	
+func _flip():
+	$Rig.rotation_degrees.y *= -1
+	facing_right = !facing_right
+	
+
+# Getters:
+
 func hasKey() -> bool:
 	return playerHasKey
+
+func assign_key(key: Key):
+	key_ref = key
+
+# Atack:
+
+func _on_area_3d_light_area_entered(area: Area3D) -> void:
+	# Area d'atac (hit box)
+	var objective = area.get_parent()
+	hitVFX.playHitEffect()
+	objective.recive_dmg()

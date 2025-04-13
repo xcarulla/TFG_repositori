@@ -1,19 +1,30 @@
 extends CharacterBody3D
+class_name Key
 
 const SPEED = 3.3
 
-@export var target: Player
+@export var target: CharacterBody3D
 var distance := 0.5
 var targetPosition: Vector3
 var animationPlayer
-
+var player
 func _ready():
 	animationPlayer = $AnimationPlayer
 	animationPlayer.play("key_float")
+	player = get_parent().get_node("Dummy")
+
+func attach_to_player():
+	player.playerHasKey = true
+	target = player
+	
+func use_key():
+	player.playerHasKey = false
+	queue_free()
 
 
 func _physics_process(_delta: float) -> void:
-	calculate_velocity()
+	if target != null:
+		calculate_velocity()
 	move_and_slide()
 	
 func calculate_velocity():

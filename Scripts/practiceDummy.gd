@@ -12,4 +12,7 @@ func _process(_delta):
 
 
 func _on_area_3d_area_entered(_area):
+	pass
+
+func recive_dmg():
 	print("Ouch!")

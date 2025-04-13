@@ -1,13 +1,32 @@
 extends CharacterBody3D
 
 
-
+var max_health = GlobalVariables.enemyStats[GlobalVariables.difficulty]["health"]
+var damage = GlobalVariables.enemyStats[GlobalVariables.difficulty]["damage"]
 const SPEED = 5.0
 
+var current_health
+
 @export var direction := Vector3(1,0,0)
+var facing_right : bool = true
 var turning := false
 
-func _physics_process(delta: float) -> void:
+func _ready() -> void:
+	current_health = max_health
+
+func _process(_delta: float) -> void:
+	check_health()
+
+func check_health():
+	if current_health <= 0:
+		die()
+		
+func die():
+	# CODI PER MORIR (animacio? sons? drops)
+	queue_free()
+	
+	
+func _physics_process(delta: float) -> void: #Moviment
 	
 	velocity.x = SPEED * direction.x
 	
@@ -24,11 +43,21 @@ func _physics_process(delta: float) -> void:
 		
 		# turn enemy 3d model:
 		var tween_turn = create_tween()
+		
+		facing_right = !facing_right
+		
 		tween_turn.tween_property(self, "rotation_degrees", Vector3(0,180,0), 0.4).as_relative()
 		
 		await get_tree().create_timer(0.5).timeout
 		
 		direction.x = dir.x * -1
+		
 		turning = false
 
-	
+
+func _on_hurt_box_area_entered(_area: Area3D) -> void:
+	pass#if(area.parent)
+
+func recive_dmg():
+	current_health -= 1
+	print(current_health)
