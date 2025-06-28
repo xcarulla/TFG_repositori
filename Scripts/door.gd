@@ -16,8 +16,8 @@ func body_entered_area(body):
 	if body.name == "Dummy" and doorOpen == false:
 		if body.hasKey():
 			doorOpen = true
-			
 			open()
+			body.consumeKey()
 
 
 # Animations:

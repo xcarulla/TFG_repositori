@@ -28,7 +28,7 @@ var anim_stateGrounded = ""
 var anim_stateAttacks = ""
 
 var playerHasKey := false
-var key_ref
+var key_ref : Key
 
 func _process(delta):
 	jump_buffer_timer -= delta
@@ -125,14 +125,6 @@ func _flip():
 	facing_right = !facing_right
 	
 
-# Getters:
-
-func hasKey() -> bool:
-	return playerHasKey
-
-func assign_key(key: Key):
-	key_ref = key
-
 # Atack:
 
 func _on_area_3d_light_area_entered(area: Area3D) -> void:
@@ -140,3 +132,16 @@ func _on_area_3d_light_area_entered(area: Area3D) -> void:
 	var objective = area.get_parent()
 	hitVFX.playHitEffect()
 	objective.recive_dmg()
+
+
+# Key related:
+
+func hasKey() -> bool:
+	return playerHasKey
+
+func assign_key(key: Key) -> void:
+	key_ref = key
+
+func consumeKey() -> void:
+	key_ref.use_key()
+	key_ref = null

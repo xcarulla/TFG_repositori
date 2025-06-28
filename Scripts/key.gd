@@ -8,6 +8,7 @@ var distance := 0.5
 var targetPosition: Vector3
 var animationPlayer
 var player
+
 func _ready():
 	animationPlayer = $AnimationPlayer
 	animationPlayer.play("key_float")
@@ -15,6 +16,7 @@ func _ready():
 
 func attach_to_player():
 	player.playerHasKey = true
+	player.assign_key(self)
 	target = player
 	
 func use_key():

@@ -2,7 +2,6 @@ extends Control
 
 var starsDict
 
-
 func _ready():
 	starsDict = GlobalVariables.getStars(name)
 	setStarsVisibility()

@@ -37,3 +37,7 @@ func leftArrow():
 
 func rightArrow():
 	pass
+
+
+func _on_button_left_pressed() -> void:
+	pass # Replace with function body.

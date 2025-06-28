@@ -1,10 +1,11 @@
-[gd_scene load_steps=28 format=3 uid="uid://ry0uwh2umqmd"]
+[gd_scene load_steps=29 format=3 uid="uid://ry0uwh2umqmd"]
 
 [ext_resource type="Script" uid="uid://doye1lwxtjrf" path="res://Scripts/bigButton.gd" id="1_fnoq7"]
 [ext_resource type="Script" uid="uid://c26rf765gp284" path="res://Scripts/mainMenu.gd" id="1_roa1j"]
 [ext_resource type="FontVariation" uid="uid://e5308wvog5ox" path="res://Resources/Fonts/new_font.tres" id="2_uh4nm"]
 [ext_resource type="Environment" uid="uid://do8nu04t8kj8f" path="res://Resources/Visuals/enviroment.tres" id="4_7s1ww"]
 [ext_resource type="StyleBox" uid="uid://cm2mptcsyeflw" path="res://Resources/Visuals/UIBackground.tres" id="4_jc77v"]
+[ext_resource type="Script" uid="uid://c2yl6wmhiujoy" path="res://Scripts/levelNavigation.gd" id="5_kmwmt"]
 [ext_resource type="Script" uid="uid://htjce7vrklok" path="res://Scripts/menuClouds.gd" id="5_nq0b7"]
 [ext_resource type="PackedScene" uid="uid://u4p0lsqy3h4w" path="res://Assets/LevelElements/cloud2.glb" id="5_preei"]
 [ext_resource type="PackedScene" uid="uid://bwixuosag5uew" path="res://Assets/LevelElements/cloud3.glb" id="6_r6ner"]
@@ -277,6 +278,7 @@ text = "PLAY"
 script = ExtResource("1_fnoq7")
 
 [node name="ButtonOptions" type="Button" parent="CanvasLayer/Main Menu/VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "OPTIONS"
@@ -342,6 +344,7 @@ offset_top = 650.0
 offset_bottom = 650.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("5_kmwmt")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/Play Menu"]
 layout_mode = 1
@@ -865,4 +868,6 @@ libraries = {
 [connection signal="pressed" from="CanvasLayer/Play Menu/Panel/Level_1/Panel/ButtonPlayLevel" to="CanvasLayer/Play Menu/Panel/Level_1" method="_playLevel"]
 [connection signal="pressed" from="CanvasLayer/Play Menu/Panel/Level_2/Panel/ButtonPlayLevel" to="CanvasLayer/Play Menu/Panel/Level_2" method="_playLevel"]
 [connection signal="pressed" from="CanvasLayer/Play Menu/Panel/Level_3/Panel/ButtonPlayLevel" to="CanvasLayer/Play Menu/Panel/Level_3" method="_playLevel"]
+[connection signal="pressed" from="CanvasLayer/Play Menu/Panel/ButtonLeft" to="CanvasLayer/Play Menu" method="_on_button_left_pressed"]
+[connection signal="pressed" from="CanvasLayer/Play Menu/Panel/ButtonRight" to="CanvasLayer/Play Menu" method="_on_button_right_pressed"]
 [connection signal="area_entered" from="Area3D" to="Clouds" method="_on_area_3d_area_entered"]
