@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dbe71reccp0yi" path="res://Scenes/Star.tscn" id="10_6akv2"]
 [ext_resource type="PackedScene" uid="uid://cl1esy7ss5w6r" path="res://Scenes/tp_base.tscn" id="11_mxok3"]
 [ext_resource type="PackedScene" uid="uid://vkn6414a7gdw" path="res://Scenes/final_objective.tscn" id="12_iwhgy"]
-[ext_resource type="Script" uid="uid://dqvwtmgqcgg42" path="res://Scripts/enemy_manager.gd" id="12_neuul"]
+[ext_resource type="Script" uid="uid://dqvwtmgqcgg42" path="res://Scripts/lvl1_enemy_manager.gd" id="12_neuul"]
 [ext_resource type="PackedScene" uid="uid://decexpoh8sh6j" path="res://Scenes/enemy.tscn" id="13_pdmgb"]
 [ext_resource type="PackedScene" uid="uid://cr43qb8btncs6" path="res://Scenes/door.tscn" id="14_2jeek"]
 [ext_resource type="PackedScene" uid="uid://b6y5xod0xd6i0" path="res://Scenes/key.tscn" id="15_yytvd"]
@@ -36,18 +36,17 @@ data = {
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.788557, 0.228263, 0.571029, -0.54107, 0.69884, 0.467831, -0.29227, -0.677878, 0.674581, 5.47366, 0, 11.0101)
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("6_28tsq")
+
+[node name="UI" parent="." node_paths=PackedStringArray("dummy") instance=ExtResource("4_yhhpr")]
+dummy = NodePath("../Dummy")
+
 [node name="Dummy" parent="." instance=ExtResource("3_8rcsi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.54014, 0)
 
-[node name="UI" parent="." node_paths=PackedStringArray("dummy") instance=ExtResource("4_yhhpr")]
-currentLevel = "firstLevel"
-dummy = NodePath("../Dummy")
-
 [node name="PracticeDummy" parent="." instance=ExtResource("5_vgsmv")]
-transform = Transform3D(0.881097, 0, 0.472935, 0, 1, 0, -0.472935, 0, 0.881097, -4.73862, 0.438681, 0)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("6_28tsq")
+transform = Transform3D(0.881097, 0, 0.472935, 0, 1, 0, -0.472935, 0, 0.881097, -8.50566, 0.438681, 0)
 
 [node name="Clouds" type="Node3D" parent="."]
 
@@ -74,6 +73,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.91464, 18.298, -28.0248)
 
 [node name="cloud8" parent="Clouds" instance=ExtResource("7_64fs8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.8169, 19.008, -23.9326)
+
+[node name="cloud23" parent="Clouds" instance=ExtResource("7_64fs8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.3138, 19.008, -18.569)
 
 [node name="cloud9" parent="Clouds" instance=ExtResource("8_xbqjf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.5749, 18.747, -10.678)
@@ -120,10 +122,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 143.95, 26.4119, -28.0248)
 [node name="Stars" type="Node3D" parent="."]
 
 [node name="Star1" parent="Stars" instance=ExtResource("10_6akv2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.3627, 5.8564, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.4856, 5.8564, 0)
 
 [node name="Star2" parent="Stars" instance=ExtResource("10_6akv2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.5403, 6.14783, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.5403, 6.14783, 0)
 
 [node name="Star3" parent="Stars" instance=ExtResource("10_6akv2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 151.5, 14, 0)

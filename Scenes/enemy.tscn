@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://decexpoh8sh6j"]
+[gd_scene load_steps=7 format=3 uid="uid://decexpoh8sh6j"]
 
 [ext_resource type="Script" uid="uid://d2ylm1bb7q2bb" path="res://Scripts/enemy.gd" id="1_j27s2"]
 
@@ -13,6 +13,9 @@ height = 1.88241
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_hghv2"]
 height = 1.15625
 radius = 0.621094
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hghv2"]
+size = Vector3(1, 0.700928, 1)
 
 [node name="Enemy" type="CharacterBody3D"]
 collision_layer = 8
@@ -39,4 +42,12 @@ collision_mask = 17
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0909041, 0)
 shape = SubResource("CylinderShape3D_hghv2")
 
+[node name="DamageArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.837689, 0.0411137, 0)
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DamageArea"]
+shape = SubResource("BoxShape3D_hghv2")
+
 [connection signal="area_entered" from="hurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]

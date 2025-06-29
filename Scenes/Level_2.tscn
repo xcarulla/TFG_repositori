@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://01plwn2kg4rq"]
+[gd_scene load_steps=17 format=3 uid="uid://01plwn2kg4rq"]
 
 [ext_resource type="Script" uid="uid://cvb75ey71s6n4" path="res://Scripts/level.gd" id="1_tm7ih"]
 [ext_resource type="MeshLibrary" uid="uid://br0n6rsrsapfg" path="res://MeshLib/tiles.meshlib" id="2_25io1"]
@@ -10,8 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://u4p0lsqy3h4w" path="res://Assets/LevelElements/cloud2.glb" id="8_xbslt"]
 [ext_resource type="PackedScene" uid="uid://bwixuosag5uew" path="res://Assets/LevelElements/cloud3.glb" id="9_q8wyw"]
 [ext_resource type="PackedScene" uid="uid://dbe71reccp0yi" path="res://Scenes/Star.tscn" id="10_rq6k0"]
-[ext_resource type="PackedScene" uid="uid://cl1esy7ss5w6r" path="res://Scenes/tp_base.tscn" id="11_0ouaf"]
-[ext_resource type="Script" uid="uid://dqvwtmgqcgg42" path="res://Scripts/enemy_manager.gd" id="12_xd5wc"]
+[ext_resource type="Script" uid="uid://dqvwtmgqcgg42" path="res://Scripts/lvl1_enemy_manager.gd" id="12_xd5wc"]
 [ext_resource type="PackedScene" uid="uid://decexpoh8sh6j" path="res://Scenes/enemy.tscn" id="13_sucmb"]
 [ext_resource type="PackedScene" uid="uid://vkn6414a7gdw" path="res://Scenes/final_objective.tscn" id="14_go0cy"]
 [ext_resource type="PackedScene" uid="uid://cr43qb8btncs6" path="res://Scenes/door.tscn" id="15_7lt02"]
@@ -40,14 +39,13 @@ transform = Transform3D(0.788557, 0.228263, 0.571029, -0.54107, 0.69884, 0.46783
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.54014, 0)
 
 [node name="UI" parent="." node_paths=PackedStringArray("dummy") instance=ExtResource("4_yybfe")]
-currentLevel = "firstLevel"
 dummy = NodePath("../Dummy")
 
 [node name="PracticeDummy" parent="." instance=ExtResource("5_vq2h6")]
-transform = Transform3D(0.881097, 0, 0.472935, 0, 1, 0, -0.472935, 0, 0.881097, -7.07101, 0.438681, 0)
+transform = Transform3D(0.881097, 0, 0.472935, 0, 1, 0, -0.472935, 0, 0.881097, -10.4849, 0.438681, 0)
 
 [node name="PracticeDummy2" parent="." instance=ExtResource("5_vq2h6")]
-transform = Transform3D(0.881097, 0, 0.472935, 0, 1, 0, -0.472935, 0, 0.881097, -9.12185, 0.438681, 0)
+transform = Transform3D(0.881097, 0, 0.472935, 0, 1, 0, -0.472935, 0, 0.881097, -12.5209, 0.438681, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("6_f6u1m")
@@ -85,18 +83,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.5403, 2.14783, 0)
 
 [node name="Star3" parent="Stars" instance=ExtResource("10_rq6k0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.5, 6, 0)
-
-[node name="Teleports" type="Node3D" parent="."]
-
-[node name="TPBase" parent="Teleports" node_paths=PackedStringArray("paired_tp") instance=ExtResource("11_0ouaf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.5, -3.5, 0)
-auraColor = Color(0, 0, 1, 1)
-paired_tp = NodePath("../TPBase2")
-
-[node name="TPBase2" parent="Teleports" node_paths=PackedStringArray("paired_tp") instance=ExtResource("11_0ouaf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.5, 4.5, 0)
-auraColor = Color(0, 0, 1, 1)
-paired_tp = NodePath("../TPBase")
 
 [node name="Enemies" type="Node3D" parent="." node_paths=PackedStringArray("key")]
 script = ExtResource("12_xd5wc")

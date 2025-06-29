@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bwixuosag5uew" path="res://Assets/LevelElements/cloud3.glb" id="9_fyg01"]
 [ext_resource type="PackedScene" uid="uid://dbe71reccp0yi" path="res://Scenes/Star.tscn" id="10_dimxf"]
 [ext_resource type="PackedScene" uid="uid://cl1esy7ss5w6r" path="res://Scenes/tp_base.tscn" id="11_is6g6"]
-[ext_resource type="Script" uid="uid://dqvwtmgqcgg42" path="res://Scripts/enemy_manager.gd" id="12_gxv86"]
+[ext_resource type="Script" uid="uid://dqvwtmgqcgg42" path="res://Scripts/lvl1_enemy_manager.gd" id="12_gxv86"]
 [ext_resource type="PackedScene" uid="uid://decexpoh8sh6j" path="res://Scenes/enemy.tscn" id="13_hqtot"]
 [ext_resource type="PackedScene" uid="uid://vkn6414a7gdw" path="res://Scenes/final_objective.tscn" id="14_dalvw"]
 [ext_resource type="PackedScene" uid="uid://cr43qb8btncs6" path="res://Scenes/door.tscn" id="15_fddji"]

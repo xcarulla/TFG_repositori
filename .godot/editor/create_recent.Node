@@ -1,6 +1,8 @@
-AnimationPlayer
 CollisionShape3D
 Area3D
+AnimationPlayer
+RichTextLabel
+Control
 CharacterBody3D
 MeshInstance3D
 StaticBody3D
@@ -10,5 +12,3 @@ GPUParticles3D
 VSeparator
 TextureRect
 HBoxContainer
-Control
-Label

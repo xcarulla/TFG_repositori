@@ -26,18 +26,3 @@ func _closeOptions():
 
 func _quit():
 	get_tree().quit()
-
-
-# Change selected/visible level:
-var currentLevel := "Level_1"
-
-func leftArrow():
-	pass
-
-
-func rightArrow():
-	pass
-
-
-func _on_button_left_pressed() -> void:
-	pass # Replace with function body.

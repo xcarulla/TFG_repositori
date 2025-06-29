@@ -3,7 +3,7 @@ extends CharacterBody3D
 
 var max_health = GlobalVariables.enemyStats[GlobalVariables.difficulty]["health"]
 var damage = GlobalVariables.enemyStats[GlobalVariables.difficulty]["damage"]
-const SPEED = 5.0
+var speed = GlobalVariables.enemyStats[GlobalVariables.difficulty]["speed"]
 
 var current_health
 
@@ -22,13 +22,11 @@ func check_health():
 		die()
 		
 func die():
-	# CODI PER MORIR (animacio? sons? drops)
 	queue_free()
-	
 	
 func _physics_process(delta: float) -> void: #Moviment
 	
-	velocity.x = SPEED * direction.x
+	velocity.x = speed * direction.x
 	
 	# Gravity
 	if not is_on_floor():
@@ -56,8 +54,12 @@ func _physics_process(delta: float) -> void: #Moviment
 
 
 func _on_hurt_box_area_entered(_area: Area3D) -> void:
-	pass#if(area.parent)
+	pass
 
 func recive_dmg():
 	current_health -= 1
 	print(current_health)
+
+func _on_damage_area_body_entered(body: Node3D) -> void:
+	if body is Player:
+		body.receive_damage(damage)

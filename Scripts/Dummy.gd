@@ -2,12 +2,17 @@ extends CharacterBody3D
 class_name Player
 
 # Variables:
+
 @export var move_speed = 10
 @export var jump_height : float
 @export var jump_time_to_peak : float
 @export var jump_time_to_descend : float
 @export var jump_buffer_time : float
 @export var coyote_time : float
+var max_health = GlobalVariables.playerStats[GlobalVariables.difficulty]["health"]
+var current_health
+var is_invulnerable := false
+var invulnerability_time : float = GlobalVariables.playerStats[GlobalVariables.difficulty]["invul_time"]
 
 @export var hitVFX : hit_effect
 
@@ -30,6 +35,10 @@ var anim_stateAttacks = ""
 var playerHasKey := false
 var key_ref : Key
 
+func _ready():
+	current_health = max_health
+
+# Movement, physics and input management:
 func _process(delta):
 	jump_buffer_timer -= delta
 	coyote_timer -= delta
@@ -104,7 +113,6 @@ func _returnTransitionState(transition:String):
 		_:
 			return ""
 
-
 func get_current_gravity() -> float:
 	return jump_gravity if velocity.y < 0.0 else fall_gravity
 	
@@ -123,9 +131,8 @@ func _jump():
 func _flip():
 	$Rig.rotation_degrees.y *= -1
 	facing_right = !facing_right
-	
 
-# Atack:
+# Deal damage (not the actual attack action):
 
 func _on_area_3d_light_area_entered(area: Area3D) -> void:
 	# Area d'atac (hit box)
@@ -133,6 +140,46 @@ func _on_area_3d_light_area_entered(area: Area3D) -> void:
 	hitVFX.playHitEffect()
 	objective.recive_dmg()
 
+# Health and recieving damage :
+
+func receive_damage(dmg: int):
+	if is_invulnerable:
+		return
+	current_health -= dmg
+	print("Player health:", current_health)
+	
+	if current_health <= 0:
+		die()
+	else:
+		is_invulnerable = true
+		invul_effect()
+		start_invulnerability_timer()
+		
+func die():
+	print("Player is dead")
+
+func start_invulnerability_timer():
+	await get_tree().create_timer(invulnerability_time).timeout
+	is_invulnerable = false
+
+func invul_effect():
+	var mesh = $Rig.get_node("MeshInstance3D")
+	var material = mesh.get_active_material(0)
+
+	if material.resource_local_to_scene == false:
+		material = material.duplicate()
+		material.resource_local_to_scene = true
+		mesh.set_surface_override_material(0, material)
+
+	var flash_tween = create_tween()
+	flash_tween.set_loops()
+	flash_tween.tween_property(material, "albedo_color:a", 0.2, 0.1)
+	flash_tween.tween_property(material, "albedo_color:a", 1.0, 0.1)
+
+	await get_tree().create_timer(invulnerability_time).timeout
+
+	flash_tween.kill()
+	material.albedo_color.a = 1.0
 
 # Key related:
 

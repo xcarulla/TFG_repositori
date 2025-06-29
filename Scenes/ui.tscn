@@ -1,23 +1,84 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmj6ij4boo4ie"]
+[gd_scene load_steps=8 format=3 uid="uid://dmj6ij4boo4ie"]
 
 [ext_resource type="Script" uid="uid://cvb41n556wtq8" path="res://Scripts/UI.gd" id="1_mno6t"]
+[ext_resource type="StyleBox" uid="uid://cm2mptcsyeflw" path="res://Resources/Visuals/UIBackground.tres" id="2_nf4gj"]
+[ext_resource type="FontVariation" uid="uid://e5308wvog5ox" path="res://Resources/Fonts/new_font.tres" id="3_2246s"]
+
+[sub_resource type="Animation" id="Animation_nf4gj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hint:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 651)]
+}
+
+[sub_resource type="Animation" id="Animation_2246s"]
+resource_name = "show_hint"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hint:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.125, 1),
+"update": 0,
+"values": [Vector2(0, 651), Vector2(0, 486)]
+}
+
+[sub_resource type="Animation" id="Animation_q7pk6"]
+resource_name = "hide_hint"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hint:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.125, 1),
+"update": 0,
+"values": [Vector2(0, 486), Vector2(0, 651)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q7pk6"]
+_data = {
+&"RESET": SubResource("Animation_nf4gj"),
+&"hide_hint": SubResource("Animation_q7pk6"),
+&"show_hint": SubResource("Animation_2246s")
+}
 
 [node name="UI" type="Control"]
 layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mno6t")
+
+[node name="Debug" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_mno6t")
 
-[node name="AnimationStates" type="Control" parent="."]
-visible = false
+[node name="AnimationStates" type="Control" parent="Debug"]
 anchors_preset = 0
 offset_left = 14.0
 offset_top = 13.0
 offset_right = 54.0
 offset_bottom = 53.0
 
-[node name="GridContainer" type="GridContainer" parent="AnimationStates"]
+[node name="GridContainer" type="GridContainer" parent="Debug/AnimationStates"]
 layout_mode = 2
 offset_right = 334.0
 offset_bottom = 119.0
@@ -25,7 +86,7 @@ scale = Vector2(0.602942, 0.602942)
 theme_override_constants/h_separation = 25
 columns = 2
 
-[node name="groundedLabel" type="Label" parent="AnimationStates/GridContainer"]
+[node name="groundedLabel" type="Label" parent="Debug/AnimationStates/GridContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
@@ -33,14 +94,14 @@ text = "grounded:"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="grounded" type="Label" parent="AnimationStates/GridContainer"]
+[node name="grounded" type="Label" parent="Debug/AnimationStates/GridContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
 text = "grounded"
 vertical_alignment = 1
 
-[node name="attackingLabel" type="Label" parent="AnimationStates/GridContainer"]
+[node name="attackingLabel" type="Label" parent="Debug/AnimationStates/GridContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
@@ -48,14 +109,14 @@ text = "attacking:"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="attacking" type="Label" parent="AnimationStates/GridContainer"]
+[node name="attacking" type="Label" parent="Debug/AnimationStates/GridContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
 text = "attacking"
 vertical_alignment = 1
 
-[node name="attackTypeLabel" type="Label" parent="AnimationStates/GridContainer"]
+[node name="attackTypeLabel" type="Label" parent="Debug/AnimationStates/GridContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
@@ -63,19 +124,19 @@ text = "attackType:"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="attackType" type="Label" parent="AnimationStates/GridContainer"]
+[node name="attackType" type="Label" parent="Debug/AnimationStates/GridContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
 text = "attackType"
 vertical_alignment = 1
 
-[node name="Stars" type="Control" parent="."]
+[node name="Stars" type="Control" parent="Debug"]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="GridContainer" type="GridContainer" parent="Stars"]
+[node name="GridContainer" type="GridContainer" parent="Debug/Stars"]
 layout_mode = 0
 offset_right = 334.0
 offset_bottom = 119.0
@@ -83,20 +144,88 @@ scale = Vector2(0.602942, 0.602942)
 theme_override_constants/h_separation = 25
 columns = 2
 
-[node name="level1name" type="Label" parent="Stars/GridContainer"]
+[node name="level1name" type="Label" parent="Debug/Stars/GridContainer"]
 layout_mode = 2
 
-[node name="starsCollected1" type="Label" parent="Stars/GridContainer"]
+[node name="starsCollected1" type="Label" parent="Debug/Stars/GridContainer"]
 layout_mode = 2
 
-[node name="level2name" type="Label" parent="Stars/GridContainer"]
+[node name="level2name" type="Label" parent="Debug/Stars/GridContainer"]
 layout_mode = 2
 
-[node name="starsCollected2" type="Label" parent="Stars/GridContainer"]
+[node name="starsCollected2" type="Label" parent="Debug/Stars/GridContainer"]
 layout_mode = 2
 
-[node name="level3name" type="Label" parent="Stars/GridContainer"]
+[node name="level3name" type="Label" parent="Debug/Stars/GridContainer"]
 layout_mode = 2
 
-[node name="starsCollected3" type="Label" parent="Stars/GridContainer"]
+[node name="starsCollected3" type="Label" parent="Debug/Stars/GridContainer"]
 layout_mode = 2
+
+[node name="Hint" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2.99872
+offset_bottom = 164.999
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Panel" type="Panel" parent="Hint"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -251.0
+offset_top = -46.0
+offset_right = 251.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_nf4gj")
+
+[node name="HintTitle" type="Label" parent="Hint/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -127.0
+offset_top = 4.0
+offset_right = 124.0
+offset_bottom = 78.0
+grow_horizontal = 2
+pivot_offset = Vector2(0.500031, -0.000152588)
+theme_override_colors/font_color = Color(0.0984181, 0.332907, 0.596832, 1)
+theme_override_fonts/font = ExtResource("3_2246s")
+theme_override_font_sizes/font_size = 40
+text = "Hint!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HintContent" type="RichTextLabel" parent="Hint/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -237.0
+offset_top = -2.5
+offset_right = 237.0
+offset_bottom = 55.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.0980392, 0.333333, 0.596078, 1)
+theme_override_font_sizes/normal_font_size = 20
+text = "x"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_q7pk6")
+}

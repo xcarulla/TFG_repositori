@@ -9,17 +9,37 @@ var difficulty := "normal" # easy normal hard
 var enemyStats = {
 	"easy": {
 		"health": 1,
-		"damage": 0,
+		"damage": 1,
+		"speed": 4.0,
 	},
 	"normal": {
 		"health": 2,
 		"damage": 1,
+		"speed": 5.0,
 	},
 	"hard": {
 		"health": 3,
-		"damage": 3,
+		"damage": 2,
+		"speed": 6.0,
 	},
 }
+
+var playerStats = {
+	"easy": {
+		"health": 7,
+		"invul_time": 1.0,
+	},
+	"normal": {
+		"health": 5,
+		"invul_time": 1.0,
+	},
+	"hard": {
+		"health": 5,
+		"invul_time": 0.8,
+	},
+}
+
+var total_death_counter := 0
 
 # -------------------------------
 # LEVEL RELATED GLOBAL VARS:
