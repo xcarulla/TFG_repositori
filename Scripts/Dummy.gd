@@ -163,23 +163,7 @@ func start_invulnerability_timer():
 	is_invulnerable = false
 
 func invul_effect():
-	var mesh = $Rig.get_node("MeshInstance3D")
-	var material = mesh.get_active_material(0)
-
-	if material.resource_local_to_scene == false:
-		material = material.duplicate()
-		material.resource_local_to_scene = true
-		mesh.set_surface_override_material(0, material)
-
-	var flash_tween = create_tween()
-	flash_tween.set_loops()
-	flash_tween.tween_property(material, "albedo_color:a", 0.2, 0.1)
-	flash_tween.tween_property(material, "albedo_color:a", 1.0, 0.1)
-
-	await get_tree().create_timer(invulnerability_time).timeout
-
-	flash_tween.kill()
-	material.albedo_color.a = 1.0
+	pass #fer flash 
 
 # Key related:
 
