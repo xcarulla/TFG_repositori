@@ -1,7 +1,8 @@
+RichTextLabel
+TextureButton
 CollisionShape3D
 Area3D
 AnimationPlayer
-RichTextLabel
 Control
 CharacterBody3D
 MeshInstance3D
@@ -11,4 +12,3 @@ Node3D
 GPUParticles3D
 VSeparator
 TextureRect
-HBoxContainer

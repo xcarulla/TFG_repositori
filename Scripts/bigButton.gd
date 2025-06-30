@@ -7,7 +7,6 @@ func _ready():
 	# Codi que serveix per moure el punt de pivot al centre perque els efectes de tween estiguin centrats.
 	# !!! S'ha de canviar perque funcioni amb qualsevol mida de botó. !!!
 	size = Vector2(242,50)
-	print(size)
 	pivot_offset = Vector2(size.x/2, size.y/2)
 
 func _on_mouse_entered():

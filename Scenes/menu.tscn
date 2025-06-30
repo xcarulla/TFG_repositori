@@ -1,13 +1,16 @@
-[gd_scene load_steps=29 format=3 uid="uid://ry0uwh2umqmd"]
+[gd_scene load_steps=35 format=3 uid="uid://ry0uwh2umqmd"]
 
 [ext_resource type="Script" uid="uid://doye1lwxtjrf" path="res://Scripts/bigButton.gd" id="1_fnoq7"]
 [ext_resource type="Script" uid="uid://c26rf765gp284" path="res://Scripts/mainMenu.gd" id="1_roa1j"]
 [ext_resource type="FontVariation" uid="uid://e5308wvog5ox" path="res://Resources/Fonts/new_font.tres" id="2_uh4nm"]
 [ext_resource type="Environment" uid="uid://do8nu04t8kj8f" path="res://Resources/Visuals/enviroment.tres" id="4_7s1ww"]
+[ext_resource type="Texture2D" uid="uid://cl3l6pmfwy68v" path="res://Assets/UIElements/creditsNormal.svg" id="4_d77ms"]
 [ext_resource type="StyleBox" uid="uid://cm2mptcsyeflw" path="res://Resources/Visuals/UIBackground.tres" id="4_jc77v"]
+[ext_resource type="Texture2D" uid="uid://bfk6kxadkky0k" path="res://Assets/UIElements/creditsPressed.svg" id="5_3p34a"]
 [ext_resource type="Script" uid="uid://c2yl6wmhiujoy" path="res://Scripts/levelNavigation.gd" id="5_kmwmt"]
 [ext_resource type="Script" uid="uid://htjce7vrklok" path="res://Scripts/menuClouds.gd" id="5_nq0b7"]
 [ext_resource type="PackedScene" uid="uid://u4p0lsqy3h4w" path="res://Assets/LevelElements/cloud2.glb" id="5_preei"]
+[ext_resource type="Texture2D" uid="uid://kmxiewnvlx8e" path="res://Assets/UIElements/creditsHover.svg" id="6_owyel"]
 [ext_resource type="PackedScene" uid="uid://bwixuosag5uew" path="res://Assets/LevelElements/cloud3.glb" id="6_r6ner"]
 [ext_resource type="PackedScene" uid="uid://owr4441vitc0" path="res://Assets/LevelElements/cloud.glb" id="7_0cibs"]
 [ext_resource type="PackedScene" uid="uid://di6a2b3acnkkq" path="res://Scenes/button_exit.tscn" id="7_lqe4t"]
@@ -37,6 +40,18 @@ border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
 border_color = Color(0.0980392, 0.333333, 0.596078, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d77ms"]
+bg_color = Color(0.95, 0.697458, 0.6745, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.603922, 0.0823529, 0.247059, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
@@ -105,6 +120,18 @@ tracks/4/path = NodePath("CanvasLayer/Play Menu:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 650)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/Credits Menu:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -211,11 +238,43 @@ tracks/2/keys = {
 "values": [Vector2(455, 678), Vector2(455, 678), Vector2(455, 304)]
 }
 
+[sub_resource type="Animation" id="Animation_d77ms"]
+resource_name = "showCredits"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Credits Menu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.125, 1),
+"update": 0,
+"values": [Vector2(0, 650), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3p34a"]
+resource_name = "closeCredits"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Credits Menu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.267, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 650)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_muofe"]
 _data = {
 &"RESET": SubResource("Animation_dhhwk"),
+&"closeCredits": SubResource("Animation_3p34a"),
 &"hideOptions": SubResource("Animation_1qy6h"),
 &"hidePlay": SubResource("Animation_8uqts"),
+&"showCredits": SubResource("Animation_d77ms"),
 &"showOptions": SubResource("Animation_tdwg2"),
 &"showPlay": SubResource("Animation_q43a0"),
 &"title_anim": SubResource("Animation_i4gdr")
@@ -251,8 +310,8 @@ grow_vertical = 2
 pivot_offset = Vector2(445, 174)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_uh4nm")
-theme_override_font_sizes/font_size = 250
-text = "Title"
+theme_override_font_sizes/font_size = 230
+text = "Clouds"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -266,7 +325,7 @@ anchor_bottom = 0.5
 offset_left = -121.0
 offset_top = -20.0
 offset_right = 121.0
-offset_bottom = 180.0
+offset_bottom = 249.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 25
@@ -276,6 +335,20 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "PLAY"
 script = ExtResource("1_fnoq7")
+
+[node name="ButtonDiff" type="Button" parent="CanvasLayer/Main Menu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "CHANGE DIFFICULTY"
+script = ExtResource("1_fnoq7")
+
+[node name="DiffText" type="RichTextLabel" parent="CanvasLayer/Main Menu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 30
+text = "Easy"
+fit_content = true
+horizontal_alignment = 1
 
 [node name="ButtonOptions" type="Button" parent="CanvasLayer/Main Menu/VBoxContainer"]
 visible = false
@@ -289,6 +362,27 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "QUIT"
 script = ExtResource("1_fnoq7")
+
+[node name="CreditsButton" type="TextureButton" parent="CanvasLayer/Main Menu"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -52.9999
+offset_top = -44.9999
+offset_right = 971.0
+offset_bottom = 979.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.04, 0.04)
+texture_normal = ExtResource("4_d77ms")
+texture_pressed = ExtResource("5_3p34a")
+texture_hover = ExtResource("6_owyel")
+texture_disabled = ExtResource("5_3p34a")
+texture_focused = ExtResource("5_3p34a")
+stretch_mode = 4
 
 [node name="Options Menu" type="Control" parent="CanvasLayer"]
 visible = false
@@ -701,6 +795,77 @@ texture_hover = ExtResource("11_q8ohy")
 ignore_texture_size = true
 stretch_mode = 4
 
+[node name="Credits Menu" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 650.0
+offset_bottom = 650.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Credits Menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.231
+anchor_top = 0.315
+anchor_right = 0.77
+anchor_bottom = 0.955
+offset_left = -1.88101
+offset_top = -3.74916
+offset_right = -2.27002
+offset_bottom = -3.74915
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d77ms")
+
+[node name="CreditsTitle" type="Label" parent="CanvasLayer/Credits Menu/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -125.5
+offset_right = 125.5
+offset_bottom = 88.0
+grow_horizontal = 2
+pivot_offset = Vector2(0.500031, -0.000152588)
+theme_override_colors/font_color = Color(0.603922, 0.0823529, 0.247059, 1)
+theme_override_fonts/font = ExtResource("2_uh4nm")
+theme_override_font_sizes/font_size = 50
+text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonExit" parent="CanvasLayer/Credits Menu/Panel" instance=ExtResource("7_lqe4t")]
+self_modulate = Color(0.603922, 0.0823529, 0.247059, 1)
+layout_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Credits Menu/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -287.269
+offset_top = -102.36
+offset_right = 287.731
+offset_bottom = 141.64
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.605672, 0.0843631, 0.247789, 1)
+theme_override_font_sizes/normal_font_size = 18
+text = "Game Made by:
+Xavier Carulla Poch
+
+Special Thanks to:
+Antonio Rodríguez Benítez
+
+\"Dummy\" 3D asset his animations and Level building blocks:
+Kay Lousberg"
+horizontal_alignment = 1
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("4_7s1ww")
 
@@ -708,7 +873,7 @@ environment = ExtResource("4_7s1ww")
 transform = Transform3D(1, 0, 0, 0, 0.817366, -0.576118, 0, 0.576118, 0.817366, 0, 0, 0)
 
 [node name="Clouds" type="Node3D" parent="."]
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 112.779, 0)
 script = ExtResource("5_nq0b7")
 cloud_speed = 2
 
@@ -857,12 +1022,16 @@ libraries = {
 [connection signal="mouse_entered" from="CanvasLayer/Main Menu/VBoxContainer/ButtonPlay" to="CanvasLayer/Main Menu/VBoxContainer/ButtonPlay" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Main Menu/VBoxContainer/ButtonPlay" to="CanvasLayer/Main Menu/VBoxContainer/ButtonPlay" method="_on_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/Main Menu/VBoxContainer/ButtonPlay" to="CanvasLayer/Main Menu" method="_play"]
+[connection signal="mouse_entered" from="CanvasLayer/Main Menu/VBoxContainer/ButtonDiff" to="CanvasLayer/Main Menu/VBoxContainer/ButtonDiff" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Main Menu/VBoxContainer/ButtonDiff" to="CanvasLayer/Main Menu/VBoxContainer/ButtonDiff" method="_on_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/Main Menu/VBoxContainer/ButtonDiff" to="CanvasLayer/Main Menu" method="_changeDiff"]
 [connection signal="mouse_entered" from="CanvasLayer/Main Menu/VBoxContainer/ButtonOptions" to="CanvasLayer/Main Menu/VBoxContainer/ButtonOptions" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Main Menu/VBoxContainer/ButtonOptions" to="CanvasLayer/Main Menu/VBoxContainer/ButtonOptions" method="_on_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/Main Menu/VBoxContainer/ButtonOptions" to="CanvasLayer/Main Menu" method="_options"]
 [connection signal="mouse_entered" from="CanvasLayer/Main Menu/VBoxContainer/ButtonQuit" to="CanvasLayer/Main Menu/VBoxContainer/ButtonQuit" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Main Menu/VBoxContainer/ButtonQuit" to="CanvasLayer/Main Menu/VBoxContainer/ButtonQuit" method="_on_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/Main Menu/VBoxContainer/ButtonQuit" to="CanvasLayer/Main Menu" method="_quit"]
+[connection signal="pressed" from="CanvasLayer/Main Menu/CreditsButton" to="CanvasLayer/Main Menu" method="_showCredits"]
 [connection signal="pressed" from="CanvasLayer/Options Menu/Panel/ButtonExit" to="CanvasLayer/Main Menu" method="_closeOptions"]
 [connection signal="pressed" from="CanvasLayer/Play Menu/Panel/ButtonExit" to="CanvasLayer/Main Menu" method="_closePlay"]
 [connection signal="pressed" from="CanvasLayer/Play Menu/Panel/Level_1/Panel/ButtonPlayLevel" to="CanvasLayer/Play Menu/Panel/Level_1" method="_playLevel"]
@@ -870,4 +1039,5 @@ libraries = {
 [connection signal="pressed" from="CanvasLayer/Play Menu/Panel/Level_3/Panel/ButtonPlayLevel" to="CanvasLayer/Play Menu/Panel/Level_3" method="_playLevel"]
 [connection signal="pressed" from="CanvasLayer/Play Menu/Panel/ButtonLeft" to="CanvasLayer/Play Menu" method="_on_button_left_pressed"]
 [connection signal="pressed" from="CanvasLayer/Play Menu/Panel/ButtonRight" to="CanvasLayer/Play Menu" method="_on_button_right_pressed"]
+[connection signal="pressed" from="CanvasLayer/Credits Menu/Panel/ButtonExit" to="CanvasLayer/Main Menu" method="_closeCredits"]
 [connection signal="area_entered" from="Area3D" to="Clouds" method="_on_area_3d_area_entered"]
