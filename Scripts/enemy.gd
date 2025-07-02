@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+@onready var animationPlayer : AnimationPlayer = $AnimationPlayer
 
 var max_health = GlobalVariables.enemyStats[GlobalVariables.difficulty]["health"]
 var damage = GlobalVariables.enemyStats[GlobalVariables.difficulty]["damage"]
@@ -22,11 +23,14 @@ func check_health():
 		die()
 		
 func die():
+	animationPlayer.play("Death")
+	await get_tree().create_timer(1).timeout
 	queue_free()
 	
 func _physics_process(delta: float) -> void: #Moviment
-	
-	velocity.x = speed * direction.x
+	if current_health > 0:
+		velocity.x = speed * direction.x
+	else: velocity.x = 0.0
 	
 	# Gravity
 	if not is_on_floor():
@@ -57,6 +61,7 @@ func _on_hurt_box_area_entered(_area: Area3D) -> void:
 	pass
 
 func recive_dmg():
+	animationPlayer.play("HitRecieve")
 	current_health -= 1
 	print(current_health)
 

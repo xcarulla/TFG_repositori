@@ -138,6 +138,21 @@ tracks/5/keys = {
 "values": [Vector2(0, 650)]
 }
 
+[sub_resource type="Animation" id="Animation_3p34a"]
+resource_name = "closeCredits"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Credits Menu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.267, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 650)]
+}
+
 [sub_resource type="Animation" id="Animation_1qy6h"]
 resource_name = "hideOptions"
 tracks/0/type = "value"
@@ -166,6 +181,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(0.267, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, 650)]
+}
+
+[sub_resource type="Animation" id="Animation_d77ms"]
+resource_name = "showCredits"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Credits Menu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.125, 1),
+"update": 0,
+"values": [Vector2(0, 650), Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_tdwg2"]
@@ -236,36 +266,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 0.482968, 1),
 "update": 0,
 "values": [Vector2(455, 678), Vector2(455, 678), Vector2(455, 304)]
-}
-
-[sub_resource type="Animation" id="Animation_d77ms"]
-resource_name = "showCredits"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Credits Menu:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.125, 1),
-"update": 0,
-"values": [Vector2(0, 650), Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_3p34a"]
-resource_name = "closeCredits"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Credits Menu:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.267, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 650)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_muofe"]
@@ -849,9 +849,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -287.269
-offset_top = -102.36
+offset_top = -122.36
 offset_right = 287.731
-offset_bottom = 141.64
+offset_bottom = 180.64
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0.605672, 0.0843631, 0.247789, 1)
@@ -859,11 +859,14 @@ theme_override_font_sizes/normal_font_size = 18
 text = "Game Made by:
 Xavier Carulla Poch
 
-Special Thanks to:
+Tutor:
 Antonio Rodríguez Benítez
 
-\"Dummy\" 3D asset his animations and Level building blocks:
-Kay Lousberg"
+\"Dummys and Level building blocks:
+Kay Lousberg
+
+Green enemy:
+Quaternius"
 horizontal_alignment = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

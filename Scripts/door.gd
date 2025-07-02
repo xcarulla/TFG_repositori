@@ -21,7 +21,7 @@ func body_entered_area(body):
 		else:
 			var ui = get_parent().get_node("UI")
 			await get_tree().create_timer(1.0).timeout
-			ui.activateHint("Maybe that robot had something I need?")
+			ui.activateHint("Maybe that enemy had something I need?")
 
 
 # Animations:
