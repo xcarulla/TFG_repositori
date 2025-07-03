@@ -1,12 +1,7 @@
-res://Scenes/enemy.tscn
+res://Scenes/Level_2.tscn
 res://MeshLib/tiles.meshlib
 res://Resources/Shaders/hitGeometryShader.tres
 res://Resources/Shaders/hitSparksGeometryShader.tres
 res://Resources/Visuals/enviroment.tres
 res://Resources/Shaders/aura_tp.tres
-res://Resources/Shaders/processMat.tres
-res://Scenes/Level_1.tscn
-res://Scenes/Level_2.tscn
-res://Scripts/door.gd
-res://Scripts/enemy.gd
 res://Scenes/menu.tscn
