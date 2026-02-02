@@ -1,11 +1,29 @@
 extends Node3D
 
 var starsDict
+var pause_menu
+var paused = false
 
 func _ready():
 	starsDict = GlobalVariables.getStars(name)
+	pause_menu = $CanvasLayer/PauseMenu
 	# print(starsDict)
 	hideCollectedStars()
+
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("game_pause"):
+		pauseMenu()
+		
+func pauseMenu():
+	if paused:
+		pause_menu.hide()
+		Engine.time_scale = 1
+	else:
+		pause_menu.show()
+		Engine.time_scale = 0
+		
+	paused = !paused
 
 
 func hideCollectedStars():

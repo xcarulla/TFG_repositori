@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://ry0uwh2umqmd"]
+[gd_scene format=3 uid="uid://ry0uwh2umqmd"]
 
 [ext_resource type="Script" uid="uid://doye1lwxtjrf" path="res://Scripts/bigButton.gd" id="1_fnoq7"]
 [ext_resource type="Script" uid="uid://c26rf765gp284" path="res://Scripts/mainMenu.gd" id="1_roa1j"]
@@ -137,6 +137,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector2(0, 650)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/Main Menu/CreditsButton:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_3p34a"]
 resource_name = "closeCredits"
@@ -230,7 +242,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_i4gdr"]
 resource_name = "title_anim"
-length = 2.5
+length = 2.5333333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -267,6 +279,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(455, 678), Vector2(455, 678), Vector2(455, 304)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Main Menu/CreditsButton:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.45),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_muofe"]
 _data = {
@@ -280,11 +304,11 @@ _data = {
 &"title_anim": SubResource("Animation_i4gdr")
 }
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D" type="Node3D" unique_id=405877786]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=120507607]
 
-[node name="Main Menu" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("anim_player")]
+[node name="Main Menu" type="Control" parent="CanvasLayer" unique_id=727794023 node_paths=PackedStringArray("anim_player")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -294,7 +318,7 @@ grow_vertical = 2
 script = ExtResource("1_roa1j")
 anim_player = NodePath("../../anim_player")
 
-[node name="Title" type="Label" parent="CanvasLayer/Main Menu"]
+[node name="Title" type="Label" parent="CanvasLayer/Main Menu" unique_id=2108591019]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -315,7 +339,7 @@ text = "Clouds"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Main Menu"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Main Menu" unique_id=1435636104]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -325,24 +349,24 @@ anchor_bottom = 0.5
 offset_left = -121.0
 offset_top = -20.0
 offset_right = 121.0
-offset_bottom = 249.0
+offset_bottom = 249.00006
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 25
 
-[node name="ButtonPlay" type="Button" parent="CanvasLayer/Main Menu/VBoxContainer"]
+[node name="ButtonPlay" type="Button" parent="CanvasLayer/Main Menu/VBoxContainer" unique_id=238540067]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "PLAY"
 script = ExtResource("1_fnoq7")
 
-[node name="ButtonDiff" type="Button" parent="CanvasLayer/Main Menu/VBoxContainer"]
+[node name="ButtonDiff" type="Button" parent="CanvasLayer/Main Menu/VBoxContainer" unique_id=753949126]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "CHANGE DIFFICULTY"
 script = ExtResource("1_fnoq7")
 
-[node name="DiffText" type="RichTextLabel" parent="CanvasLayer/Main Menu/VBoxContainer"]
+[node name="DiffText" type="RichTextLabel" parent="CanvasLayer/Main Menu/VBoxContainer" unique_id=789234654]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/normal_font_size = 30
@@ -350,20 +374,21 @@ text = "Easy"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="ButtonOptions" type="Button" parent="CanvasLayer/Main Menu/VBoxContainer"]
+[node name="ButtonOptions" type="Button" parent="CanvasLayer/Main Menu/VBoxContainer" unique_id=1331409898]
 visible = false
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "OPTIONS"
 script = ExtResource("1_fnoq7")
 
-[node name="ButtonQuit" type="Button" parent="CanvasLayer/Main Menu/VBoxContainer"]
+[node name="ButtonQuit" type="Button" parent="CanvasLayer/Main Menu/VBoxContainer" unique_id=281201937]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "QUIT"
 script = ExtResource("1_fnoq7")
 
-[node name="CreditsButton" type="TextureButton" parent="CanvasLayer/Main Menu"]
+[node name="CreditsButton" type="TextureButton" parent="CanvasLayer/Main Menu" unique_id=546899349]
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -384,7 +409,7 @@ texture_disabled = ExtResource("5_3p34a")
 texture_focused = ExtResource("5_3p34a")
 stretch_mode = 4
 
-[node name="Options Menu" type="Control" parent="CanvasLayer"]
+[node name="Options Menu" type="Control" parent="CanvasLayer" unique_id=370025498]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -393,7 +418,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Options Menu"]
+[node name="Panel" type="Panel" parent="CanvasLayer/Options Menu" unique_id=1597873707]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.231
@@ -408,7 +433,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_slalx")
 
-[node name="OptionsTitle" type="Label" parent="CanvasLayer/Options Menu/Panel"]
+[node name="OptionsTitle" type="Label" parent="CanvasLayer/Options Menu/Panel" unique_id=1537244894]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -425,11 +450,11 @@ text = "Options"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ButtonExit" parent="CanvasLayer/Options Menu/Panel" instance=ExtResource("7_lqe4t")]
+[node name="ButtonExit" parent="CanvasLayer/Options Menu/Panel" unique_id=825775995 instance=ExtResource("7_lqe4t")]
 self_modulate = Color(0.333333, 0.329412, 0.34902, 1)
 layout_mode = 1
 
-[node name="Play Menu" type="Control" parent="CanvasLayer"]
+[node name="Play Menu" type="Control" parent="CanvasLayer" unique_id=1907974179]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -440,7 +465,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("5_kmwmt")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Play Menu"]
+[node name="Panel" type="Panel" parent="CanvasLayer/Play Menu" unique_id=202364189]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.231
@@ -455,7 +480,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("4_jc77v")
 
-[node name="PlayTitle" type="Label" parent="CanvasLayer/Play Menu/Panel"]
+[node name="PlayTitle" type="Label" parent="CanvasLayer/Play Menu/Panel" unique_id=591965361]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -472,12 +497,11 @@ text = "Play"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ButtonExit" parent="CanvasLayer/Play Menu/Panel" instance=ExtResource("7_lqe4t")]
+[node name="ButtonExit" parent="CanvasLayer/Play Menu/Panel" unique_id=678225774 instance=ExtResource("7_lqe4t")]
 self_modulate = Color(0.254902, 0.596078, 1, 1)
 layout_mode = 1
 
-[node name="Level_1" type="Control" parent="CanvasLayer/Play Menu/Panel"]
-layout_mode = 2
+[node name="Level_1" type="Control" parent="CanvasLayer/Play Menu/Panel" unique_id=761475748]
 anchors_preset = 0
 offset_left = 310.0
 offset_top = 236.0
@@ -487,7 +511,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("8_2texk")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Play Menu/Panel/Level_1"]
+[node name="Panel" type="Panel" parent="CanvasLayer/Play Menu/Panel/Level_1" unique_id=599605278]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -503,7 +527,7 @@ grow_vertical = 2
 pivot_offset = Vector2(150, 138)
 theme_override_styles/panel = SubResource("StyleBoxFlat_ca8ff")
 
-[node name="Label" type="Label" parent="CanvasLayer/Play Menu/Panel/Level_1/Panel"]
+[node name="Label" type="Label" parent="CanvasLayer/Play Menu/Panel/Level_1/Panel" unique_id=227923438]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -519,7 +543,7 @@ text = "Level 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Play Menu/Panel/Level_1/Panel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Play Menu/Panel/Level_1/Panel" unique_id=1158804376]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -537,25 +561,25 @@ pivot_offset = Vector2(1207.5, 337)
 theme_override_constants/separation = 150
 alignment = 1
 
-[node name="Star1" type="TextureRect" parent="CanvasLayer/Play Menu/Panel/Level_1/Panel/HBoxContainer"]
+[node name="Star1" type="TextureRect" parent="CanvasLayer/Play Menu/Panel/Level_1/Panel/HBoxContainer" unique_id=752510085]
 self_modulate = Color(0.0980392, 0.333333, 0.596078, 1)
 layout_mode = 2
 texture = ExtResource("8_s6lar")
 stretch_mode = 4
 
-[node name="Star2" type="TextureRect" parent="CanvasLayer/Play Menu/Panel/Level_1/Panel/HBoxContainer"]
+[node name="Star2" type="TextureRect" parent="CanvasLayer/Play Menu/Panel/Level_1/Panel/HBoxContainer" unique_id=424214742]
 self_modulate = Color(0.0980392, 0.333333, 0.596078, 1)
 layout_mode = 2
 texture = ExtResource("8_s6lar")
 stretch_mode = 4
 
-[node name="Star3" type="TextureRect" parent="CanvasLayer/Play Menu/Panel/Level_1/Panel/HBoxContainer"]
+[node name="Star3" type="TextureRect" parent="CanvasLayer/Play Menu/Panel/Level_1/Panel/HBoxContainer" unique_id=824315700]
 self_modulate = Color(0.0980392, 0.333333, 0.596078, 1)
 layout_mode = 2
 texture = ExtResource("8_s6lar")
 stretch_mode = 4
 
-[node name="ButtonPlayLevel" type="Button" parent="CanvasLayer/Play Menu/Panel/Level_1/Panel"]
+[node name="ButtonPlayLevel" type="Button" parent="CanvasLayer/Play Menu/Panel/Level_1/Panel" unique_id=359860519]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -570,9 +594,8 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Play level"
 
-[node name="Level_2" type="Control" parent="CanvasLayer/Play Menu/Panel"]
+[node name="Level_2" type="Control" parent="CanvasLayer/Play Menu/Panel" unique_id=86099321]
 visible = false
-layout_mode = 2
 anchors_preset = 0
 offset_left = 310.0
 offset_top = 236.0
@@ -582,7 +605,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("8_2texk")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Play Menu/Panel/Level_2"]
+[node name="Panel" type="Panel" parent="CanvasLayer/Play Menu/Panel/Level_2" unique_id=1386973265]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -598,7 +621,7 @@ grow_vertical = 2
 pivot_offset = Vector2(150, 138)
 theme_override_styles/panel = SubResource("StyleBoxFlat_ca8ff")
 
-[node name="Label" type="Label" parent="CanvasLayer/Play Menu/Panel/Level_2/Panel"]
+[node name="Label" type="Label" parent="CanvasLayer/Play Menu/Panel/Level_2/Panel" unique_id=696971975]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -614,7 +637,7 @@ text = "Level 2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Play Menu/Panel/Level_2/Panel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Play Menu/Panel/Level_2/Panel" unique_id=92612440]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -632,25 +655,25 @@ pivot_offset = Vector2(1207.5, 337)
 theme_override_constants/separation = 150
 alignment = 1
 
-[node name="Star1" type="TextureRect" parent="CanvasLayer/Play Menu/Panel/Level_2/Panel/HBoxContainer"]
+[node name="Star1" type="TextureRect" parent="CanvasLayer/Play Menu/Panel/Level_2/Panel/HBoxContainer" unique_id=1127571106]
 self_modulate = Color(0.0980392, 0.333333, 0.596078, 1)
 layout_mode = 2
 texture = ExtResource("8_s6lar")
 stretch_mode = 4
 
-[node name="Star2" type="TextureRect" parent="CanvasLayer/Play Menu/Panel/Level_2/Panel/HBoxContainer"]
+[node name="Star2" type="TextureRect" parent="CanvasLayer/Play Menu/Panel/Level_2/Panel/HBoxContainer" unique_id=514448386]
 self_modulate = Color(0.0980392, 0.333333, 0.596078, 1)
 layout_mode = 2
 texture = ExtResource("8_s6lar")
 stretch_mode = 4
 
-[node name="Star3" type="TextureRect" parent="CanvasLayer/Play Menu/Panel/Level_2/Panel/HBoxContainer"]
+[node name="Star3" type="TextureRect" parent="CanvasLayer/Play Menu/Panel/Level_2/Panel/HBoxContainer" unique_id=1883454909]
 self_modulate = Color(0.0980392, 0.333333, 0.596078, 1)
 layout_mode = 2
 texture = ExtResource("8_s6lar")
 stretch_mode = 4
 
-[node name="ButtonPlayLevel" type="Button" parent="CanvasLayer/Play Menu/Panel/Level_2/Panel"]
+[node name="ButtonPlayLevel" type="Button" parent="CanvasLayer/Play Menu/Panel/Level_2/Panel" unique_id=780206929]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -665,9 +688,8 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Play level"
 
-[node name="Level_3" type="Control" parent="CanvasLayer/Play Menu/Panel"]
+[node name="Level_3" type="Control" parent="CanvasLayer/Play Menu/Panel" unique_id=1826657478]
 visible = false
-layout_mode = 2
 anchors_preset = 0
 offset_left = 310.0
 offset_top = 236.0
@@ -677,7 +699,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("8_2texk")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Play Menu/Panel/Level_3"]
+[node name="Panel" type="Panel" parent="CanvasLayer/Play Menu/Panel/Level_3" unique_id=2038692488]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -693,7 +715,7 @@ grow_vertical = 2
 pivot_offset = Vector2(150, 138)
 theme_override_styles/panel = SubResource("StyleBoxFlat_ca8ff")
 
-[node name="Label" type="Label" parent="CanvasLayer/Play Menu/Panel/Level_3/Panel"]
+[node name="Label" type="Label" parent="CanvasLayer/Play Menu/Panel/Level_3/Panel" unique_id=1072442874]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -709,7 +731,7 @@ text = "Level 3"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Play Menu/Panel/Level_3/Panel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Play Menu/Panel/Level_3/Panel" unique_id=1927882362]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -727,25 +749,25 @@ pivot_offset = Vector2(1207.5, 337)
 theme_override_constants/separation = 150
 alignment = 1
 
-[node name="Star1" type="TextureRect" parent="CanvasLayer/Play Menu/Panel/Level_3/Panel/HBoxContainer"]
+[node name="Star1" type="TextureRect" parent="CanvasLayer/Play Menu/Panel/Level_3/Panel/HBoxContainer" unique_id=315535061]
 self_modulate = Color(0.0980392, 0.333333, 0.596078, 1)
 layout_mode = 2
 texture = ExtResource("8_s6lar")
 stretch_mode = 4
 
-[node name="Star2" type="TextureRect" parent="CanvasLayer/Play Menu/Panel/Level_3/Panel/HBoxContainer"]
+[node name="Star2" type="TextureRect" parent="CanvasLayer/Play Menu/Panel/Level_3/Panel/HBoxContainer" unique_id=202804644]
 self_modulate = Color(0.0980392, 0.333333, 0.596078, 1)
 layout_mode = 2
 texture = ExtResource("8_s6lar")
 stretch_mode = 4
 
-[node name="Star3" type="TextureRect" parent="CanvasLayer/Play Menu/Panel/Level_3/Panel/HBoxContainer"]
+[node name="Star3" type="TextureRect" parent="CanvasLayer/Play Menu/Panel/Level_3/Panel/HBoxContainer" unique_id=1917107046]
 self_modulate = Color(0.0980392, 0.333333, 0.596078, 1)
 layout_mode = 2
 texture = ExtResource("8_s6lar")
 stretch_mode = 4
 
-[node name="ButtonPlayLevel" type="Button" parent="CanvasLayer/Play Menu/Panel/Level_3/Panel"]
+[node name="ButtonPlayLevel" type="Button" parent="CanvasLayer/Play Menu/Panel/Level_3/Panel" unique_id=415596789]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -760,7 +782,7 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Play level"
 
-[node name="ButtonLeft" type="TextureButton" parent="CanvasLayer/Play Menu/Panel"]
+[node name="ButtonLeft" type="TextureButton" parent="CanvasLayer/Play Menu/Panel" unique_id=1082287677]
 self_modulate = Color(0.254902, 0.596078, 1, 1)
 layout_mode = 1
 anchors_preset = 4
@@ -776,7 +798,7 @@ texture_hover = ExtResource("9_ssoc2")
 ignore_texture_size = true
 stretch_mode = 4
 
-[node name="ButtonRight" type="TextureButton" parent="CanvasLayer/Play Menu/Panel"]
+[node name="ButtonRight" type="TextureButton" parent="CanvasLayer/Play Menu/Panel" unique_id=1237159021]
 self_modulate = Color(0.254902, 0.596078, 1, 1)
 layout_mode = 1
 anchors_preset = 6
@@ -795,7 +817,7 @@ texture_hover = ExtResource("11_q8ohy")
 ignore_texture_size = true
 stretch_mode = 4
 
-[node name="Credits Menu" type="Control" parent="CanvasLayer"]
+[node name="Credits Menu" type="Control" parent="CanvasLayer" unique_id=1718804436]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -805,7 +827,7 @@ offset_bottom = 650.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Credits Menu"]
+[node name="Panel" type="Panel" parent="CanvasLayer/Credits Menu" unique_id=354003288]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.231
@@ -820,7 +842,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_d77ms")
 
-[node name="CreditsTitle" type="Label" parent="CanvasLayer/Credits Menu/Panel"]
+[node name="CreditsTitle" type="Label" parent="CanvasLayer/Credits Menu/Panel" unique_id=67017301]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -837,11 +859,11 @@ text = "Credits"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ButtonExit" parent="CanvasLayer/Credits Menu/Panel" instance=ExtResource("7_lqe4t")]
+[node name="ButtonExit" parent="CanvasLayer/Credits Menu/Panel" unique_id=1775429842 instance=ExtResource("7_lqe4t")]
 self_modulate = Color(0.603922, 0.0823529, 0.247059, 1)
 layout_mode = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Credits Menu/Panel"]
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Credits Menu/Panel" unique_id=640855939]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -869,158 +891,156 @@ Green enemy:
 Quaternius"
 horizontal_alignment = 1
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=421070970]
 environment = ExtResource("4_7s1ww")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1743219934]
 transform = Transform3D(1, 0, 0, 0, 0.817366, -0.576118, 0, 0.576118, 0.817366, 0, 0, 0)
 
-[node name="Clouds" type="Node3D" parent="."]
+[node name="Clouds" type="Node3D" parent="." unique_id=73293345]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 112.779, 0)
 script = ExtResource("5_nq0b7")
 cloud_speed = 2
 
-[node name="cloud" parent="Clouds" instance=ExtResource("7_0cibs")]
+[node name="cloud" parent="Clouds" unique_id=1418422751 instance=ExtResource("7_0cibs")]
 transform = Transform3D(1, 0, 0, 0, 0.90254, -0.430606, 0, 0.430606, 0.90254, 1.19548, 21.2989, -23.921)
 
-[node name="Area3D" type="Area3D" parent="Clouds/cloud"]
+[node name="Area3D" type="Area3D" parent="Clouds/cloud" unique_id=1399656555]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud/Area3D" unique_id=1510812143]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.856598, -0.0987558, -3.8147e-06)
 shape = SubResource("BoxShape3D_krdg2")
 
-[node name="cloud2" parent="Clouds" instance=ExtResource("5_preei")]
+[node name="cloud2" parent="Clouds" unique_id=1055767232 instance=ExtResource("5_preei")]
 transform = Transform3D(1, 0, 0, 0, 0.90254, -0.430606, 0, 0.430606, 0.90254, -18.8331, 21.2989, -19.8105)
 
-[node name="Area3D" type="Area3D" parent="Clouds/cloud2"]
+[node name="Area3D" type="Area3D" parent="Clouds/cloud2" unique_id=1553560979]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud2/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud2/Area3D" unique_id=1954900511]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.856598, -0.0987558, -3.8147e-06)
 shape = SubResource("BoxShape3D_krdg2")
 
-[node name="cloud13" parent="Clouds" instance=ExtResource("5_preei")]
+[node name="cloud13" parent="Clouds" unique_id=302471917 instance=ExtResource("5_preei")]
 transform = Transform3D(1, 0, 0, 0, 0.90254, -0.430606, 0, 0.430606, 0.90254, -60.5467, 21.2989, -32.5987)
 
-[node name="Area3D" type="Area3D" parent="Clouds/cloud13"]
+[node name="Area3D" type="Area3D" parent="Clouds/cloud13" unique_id=370217945]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud13/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud13/Area3D" unique_id=2084122414]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.856598, -0.0987558, -3.8147e-06)
 shape = SubResource("BoxShape3D_krdg2")
 
-[node name="cloud3" parent="Clouds" instance=ExtResource("6_r6ner")]
+[node name="cloud3" parent="Clouds" unique_id=821484262 instance=ExtResource("6_r6ner")]
 transform = Transform3D(1, 0, 0, 0, 0.90254, -0.430606, 0, 0.430606, 0.90254, 18.8127, 21.2989, -18.4404)
 
-[node name="Area3D" type="Area3D" parent="Clouds/cloud3"]
+[node name="Area3D" type="Area3D" parent="Clouds/cloud3" unique_id=1654938952]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud3/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud3/Area3D" unique_id=2121201083]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.856598, -0.0987558, -3.8147e-06)
 shape = SubResource("BoxShape3D_krdg2")
 
-[node name="cloud4" parent="Clouds" instance=ExtResource("7_0cibs")]
+[node name="cloud4" parent="Clouds" unique_id=525053833 instance=ExtResource("7_0cibs")]
 transform = Transform3D(1, 0, 0, 0, 0.90254, -0.430606, 0, 0.430606, 0.90254, 39.809, 21.2989, -19.8105)
 
-[node name="Area3D" type="Area3D" parent="Clouds/cloud4"]
+[node name="Area3D" type="Area3D" parent="Clouds/cloud4" unique_id=1927608670]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud4/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud4/Area3D" unique_id=358523164]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.856598, -0.0987558, -3.8147e-06)
 shape = SubResource("BoxShape3D_krdg2")
 
-[node name="cloud5" parent="Clouds" instance=ExtResource("6_r6ner")]
+[node name="cloud5" parent="Clouds" unique_id=1005144782 instance=ExtResource("6_r6ner")]
 transform = Transform3D(1, 0, 0, 0, 0.90254, -0.430606, 0, 0.430606, 0.90254, -5.76283, 21.2989, -16.3091)
 
-[node name="Area3D" type="Area3D" parent="Clouds/cloud5"]
+[node name="Area3D" type="Area3D" parent="Clouds/cloud5" unique_id=2029349770]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud5/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud5/Area3D" unique_id=1528584812]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.856598, -0.0987558, -3.8147e-06)
 shape = SubResource("BoxShape3D_krdg2")
 
-[node name="cloud6" parent="Clouds" instance=ExtResource("5_preei")]
+[node name="cloud6" parent="Clouds" unique_id=971833470 instance=ExtResource("5_preei")]
 transform = Transform3D(1, 0, 0, 0, 0.90254, -0.430606, 0, 0.430606, 0.90254, -13.6841, 21.2989, -31.6852)
 
-[node name="Area3D" type="Area3D" parent="Clouds/cloud6"]
+[node name="Area3D" type="Area3D" parent="Clouds/cloud6" unique_id=37298741]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud6/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud6/Area3D" unique_id=751891944]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.856598, -0.0987558, -3.8147e-06)
 shape = SubResource("BoxShape3D_krdg2")
 
-[node name="cloud7" parent="Clouds" instance=ExtResource("7_0cibs")]
+[node name="cloud7" parent="Clouds" unique_id=1207841201 instance=ExtResource("7_0cibs")]
 transform = Transform3D(1, 0, 0, 0, 0.90254, -0.430606, 0, 0.430606, 0.90254, -37.1254, 21.2989, -28.4882)
 
-[node name="Area3D" type="Area3D" parent="Clouds/cloud7"]
+[node name="Area3D" type="Area3D" parent="Clouds/cloud7" unique_id=7224885]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud7/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud7/Area3D" unique_id=52946404]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.856598, -0.0987558, -3.8147e-06)
 shape = SubResource("BoxShape3D_krdg2")
 
-[node name="cloud11" parent="Clouds" instance=ExtResource("7_0cibs")]
+[node name="cloud11" parent="Clouds" unique_id=140879833 instance=ExtResource("7_0cibs")]
 transform = Transform3D(1, 0, 0, 0, 0.90254, -0.430606, 0, 0.430606, 0.90254, -70.9226, 21.2989, -23.6165)
 
-[node name="Area3D" type="Area3D" parent="Clouds/cloud11"]
+[node name="Area3D" type="Area3D" parent="Clouds/cloud11" unique_id=1605917592]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud11/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud11/Area3D" unique_id=156002186]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.856598, -0.0987558, -3.8147e-06)
 shape = SubResource("BoxShape3D_krdg2")
 
-[node name="cloud8" parent="Clouds" instance=ExtResource("5_preei")]
+[node name="cloud8" parent="Clouds" unique_id=1714759158 instance=ExtResource("5_preei")]
 transform = Transform3D(1, 0, 0, 0, 0.90254, -0.430606, 0, 0.430606, 0.90254, 35.2805, 21.2989, -28.6404)
 
-[node name="Area3D" type="Area3D" parent="Clouds/cloud8"]
+[node name="Area3D" type="Area3D" parent="Clouds/cloud8" unique_id=62126945]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud8/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud8/Area3D" unique_id=1499162611]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.856598, -0.0987558, -3.8147e-06)
 shape = SubResource("BoxShape3D_krdg2")
 
-[node name="cloud14" parent="Clouds" instance=ExtResource("5_preei")]
+[node name="cloud14" parent="Clouds" unique_id=1240066526 instance=ExtResource("5_preei")]
 transform = Transform3D(1, 0, 0, 0, 0.90254, -0.430606, 0, 0.430606, 0.90254, -84.9886, 21.2989, -30.7718)
 
-[node name="Area3D" type="Area3D" parent="Clouds/cloud14"]
+[node name="Area3D" type="Area3D" parent="Clouds/cloud14" unique_id=115791434]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud14/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud14/Area3D" unique_id=1263203531]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.856598, -0.0987558, -3.8147e-06)
 shape = SubResource("BoxShape3D_krdg2")
 
-[node name="cloud9" parent="Clouds" instance=ExtResource("6_r6ner")]
+[node name="cloud9" parent="Clouds" unique_id=448165933 instance=ExtResource("6_r6ner")]
 transform = Transform3D(1, 0, 0, 0, 0.90254, -0.430606, 0, 0.430606, 0.90254, 12.9629, 21.2989, -30.0106)
 
-[node name="Area3D" type="Area3D" parent="Clouds/cloud9"]
+[node name="Area3D" type="Area3D" parent="Clouds/cloud9" unique_id=510290000]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud9/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud9/Area3D" unique_id=1162736377]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.856598, -0.0987558, -3.8147e-06)
 shape = SubResource("BoxShape3D_krdg2")
 
-[node name="cloud10" parent="Clouds" instance=ExtResource("6_r6ner")]
+[node name="cloud10" parent="Clouds" unique_id=1846850744 instance=ExtResource("6_r6ner")]
 transform = Transform3D(1, 0, 0, 0, 0.90254, -0.430606, 0, 0.430606, 0.90254, -31.8293, 21.2989, -17.6573)
 
-[node name="Area3D" type="Area3D" parent="Clouds/cloud10"]
+[node name="Area3D" type="Area3D" parent="Clouds/cloud10" unique_id=196385153]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud10/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud10/Area3D" unique_id=473016631]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.856598, -0.0987558, -3.8147e-06)
 shape = SubResource("BoxShape3D_krdg2")
 
-[node name="cloud12" parent="Clouds" instance=ExtResource("6_r6ner")]
+[node name="cloud12" parent="Clouds" unique_id=2090891890 instance=ExtResource("6_r6ner")]
 transform = Transform3D(1, 0, 0, 0, 0.90254, -0.430606, 0, 0.430606, 0.90254, -51.7726, 21.2989, -19.7886)
 
-[node name="Area3D" type="Area3D" parent="Clouds/cloud12"]
+[node name="Area3D" type="Area3D" parent="Clouds/cloud12" unique_id=1037199034]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud12/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Clouds/cloud12/Area3D" unique_id=2051948830]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.856598, -0.0987558, -3.8147e-06)
 shape = SubResource("BoxShape3D_krdg2")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1936756783]
 transform = Transform3D(0.909055, -0.328341, -0.256537, 0.00404149, 0.622595, -0.782534, 0.416657, 0.710329, 0.5673, 5.47366, 0, 11.0101)
 light_color = Color(0.956863, 0.701961, 0.6, 1)
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Area3D" type="Area3D" parent="." unique_id=1388886954]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.3948, 21.5359, -24.1463)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1765637808]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.166748, 0.490631)
 shape = SubResource("BoxShape3D_4l5xy")
 
-[node name="anim_player" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_muofe")
-}
+[node name="anim_player" type="AnimationPlayer" parent="." unique_id=448400636]
+libraries/ = SubResource("AnimationLibrary_muofe")
 
 [connection signal="mouse_entered" from="CanvasLayer/Main Menu/VBoxContainer/ButtonPlay" to="CanvasLayer/Main Menu/VBoxContainer/ButtonPlay" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Main Menu/VBoxContainer/ButtonPlay" to="CanvasLayer/Main Menu/VBoxContainer/ButtonPlay" method="_on_mouse_exited"]

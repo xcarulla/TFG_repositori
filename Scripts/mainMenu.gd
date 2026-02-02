@@ -3,7 +3,7 @@ extends Control
 @export var anim_player: AnimationPlayer
 @onready var diffText = $VBoxContainer/DiffText
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	#$"../Options Menu".position = Vector2(0,650) # BUG: per algun motiu sense aquesta linia sempre surt al 0,0 encara que el mogui
 	anim_player.play("title_anim")
