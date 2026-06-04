@@ -1,11 +1,7 @@
+res://Scenes/plataforma_movil.tscn
 res://Resources/Shaders/hitGeometryShader.tres
 res://Resources/Shaders/hitSparksGeometryShader.tres
 res://Resources/Visuals/enviroment.tres
 res://Resources/Shaders/aura_tp.tres
 res://Resources/Shaders/processMat.tres
-res://Scenes/pause_menu.tscn
-res://Scripts/level.gd
 res://Scenes/Level_1.tscn
-res://Scripts/pause_menu.gd
-res://Scenes/menu.tscn
-res://Scripts/mainMenu.gd
