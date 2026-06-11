@@ -1,3 +1,4 @@
+Node3D
 RemoteTransform3D
 AnimationPlayer
 CollisionShape3D
@@ -11,5 +12,3 @@ CanvasLayer
 Button
 VBoxContainer
 MarginContainer
-Control
-RichTextLabel
