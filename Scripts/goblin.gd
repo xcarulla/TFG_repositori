@@ -1,18 +1,14 @@
-extends CharacterBody3D
-
-@onready var animationPlayer : AnimationPlayer = $AnimationPlayer
-
-var max_health = GlobalVariables.enemyStats[GlobalVariables.difficulty]["health"]
-var damage = GlobalVariables.enemyStats[GlobalVariables.difficulty]["damage"]
-var speed = GlobalVariables.enemyStats[GlobalVariables.difficulty]["speed"]
-
-var current_health
+extends enemy
 
 @export var direction := Vector3(1,0,0)
+
 var facing_right : bool = true
 var turning := false
 
 func _ready() -> void:
+	max_health = GlobalVariables.enemyStats[GlobalVariables.difficulty]["health"]
+	damage = GlobalVariables.enemyStats[GlobalVariables.difficulty]["damage"]
+	speed = GlobalVariables.enemyStats[GlobalVariables.difficulty]["speed"]
 	current_health = max_health
 
 func _process(_delta: float) -> void:
@@ -20,15 +16,11 @@ func _process(_delta: float) -> void:
 
 func check_health():
 	if current_health <= 0:
+		dead = true
 		die()
-		
-func die():
-	animationPlayer.play("Death")
-	await get_tree().create_timer(1).timeout
-	queue_free()
-	
+
 func _physics_process(delta: float) -> void: #Moviment
-	if current_health > 0:
+	if !dead:
 		velocity.x = speed * direction.x
 	else: velocity.x = 0.0
 	
@@ -55,15 +47,6 @@ func _physics_process(delta: float) -> void: #Moviment
 		direction.x = dir.x * -1
 		
 		turning = false
-
-
-func _on_hurt_box_area_entered(_area: Area3D) -> void:
-	pass
-
-func recive_dmg():
-	animationPlayer.play("HitRecieve")
-	current_health -= 1
-	print(current_health)
 
 func _on_damage_area_body_entered(body: Node3D) -> void:
 	if body is Player:

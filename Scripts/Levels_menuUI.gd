@@ -3,8 +3,9 @@ extends Control
 var starsDict
 
 func _ready():
-	starsDict = GlobalVariables.getStars(name)
-	setStarsVisibility()
+	if name != "Level_0":
+		starsDict = GlobalVariables.getStars(name)
+		setStarsVisibility()
 
 
 func setStarsVisibility():
@@ -26,6 +27,8 @@ func setStarsVisibility():
 	else:
 		star.self_modulate = "#195598"
 
+func setBestTime():
+	pass
 
 func _playLevel():
 	get_tree().change_scene_to_file("res://Scenes/" + name + ".tscn")

@@ -5,18 +5,46 @@ extends Control
 # !!!!!!!!!!!!!!!!!!!!!
 
 @export var dummy: CharacterBody3D
-@onready var anim_player: AnimationPlayer = $AnimationPlayer
+@export var stopwatch_label : RichTextLabel
+@export var countdown_label : RichTextLabel
 
+@onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var hint_text = $Hint/Panel/HintContent
+
 var hint_active = false
+var stopwatch : Stopwatch
+var diff : String
 
 func _ready():
+	stopwatch_label.visible = false
+	countdown_label.visible = false
+	diff = GlobalVariables.difficulty
+	if diff == "normal":
+		stopwatch_label.visible = true
+	if diff == "hard":
+		countdown_label.visible = true
+	stopwatch = get_tree().get_first_node_in_group("stopwatch")
+	# Debug
 	setDebugVars()
 
 func _process(_delta):
+	if diff == "normal":
+		update_stopwatch_label()
+	if diff == "hard":
+		update_countdown_label()
+	# Debug
 	updateDebugVars()
 	
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# !!!!! STOPWATCH FUNCTIONS !!!!!
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	
+func update_stopwatch_label():
+	stopwatch_label.text = stopwatch.stopwatch_string()
+
+func update_countdown_label():
+	countdown_label.text = stopwatch.countdown_string()
+
 # !!!!!!!!!!!!!!!!!!!!!!!!!!
 # !!!!! HINT FUNCTIONS !!!!!
 # !!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -39,9 +67,9 @@ func hideHint() -> void:
 	hint_active = false
 
 
-# !!!!!!!!!!!!!!!!!!!!!!!!!
-# !!!!! DEBUG RELATED !!!!!
-# !!!!!!!!!!!!!!!!!!!!!!!!!
+# !!!!!!!!!!!!!!!!!
+# !!!!! DEBUG !!!!!
+# !!!!!!!!!!!!!!!!!
 
 var currentLevel
 var grounded
@@ -73,4 +101,5 @@ func updateDebugVars() -> void:
 	attackType.text = dummy._returnTransitionState("attacks")
 	
 	levelname1.text = get_parent().name
-	levelstars1.text = str(GlobalVariables.gameLevels[get_parent().name]["Stars"]["Star1"]) + " " + str(GlobalVariables.gameLevels[get_parent().name]["Stars"]["Star2"]) + " " + str(GlobalVariables.gameLevels[get_parent().name]["Stars"]["Star3"])
+	if levelname1.text != "Level_0":
+		levelstars1.text = str(GlobalVariables.gameLevels[get_parent().name]["Stars"]["Star1"]) + " " + str(GlobalVariables.gameLevels[get_parent().name]["Stars"]["Star2"]) + " " + str(GlobalVariables.gameLevels[get_parent().name]["Stars"]["Star3"])

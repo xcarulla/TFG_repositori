@@ -13,7 +13,6 @@ func _ready() -> void:
 
 # Functions
 func tp(player_area: Node3D):
-	print(player_area.name)
 	if paired_tp != null and ready_to_tp:
 		# Fer animació abans de fer TP
 		player_area.position = paired_tp.tp_coords

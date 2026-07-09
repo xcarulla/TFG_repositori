@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://c1w7oyah5kdwa"]
+
+[ext_resource type="Script" uid="uid://x6vyiwpvu405" path="res://Scripts/respawn_point.gd" id="1_ekhac"]
+[ext_resource type="PackedScene" uid="uid://c64vas62r8cje" path="res://Assets/LevelElements/RespawnElements/respawnPlataforma.glb" id="1_i1i4g"]
+[ext_resource type="PackedScene" uid="uid://cc5j6bhfiesec" path="res://Assets/LevelElements/RespawnElements/repairOFF.glb" id="2_ekhac"]
+[ext_resource type="PackedScene" uid="uid://c4v4cpp3jyp6c" path="res://Assets/LevelElements/RespawnElements/repairON.glb" id="3_gfmfo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jovxa"]
+
+[node name="RespawnPoint" type="Node3D" unique_id=656772893]
+script = ExtResource("1_ekhac")
+
+[node name="respawnPlataforma" parent="." unique_id=861926308 instance=ExtResource("1_i1i4g")]
+
+[node name="repairOFF" parent="respawnPlataforma" unique_id=2045773895 instance=ExtResource("2_ekhac")]
+
+[node name="repairON" parent="respawnPlataforma" unique_id=1648464381 instance=ExtResource("3_gfmfo")]
+visible = false
+
+[node name="spawnCoords" type="Marker3D" parent="." unique_id=1944665147]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=994972181]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=2089068747]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92764544, 0)
+shape = SubResource("BoxShape3D_jovxa")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cl1esy7ss5w6r"]
+[gd_scene format=3 uid="uid://cl1esy7ss5w6r"]
 
 [ext_resource type="PackedScene" uid="uid://bpeqdn5qhkpyx" path="res://Resources/Blender/TPBase.blend" id="1_m0pow"]
 [ext_resource type="Script" uid="uid://dubcbao1d485f" path="res://Scripts/TPBase.gd" id="2_a2pcp"]
@@ -8,16 +8,53 @@
 height = 1.92452
 radius = 0.314952
 
-[node name="TPBase" instance=ExtResource("1_m0pow")]
+[sub_resource type="Curve" id="Curve_w1xby"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.479167, 1), 0.0, 0.0, 0, 0, Vector2(0.953125, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ltgg5"]
+texture_mode = 1
+curve = SubResource("Curve_w1xby")
+
+[sub_resource type="Curve" id="Curve_8o5lo"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_mx6tq"]
+_data = [Vector2(0, 0.736264), 0.0, 0.0, 0, 0, Vector2(0.479167, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.747253), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_8bao5"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_33kbc"]
+curve_x = SubResource("Curve_8o5lo")
+curve_y = SubResource("Curve_mx6tq")
+curve_z = SubResource("Curve_8bao5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hjeog"]
+resource_local_to_scene = true
+gravity = Vector3(0, 0, 0)
+scale_min = 1.7
+scale_max = 1.7
+scale_curve = SubResource("CurveXYZTexture_33kbc")
+color = Color(0, 0, 1, 1)
+alpha_curve = SubResource("CurveTexture_ltgg5")
+
+[node name="TPBase" unique_id=1238533445 instance=ExtResource("1_m0pow")]
 script = ExtResource("2_a2pcp")
 
-[node name="Area3D" type="Area3D" parent="." index="1"]
+[node name="Area3D" type="Area3D" parent="." index="1" unique_id=1179898952]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.14426, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=1760897003]
 shape = SubResource("CylinderShape3D_l27pb")
 
-[node name="tp_vfx" parent="." index="2" instance=ExtResource("3_inw6s")]
+[node name="tp_vfx" parent="." index="2" unique_id=122038636 instance=ExtResource("3_inw6s")]
+
+[node name="Aura" parent="tp_vfx" index="1" unique_id=1035415597]
+process_material = SubResource("ParticleProcessMaterial_hjeog")
 
 [connection signal="body_entered" from="Area3D" to="." method="tp"]
 [connection signal="body_exited" from="Area3D" to="." method="reset_state"]

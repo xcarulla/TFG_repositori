@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dhndwa10r305l"]
+[gd_scene format=3 uid="uid://dhndwa10r305l"]
 
 [ext_resource type="Shader" uid="uid://cvqk1cjbu2py" path="res://Resources/Shaders/aura_tp.tres" id="1_gu6vs"]
 [ext_resource type="Material" uid="uid://bqawwlsrylf01" path="res://Resources/Shaders/particlesGeometry.tres" id="1_nn415"]
@@ -40,6 +40,7 @@ curve_y = SubResource("Curve_mx6tq")
 curve_z = SubResource("Curve_8bao5")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nt3u2"]
+resource_local_to_scene = true
 gravity = Vector3(0, 0, 0)
 scale_min = 1.7
 scale_max = 1.7
@@ -47,9 +48,9 @@ scale_curve = SubResource("CurveXYZTexture_33kbc")
 color = Color(0, 0, 1, 1)
 alpha_curve = SubResource("CurveTexture_ltgg5")
 
-[node name="tp_vfx" type="Node3D"]
+[node name="tp_vfx" type="Node3D" unique_id=634207123]
 
-[node name="LittleParticles" type="GPUParticles3D" parent="."]
+[node name="LittleParticles" type="GPUParticles3D" parent="." unique_id=891138357]
 visible = false
 material_override = ExtResource("1_nn415")
 emitting = false
@@ -59,7 +60,7 @@ randomness = 1.0
 process_material = ExtResource("2_abqur")
 draw_pass_1 = SubResource("QuadMesh_cy7bu")
 
-[node name="Aura" type="GPUParticles3D" parent="."]
+[node name="Aura" type="GPUParticles3D" parent="." unique_id=1035415597]
 material_override = SubResource("ShaderMaterial_wdrus")
 cast_shadow = 0
 amount = 1

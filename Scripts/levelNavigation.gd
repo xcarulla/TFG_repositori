@@ -1,5 +1,6 @@
 extends Control
 
+@onready var level0ref : Control = $Panel/Level_0
 @onready var level1ref : Control = $Panel/Level_1
 @onready var level2ref : Control = $Panel/Level_2
 @onready var level3ref : Control = $Panel/Level_3
@@ -7,11 +8,18 @@ extends Control
 @onready var leftButton : TextureButton = $Panel/ButtonLeft
 @onready var rightButton : TextureButton = $Panel/ButtonRight
 
+var tutorial_done : bool = GlobalVariables.gameLevels["Level_0"]["cleared"]
+
 var currentLevel : String
 
 func _ready() -> void:
-	currentLevel = "Level_1"
-	leftButton.visible = false
+	if tutorial_done:
+		currentLevel = "Level_1"
+		changeLevel("Level_1")
+		leftButton.visible = false
+	else:
+		currentLevel = "Level_0"
+		changeLevel("Level_0")
 
 func _on_button_left_pressed() -> void:
 	if(currentLevel != "Level_1"):
@@ -43,6 +51,10 @@ func nextLevel() -> void:
 
 func changeLevel(level : String) -> void:
 	currentLevel = level
+	if(level == "Level_0"):
+		level0ref.visible = true
+	else:
+		level0ref.visible = false
 	if(level == "Level_1"):
 		level1ref.visible = true
 	else:

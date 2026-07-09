@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dypb1boovm37m"]
+
+[ext_resource type="Script" uid="uid://cmvdq3qwf43py" path="res://Scripts/bee_bullet.gd" id="1_f2l4q"]
+[ext_resource type="PackedScene" uid="uid://sx7cjh08e03j" path="res://Assets/ImportedEnemy/bee_bullet.glb" id="2_fo5si"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f2l4q"]
+resource_local_to_scene = true
+radius = 0.125
+height = 1.61
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jovxa"]
+radius = 0.16
+height = 1.855
+
+[node name="Bee_bullet" type="RigidBody3D" unique_id=405379446]
+collision_layer = 8
+collision_mask = 3
+script = ExtResource("1_f2l4q")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1672308560]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0.9911804)
+shape = SubResource("CapsuleShape3D_f2l4q")
+
+[node name="bee_bullet" parent="." unique_id=663743780 instance=ExtResource("2_fo5si")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1263418612]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.9911804)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1374052242]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_jovxa")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

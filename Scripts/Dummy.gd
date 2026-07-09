@@ -10,10 +10,11 @@ class_name Player
 @export var jump_buffer_time : float
 @export var coyote_time : float
 var max_health = GlobalVariables.playerStats[GlobalVariables.difficulty]["health"]
-var current_health
+var current_health : int
 var is_invulnerable := false
 var invulnerability_time : float = GlobalVariables.playerStats[GlobalVariables.difficulty]["invul_time"]
 
+@export var camera : Camera3D
 @export var hitVFX : hit_effect
 
 @onready var jump_velocity : float = (2.0 * jump_height) / jump_time_to_peak
@@ -22,6 +23,7 @@ var invulnerability_time : float = GlobalVariables.playerStats[GlobalVariables.d
 @onready var jump_buffer_timer : float = 0
 @onready var coyote_timer : float = 0
 @onready var anim_tree = $anim_tree
+
 var facing_right : bool = true
 var jump_in_queue : bool = false
 var was_on_floor : bool = false
@@ -136,9 +138,10 @@ func _flip():
 
 func _on_area_3d_light_area_entered(area: Area3D) -> void:
 	# Area d'atac (hit box)
-	var objective = area.get_parent()
-	hitVFX.playHitEffect()
-	objective.recive_dmg()
+	if area.name == "hurtBox":
+		var objective = area.get_parent()
+		hitVFX.playHitEffect()
+		objective.recive_dmg()
 
 # Health and recieving damage :
 
@@ -147,6 +150,7 @@ func receive_damage(dmg: int):
 		return
 	current_health -= dmg
 	print("Player health:", current_health)
+	camera.apply_shake()
 	
 	if current_health <= 0:
 		die()
@@ -157,6 +161,12 @@ func receive_damage(dmg: int):
 		
 func die():
 	print("Player is dead")
+	GlobalVariables.deaths_count += 1
+	respawn()
+
+func respawn():
+	current_health = max_health
+	position = GlobalVariables.current_spawn_point
 
 func start_invulnerability_timer():
 	await get_tree().create_timer(invulnerability_time).timeout
@@ -164,6 +174,12 @@ func start_invulnerability_timer():
 
 func invul_effect():
 	pass #fer flash 
+
+func get_player_pos() -> Vector3:
+	return $Rig/Skeleton3D/Dummy_TargetOnHisBack.global_position
+
+func get_player_hp() -> int:
+	return current_health
 
 # Key related:
 

@@ -502,6 +502,7 @@ self_modulate = Color(0.254902, 0.596078, 1, 1)
 layout_mode = 1
 
 [node name="Level_1" type="Control" parent="CanvasLayer/Play Menu/Panel" unique_id=761475748]
+visible = false
 anchors_preset = 0
 offset_left = 310.0
 offset_top = 236.0
@@ -578,6 +579,25 @@ self_modulate = Color(0.0980392, 0.333333, 0.596078, 1)
 layout_mode = 2
 texture = ExtResource("8_s6lar")
 stretch_mode = 4
+
+[node name="BestTimeLabel" type="RichTextLabel" parent="CanvasLayer/Play Menu/Panel/Level_1/Panel" unique_id=2138568424]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.13452
+offset_top = 19.0
+offset_right = 80.13452
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.03137255, 0.2509804, 0.52156866, 1)
+theme_override_font_sizes/normal_font_size = 24
+text = "00:00:000"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ButtonPlayLevel" type="Button" parent="CanvasLayer/Play Menu/Panel/Level_1/Panel" unique_id=359860519]
 layout_mode = 1
@@ -817,7 +837,139 @@ texture_hover = ExtResource("11_q8ohy")
 ignore_texture_size = true
 stretch_mode = 4
 
+[node name="Level_0" type="Control" parent="CanvasLayer/Play Menu/Panel" unique_id=1689500001]
+visible = false
+anchors_preset = 0
+offset_left = 309.99997
+offset_top = 236.0
+offset_right = 309.99997
+offset_bottom = 236.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("8_2texk")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Play Menu/Panel/Level_0" unique_id=1757782333]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -253.88452
+offset_top = -138.0
+offset_right = 253.88452
+offset_bottom = 138.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(150, 138)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ca8ff")
+
+[node name="Label" type="Label" parent="CanvasLayer/Play Menu/Panel/Level_0/Panel" unique_id=160238076]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -78.5
+offset_top = 41.0
+offset_right = 78.5
+offset_bottom = 93.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.0308735, 0.253099, 0.521552, 1)
+theme_override_font_sizes/font_size = 35
+text = "Tutorial"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/Play Menu/Panel/Level_0/Panel" unique_id=520436081]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -78.5
+offset_top = 107.0
+offset_right = 78.5
+offset_bottom = 159.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.09803922, 0.33333334, 0.59607846, 1)
+theme_override_font_sizes/font_size = 24
+text = "Learn how to play the game!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Play Menu/Panel/Level_0/Panel" unique_id=1943976568]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1207.5
+offset_top = -371.0
+offset_right = 1207.5
+offset_bottom = 303.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.07, 0.07)
+pivot_offset = Vector2(1207.5, 337)
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="Star1" type="TextureRect" parent="CanvasLayer/Play Menu/Panel/Level_0/Panel/HBoxContainer" unique_id=28155347]
+self_modulate = Color(0.0980392, 0.333333, 0.596078, 1)
+layout_mode = 2
+texture = ExtResource("8_s6lar")
+stretch_mode = 4
+
+[node name="Star2" type="TextureRect" parent="CanvasLayer/Play Menu/Panel/Level_0/Panel/HBoxContainer" unique_id=39328930]
+self_modulate = Color(0.0980392, 0.333333, 0.596078, 1)
+layout_mode = 2
+texture = ExtResource("8_s6lar")
+stretch_mode = 4
+
+[node name="Star3" type="TextureRect" parent="CanvasLayer/Play Menu/Panel/Level_0/Panel/HBoxContainer" unique_id=1952622122]
+self_modulate = Color(0.0980392, 0.333333, 0.596078, 1)
+layout_mode = 2
+texture = ExtResource("8_s6lar")
+stretch_mode = 4
+
+[node name="BestTimeLabel" type="RichTextLabel" parent="CanvasLayer/Play Menu/Panel/Level_0/Panel" unique_id=482535415]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.13452
+offset_top = 19.0
+offset_right = 80.13452
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.03137255, 0.2509804, 0.52156866, 1)
+theme_override_font_sizes/normal_font_size = 24
+text = "00:00:000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonPlayLevel" type="Button" parent="CanvasLayer/Play Menu/Panel/Level_0/Panel" unique_id=675694044]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = 51.0
+offset_right = 44.0
+offset_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play level"
+
 [node name="Credits Menu" type="Control" parent="CanvasLayer" unique_id=1718804436]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1062,5 +1214,6 @@ libraries/ = SubResource("AnimationLibrary_muofe")
 [connection signal="pressed" from="CanvasLayer/Play Menu/Panel/Level_3/Panel/ButtonPlayLevel" to="CanvasLayer/Play Menu/Panel/Level_3" method="_playLevel"]
 [connection signal="pressed" from="CanvasLayer/Play Menu/Panel/ButtonLeft" to="CanvasLayer/Play Menu" method="_on_button_left_pressed"]
 [connection signal="pressed" from="CanvasLayer/Play Menu/Panel/ButtonRight" to="CanvasLayer/Play Menu" method="_on_button_right_pressed"]
+[connection signal="pressed" from="CanvasLayer/Play Menu/Panel/Level_0/Panel/ButtonPlayLevel" to="CanvasLayer/Play Menu/Panel/Level_0" method="_playLevel"]
 [connection signal="pressed" from="CanvasLayer/Credits Menu/Panel/ButtonExit" to="CanvasLayer/Main Menu" method="_closeCredits"]
 [connection signal="area_entered" from="Area3D" to="Clouds" method="_on_area_3d_area_entered"]

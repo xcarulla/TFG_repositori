@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://01plwn2kg4rq"]
+[gd_scene format=3 uid="uid://01plwn2kg4rq"]
 
 [ext_resource type="Script" uid="uid://cvb75ey71s6n4" path="res://Scripts/level.gd" id="1_tm7ih"]
 [ext_resource type="MeshLibrary" uid="uid://br0n6rsrsapfg" path="res://MeshLib/tiles.meshlib" id="2_25io1"]
@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://u4p0lsqy3h4w" path="res://Assets/LevelElements/cloud2.glb" id="8_xbslt"]
 [ext_resource type="PackedScene" uid="uid://bwixuosag5uew" path="res://Assets/LevelElements/cloud3.glb" id="9_q8wyw"]
 [ext_resource type="PackedScene" uid="uid://dbe71reccp0yi" path="res://Scenes/Star.tscn" id="10_rq6k0"]
-[ext_resource type="PackedScene" uid="uid://decexpoh8sh6j" path="res://Scenes/enemy.tscn" id="13_sucmb"]
+[ext_resource type="PackedScene" uid="uid://decexpoh8sh6j" path="res://Scenes/Goblin.tscn" id="13_sucmb"]
 [ext_resource type="PackedScene" uid="uid://vkn6414a7gdw" path="res://Scenes/final_objective.tscn" id="14_go0cy"]
 
 [node name="Level_2" type="Node3D"]

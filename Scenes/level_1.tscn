@@ -13,17 +13,18 @@
 [ext_resource type="PackedScene" uid="uid://cl1esy7ss5w6r" path="res://Scenes/tp_base.tscn" id="11_mxok3"]
 [ext_resource type="PackedScene" uid="uid://vkn6414a7gdw" path="res://Scenes/final_objective.tscn" id="12_iwhgy"]
 [ext_resource type="Script" uid="uid://dqvwtmgqcgg42" path="res://Scripts/lvl1_enemy_manager.gd" id="12_neuul"]
-[ext_resource type="PackedScene" uid="uid://decexpoh8sh6j" path="res://Scenes/enemy.tscn" id="13_pdmgb"]
+[ext_resource type="PackedScene" uid="uid://decexpoh8sh6j" path="res://Scenes/Goblin.tscn" id="13_pdmgb"]
 [ext_resource type="PackedScene" uid="uid://cr43qb8btncs6" path="res://Scenes/door.tscn" id="14_2jeek"]
 [ext_resource type="PackedScene" uid="uid://b6y5xod0xd6i0" path="res://Scenes/key.tscn" id="15_yytvd"]
 [ext_resource type="Script" uid="uid://q1oj1lqso88f" path="res://Scripts/plataformes_1.gd" id="17_fkrcq"]
 [ext_resource type="PackedScene" uid="uid://c2sgfwinvpaxv" path="res://Scenes/pause_menu.tscn" id="17_m620h"]
 [ext_resource type="PackedScene" uid="uid://d2tryhdp85jv6" path="res://Scenes/plataforma_movil.tscn" id="18_3b6ve"]
+[ext_resource type="PackedScene" uid="uid://ccomylq5ct5xw" path="res://Scenes/stopwatch.tscn" id="19_el8jc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yytvd"]
 size = Vector3(2.45996, 1, 2.74597)
 
-[sub_resource type="Curve3D" id="Curve3D_3b6ve"]
+[sub_resource type="Curve3D" id="Curve3D_el8jc"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.00032043457, -0.00035476685, 0.00028792318, 0, 0, 0, 0, 0, 0, 9.720345, 1.1444092e-05, 0.0022842784),
@@ -31,7 +32,7 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="Curve3D" id="Curve3D_fkrcq"]
+[sub_resource type="Curve3D" id="Curve3D_qkon5"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.00032043457, -0.00035476685, 0.00028792318, 0, 0, 0, 0, 0, 0, 11.163818, 1.1444092e-05, 0.0022842784),
@@ -194,13 +195,15 @@ script = ExtResource("17_fkrcq")
 
 [node name="Plataforma movil" parent="Plataformes/Normal" unique_id=25593500 instance=ExtResource("18_3b6ve")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113.778656, 15.497303, 0)
-curve = SubResource("Curve3D_3b6ve")
+curve = SubResource("Curve3D_el8jc")
 
 [node name="Plataforma movil2" parent="Plataformes/Normal" unique_id=1581219639 instance=ExtResource("18_3b6ve")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.92448, 11.978351, 0)
-curve = SubResource("Curve3D_fkrcq")
+curve = SubResource("Curve3D_qkon5")
 
 [node name="Hard" type="Node3D" parent="Plataformes" unique_id=914477222]
+
+[node name="Stopwatch" parent="." unique_id=2100186060 instance=ExtResource("19_el8jc")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1667279745]
 

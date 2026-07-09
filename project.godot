@@ -16,12 +16,13 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="TFG Project"
 run/main_scene="res://Scenes/menu.tscn"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GlobalVariables="*res://Scripts/globalVariables.gd"
+DifficultyManager="*uid://d1cnfen5xvwpd"
 
 [display]
 
@@ -31,6 +32,10 @@ window/stretch/aspect="expand"
 [filesystem]
 
 import/fbx/enabled=false
+
+[global_group]
+
+stopwatch=""
 
 [gui]
 
