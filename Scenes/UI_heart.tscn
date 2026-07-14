@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://djmkpvq4cinxt"]
+
+[ext_resource type="Texture2D" uid="uid://jcgmsrwn7ohm" path="res://Assets/UIElements/heart.png" id="1_uwji6"]
+
+[node name="Heart" type="TextureRect" unique_id=1211011031]
+offset_right = 11.0
+offset_bottom = 11.0
+texture = ExtResource("1_uwji6")
+expand_mode = 2
+stretch_mode = 4

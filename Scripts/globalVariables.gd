@@ -29,18 +29,27 @@ var enemyStats = {
 	},
 }
 
+# ---------------------------
+# PLAYER RELATED GLOBAL VARS:
+# ---------------------------
+
+var current_health : int
+
 var playerStats = {
 	"easy": {
 		"health": 7,
 		"invul_time": 1.0,
+		"coyote_time": 0.15,
 	},
 	"normal": {
 		"health": 5,
 		"invul_time": 0.8,
+		"coyote_time": 0.1,
 	},
 	"hard": {
 		"health": 5,
 		"invul_time": 0.5,
+		"coyote_time": 0.07,
 	},
 }
 

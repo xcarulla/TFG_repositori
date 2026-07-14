@@ -8,9 +8,8 @@ class_name Player
 @export var jump_time_to_peak : float
 @export var jump_time_to_descend : float
 @export var jump_buffer_time : float
-@export var coyote_time : float
+var coyote_time : float = GlobalVariables.playerStats[GlobalVariables.difficulty]["coyote_time"]
 var max_health = GlobalVariables.playerStats[GlobalVariables.difficulty]["health"]
-var current_health : int
 var is_invulnerable := false
 var invulnerability_time : float = GlobalVariables.playerStats[GlobalVariables.difficulty]["invul_time"]
 
@@ -38,7 +37,7 @@ var playerHasKey := false
 var key_ref : Key
 
 func _ready():
-	current_health = max_health
+	GlobalVariables.current_health = max_health
 
 # Movement, physics and input management:
 func _process(delta):
@@ -134,8 +133,6 @@ func _flip():
 	$Rig.rotation_degrees.y *= -1
 	facing_right = !facing_right
 
-# Deal damage (not the actual attack action):
-
 func _on_area_3d_light_area_entered(area: Area3D) -> void:
 	# Area d'atac (hit box)
 	if area.name == "hurtBox":
@@ -148,11 +145,12 @@ func _on_area_3d_light_area_entered(area: Area3D) -> void:
 func receive_damage(dmg: int):
 	if is_invulnerable:
 		return
-	current_health -= dmg
-	print("Player health:", current_health)
+	var real_health = GlobalVariables.current_health
+	real_health -= dmg
+	GlobalVariables.current_health = max(real_health, 0)
 	camera.apply_shake()
 	
-	if current_health <= 0:
+	if GlobalVariables.current_health <= 0:
 		die()
 	else:
 		is_invulnerable = true
@@ -165,7 +163,7 @@ func die():
 	respawn()
 
 func respawn():
-	current_health = max_health
+	GlobalVariables.current_health = max_health
 	position = GlobalVariables.current_spawn_point
 
 func start_invulnerability_timer():
@@ -179,7 +177,7 @@ func get_player_pos() -> Vector3:
 	return $Rig/Skeleton3D/Dummy_TargetOnHisBack.global_position
 
 func get_player_hp() -> int:
-	return current_health
+	return GlobalVariables.current_health
 
 # Key related:
 

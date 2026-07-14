@@ -10,19 +10,19 @@ func calculate_parkour_difficulty(_t1 : float, _t2 : float, _falls : int):
 
 
 func calculate_battle_difficulty(_final_hp : int):
-	var new_combat_diff : String
+	var new_diff : String
 	var combat_diff_mult : float
 	var deaths = GlobalVariables.deaths_count
 	var max_hp : int = GlobalVariables.playerStats[GlobalVariables.difficulty]["health"]
 	var hp_percentage : float = float(_final_hp) / float(max_hp)
 	if hp_percentage >= 0.7 and deaths == 0:
-		new_combat_diff = "hard"
+		new_diff = "hard"
 		combat_diff_mult = 1.5
 	elif deaths > 0 and deaths <= 2:
-		new_combat_diff = "normal"
+		new_diff = "normal"
 		combat_diff_mult = 1.0
 	else:
-		new_combat_diff = "easy"
+		new_diff = "easy"
 		combat_diff_mult = 0.5
 
 

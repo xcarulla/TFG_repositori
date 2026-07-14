@@ -1,3 +1,5 @@
+TextureRect
+HBoxContainer
 CollisionShape3D
 Area3D
 Timer
@@ -11,4 +13,3 @@ RichTextLabel
 Node
 MarginContainer
 Panel
-RemoteTransform3D

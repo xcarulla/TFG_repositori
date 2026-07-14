@@ -7,9 +7,13 @@ extends Control
 @export var dummy: CharacterBody3D
 @export var stopwatch_label : RichTextLabel
 @export var countdown_label : RichTextLabel
+@export var health_container : HBoxContainer
 
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var hint_text = $Hint/Panel/HintContent
+
+@onready var ui_heart_ref = preload("res://Scenes/UI_heart.tscn")
+var displayed_hp : int = 0
 
 var hint_active = false
 var stopwatch : Stopwatch
@@ -24,6 +28,9 @@ func _ready():
 	if diff == "hard":
 		countdown_label.visible = true
 	stopwatch = get_tree().get_first_node_in_group("stopwatch")
+	
+	update_displayed_hp()
+	
 	# Debug
 	setDebugVars()
 
@@ -32,9 +39,28 @@ func _process(_delta):
 		update_stopwatch_label()
 	if diff == "hard":
 		update_countdown_label()
+	
+	if displayed_hp != GlobalVariables.current_health:
+		update_displayed_hp()
+	
 	# Debug
 	updateDebugVars()
-	
+
+
+func update_displayed_hp() -> void:
+	var variation : int = GlobalVariables.current_health - displayed_hp
+	if variation > 0:
+		# Afegir cors
+		var heart_ref
+		for n in variation:
+			heart_ref = ui_heart_ref.instantiate()
+			health_container.add_child(heart_ref)
+	elif variation < 0:
+		# Treure cors
+		for n in abs(variation):
+			health_container.get_child(n).queue_free()
+	displayed_hp = GlobalVariables.current_health
+
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # !!!!! STOPWATCH FUNCTIONS !!!!!
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
