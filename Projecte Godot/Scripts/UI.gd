@@ -11,6 +11,7 @@ extends Control
 
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var hint_text = $Hint/Panel/HintContent
+@onready var timesup_label = $TimesUpLabel
 
 @onready var ui_heart_ref = preload("res://Scenes/UI_heart.tscn")
 var displayed_hp : int = 0
@@ -38,7 +39,17 @@ func _process(_delta):
 	if diff == "normal":
 		update_stopwatch_label()
 	if diff == "hard":
-		update_countdown_label()
+		if !GlobalVariables.timesUp:
+			update_countdown_label()
+		else:
+			Engine.time_scale = 0
+			timesup_label.visible = true
+			await get_tree().create_timer(3.0,true,false,true).timeout
+			Engine.time_scale = 1
+			timesup_label.visible = false
+			GlobalVariables.timesUp = false
+			GlobalVariables.restartLevel()
+			
 	
 	if displayed_hp != GlobalVariables.current_health:
 		update_displayed_hp()

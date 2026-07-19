@@ -6,6 +6,8 @@ extends Node
 
 var difficulty := "normal" # easy normal hard
 var deaths_count : int = 0
+var timesUp : bool = false
+var countdown_time : float = 120.0
 
 var difficulty_types = {
 	"parkour": "normal",
@@ -129,5 +131,17 @@ func change_diff(_diff_type : String, direction : String) -> void: # combat/park
 		difficulty_types[_diff_type] = "normal"
 	elif direction == "up" and (diff == "normal" or diff == "hard"):
 		difficulty_types[_diff_type] = "hard"
-	
-	
+
+func restartLevel() -> void:
+	var path : String = "res://Scenes/"+current_level+".tscn"
+	get_tree().change_scene_to_file(path)
+
+func update_countdown_time() -> void:
+	if current_level == "Level_0":
+		countdown_time = 180.0
+	if current_level == "Level_1":
+		countdown_time = 90.0
+	if current_level == "Level_2":
+		countdown_time = 300.0
+	if current_level == "Level_3":
+		countdown_time = 500.0

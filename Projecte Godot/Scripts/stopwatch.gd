@@ -1,15 +1,21 @@
 extends Node
 class_name Stopwatch
 
-var time = 0.0
-var countdown_time = 120.0
-var stopped = false
+var time : float = 0.0
+var countdown_time : float= 120.0
+var stopped : bool = false
+
+func _ready() -> void:
+	countdown_time = GlobalVariables.countdown_time
 
 func _process(delta: float) -> void:
 	if stopped:
 		return
 	time += delta # temps per diff normal
 	countdown_time = max(countdown_time - delta, 0.0) # temps per diff hard
+	if countdown_time <= 0.0:
+		GlobalVariables.timesUp = true
+		stopped = true
 	
 func reset():
 	time = 0.0

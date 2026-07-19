@@ -13,6 +13,8 @@ var death_count_at_start : int
 func _ready():
 	death_count_at_start = GlobalVariables.deaths_count
 	GlobalVariables.current_level = name
+	GlobalVariables.update_countdown_time()
+	GlobalVariables.timesUp = false
 	GlobalVariables.updateSpawnPoint(spawnPoint.position)
 	if GlobalVariables.current_level != "Level_0":
 		starsDict = GlobalVariables.getStars(name)
@@ -29,13 +31,14 @@ func _process(_delta: float) -> void:
 		pauseMenu()
 		
 func pauseMenu():
-	if paused:
-		pause_menu.hide()
-		Engine.time_scale = 1
-	else:
-		pause_menu.show()
-		Engine.time_scale = 0
-	paused = !paused
+	if !GlobalVariables.timesUp:
+		if paused:
+			pause_menu.hide()
+			Engine.time_scale = 1
+		else:
+			pause_menu.show()
+			Engine.time_scale = 0
+		paused = !paused
 
 func hideCollectedStars():
 	if starsDict["Star1"]:
