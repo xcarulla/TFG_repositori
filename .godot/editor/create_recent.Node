@@ -1,15 +1,14 @@
+Node3D
+Marker3D
 TextureRect
 HBoxContainer
 CollisionShape3D
 Area3D
 Timer
 RigidBody3D
-Marker3D
 MeshInstance3D
 RayCast3D
-Node3D
 AnimationPlayer
 RichTextLabel
 Node
 MarginContainer
-Panel

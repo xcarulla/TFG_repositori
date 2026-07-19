@@ -8,10 +8,10 @@ class_name Player
 @export var jump_time_to_peak : float
 @export var jump_time_to_descend : float
 @export var jump_buffer_time : float
-var coyote_time : float = GlobalVariables.playerStats[GlobalVariables.difficulty]["coyote_time"]
+var coyote_time : float = GlobalVariables.playerStats[GlobalVariables.difficulty_types["parkour"]]["coyote_time"]
 var max_health = GlobalVariables.playerStats[GlobalVariables.difficulty]["health"]
 var is_invulnerable := false
-var invulnerability_time : float = GlobalVariables.playerStats[GlobalVariables.difficulty]["invul_time"]
+var invulnerability_time : float = GlobalVariables.playerStats[GlobalVariables.difficulty_types["combat"]]["invul_time"]
 
 @export var camera : Camera3D
 @export var hitVFX : hit_effect

@@ -16,7 +16,6 @@ func recive_dmg():
 	if !dead:
 		animationPlayer.play("HitRecieve")
 		current_health -= 1
-		print("enemy hp: ",current_health)
 
 func die():
 	if dmg_area_ref != null: dmg_area_ref.set_deferred("monitoring", false)

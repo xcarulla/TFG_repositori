@@ -4,130 +4,300 @@
 [ext_resource type="MeshLibrary" uid="uid://br0n6rsrsapfg" path="res://MeshLib/tiles.meshlib" id="2_25io1"]
 [ext_resource type="PackedScene" uid="uid://jvv6wfc4p6ra" path="res://Scenes/Dummy.tscn" id="3_8gp1p"]
 [ext_resource type="PackedScene" uid="uid://dmj6ij4boo4ie" path="res://Scenes/ui.tscn" id="4_yybfe"]
-[ext_resource type="PackedScene" uid="uid://dhbe1aqlmbvt6" path="res://Scenes/PracticeDummy.tscn" id="5_vq2h6"]
 [ext_resource type="Environment" uid="uid://do8nu04t8kj8f" path="res://Resources/Visuals/enviroment.tres" id="6_f6u1m"]
 [ext_resource type="PackedScene" uid="uid://owr4441vitc0" path="res://Assets/LevelElements/cloud.glb" id="7_efh70"]
 [ext_resource type="PackedScene" uid="uid://u4p0lsqy3h4w" path="res://Assets/LevelElements/cloud2.glb" id="8_xbslt"]
 [ext_resource type="PackedScene" uid="uid://bwixuosag5uew" path="res://Assets/LevelElements/cloud3.glb" id="9_q8wyw"]
 [ext_resource type="PackedScene" uid="uid://dbe71reccp0yi" path="res://Scenes/Star.tscn" id="10_rq6k0"]
+[ext_resource type="PackedScene" uid="uid://cgeeaexqr6t28" path="res://Scenes/cartell_combat.tscn" id="11_f6u1m"]
+[ext_resource type="Script" uid="uid://cav0d4uomtg5d" path="res://Scripts/lvl2_enemy_manager.gd" id="11_yybfe"]
+[ext_resource type="PackedScene" uid="uid://cjetncgu368a0" path="res://Scenes/cartell_direccio.tscn" id="12_efh70"]
+[ext_resource type="PackedScene" uid="uid://c1w7oyah5kdwa" path="res://Scenes/Respawn_point.tscn" id="13_efh70"]
 [ext_resource type="PackedScene" uid="uid://decexpoh8sh6j" path="res://Scenes/Goblin.tscn" id="13_sucmb"]
+[ext_resource type="PackedScene" uid="uid://cr43qb8btncs6" path="res://Scenes/door.tscn" id="14_f6u1m"]
 [ext_resource type="PackedScene" uid="uid://vkn6414a7gdw" path="res://Scenes/final_objective.tscn" id="14_go0cy"]
+[ext_resource type="PackedScene" uid="uid://b6y5xod0xd6i0" path="res://Scenes/key.tscn" id="15_efh70"]
+[ext_resource type="PackedScene" uid="uid://bd0wdcd5il2fc" path="res://Scenes/Bee.tscn" id="16_q8wyw"]
+[ext_resource type="Script" uid="uid://q1oj1lqso88f" path="res://Scripts/plataformes_1.gd" id="16_xbslt"]
+[ext_resource type="PackedScene" uid="uid://d2tryhdp85jv6" path="res://Scenes/plataforma_movil.tscn" id="17_q8wyw"]
+[ext_resource type="PackedScene" uid="uid://ccomylq5ct5xw" path="res://Scenes/stopwatch.tscn" id="18_rq6k0"]
+[ext_resource type="PackedScene" uid="uid://c2sgfwinvpaxv" path="res://Scenes/pause_menu.tscn" id="19_0ouaf"]
 
-[node name="Level_2" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_xd5wc"]
+size = Vector3(2.45996, 1, 2.74597)
+
+[sub_resource type="Curve3D" id="Curve3D_efh70"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.00032043457, -0.00035476685, 0.00028792318, 0, 0, 0, 0, 0, 0, 31.99606, 1.1444092e-05, 0.0022842784),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_xbslt"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.00032043457, -0.00035476685, 0.00028792318, 0, 0, 0, 0, 0, 0, 18.490181, 1.1444092e-05, 0.0022842784),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[node name="Level_2" type="Node3D" unique_id=1119622832 node_paths=PackedStringArray("spawnPoint")]
 script = ExtResource("1_tm7ih")
+spawnPoint = NodePath("spawnCoords")
 
-[node name="GridMap" type="GridMap" parent="."]
+[node name="GridMap" type="GridMap" parent="." unique_id=1620960339]
 mesh_library = ExtResource("2_25io1")
 cell_size = Vector3(1, 1, 1)
 cell_center_z = false
 collision_layer = 2
 collision_mask = 13
 data = {
-"cells": PackedInt32Array(-196617, 0, 1, -196613, 0, 1, -196609, 0, 1, -262141, 0, 1, -262125, 0, 1, -262121, 0, 1, -262117, 0, 1, -196621, 0, 1, -458765, 0, 1, -720909, 0, 1, -720905, 0, 1, -458761, 0, 1, -458757, 0, 1, -458753, 0, 1, -720901, 0, 1, -720897, 0, 1, -786429, 0, 1, -524285, 0, 1, -524281, 0, 1, -786425, 0, 1, -786421, 0, 1, -524277, 0, 1, -524273, 0, 1, -786417, 0, 1, -786413, 0, 1, -524269, 0, 1, -524265, 0, 1, -786409, 0, 1, -786405, 0, 1, -524261, 0, 1, -262137, 0, 1, -262133, 0, 1, -262129, 0, 1, -262113, 0, 1, -262109, 0, 1, -524249, 0, 1, -524253, 0, 1, -524257, 0, 1, -786401, 0, 1, -786397, 0, 1, -786393, 0, 1, -524245, 0, 1, -524241, 0, 1, -524237, 0, 1, -524233, 0, 1, -786389, 0, 1, -786385, 0, 1, -786381, 0, 1, -786377, 0, 1, -262085, 0, 1, -524229, 0, 1, -786373, 0, 1, -262081, 0, 1, -524225, 0, 1, -786369, 0, 1, -262077, 0, 1, -262073, 0, 1, -524221, 0, 1, -786365, 0, 1, -786361, 0, 1, -524217, 0, 1, -524213, 0, 1, -786357, 0, 1, -786353, 0, 1, -524209, 0, 1, -524205, 0, 1, -524201, 0, 1, -786349, 0, 1, -786345, 0, 1, -524197, 0, 1, -786341, 0, 1, -524193, 0, 1, -786337, 0, 1, -786333, 0, 1, -524189, 0, 1, -524185, 0, 1, -786329, 0, 1, 99, 0, 1, 103, 0, 1, 107, 0, 1, -262037, 0, 1, -524181, 0, 1, -786325, 0, 1, 111, 0, 1, -262033, 0, 1, -524177, 0, 1, -786321, 0, 1, -196625, 0, 1, -458769, 0, 1, -720913, 0, 1, 115, 0, 1, -262029, 0, 1, -524173, 0, 1, -786317, 0, 1, 119, 0, 1, -262025, 0, 1, -524169, 0, 1, -786313, 0, 1, 123, 0, 1, -262021, 0, 1, -524165, 0, 1, -786309, 0, 1, 127, 0, 1, 131, 0, 1, 135, 0, 1, 139, 0, 1, 143, 0, 1, 147, 0, 1, -261997, 0, 1, -524141, 0, 1, -786285, 0, 1, -786289, 0, 1, -786293, 0, 1, -786297, 0, 1, -786301, 0, 1, -786305, 0, 1, -524161, 0, 1, -262017, 0, 1, -262013, 0, 1, -262009, 0, 1, -262005, 0, 1, -262001, 0, 1, -524145, 0, 1, -524149, 0, 1, -524153, 0, 1, -524157, 0, 1, 262291, 0, 1, 524435, 0, 1, 786579, 0, 1, 1048723, 0, 1, 1310867, 0, 1, 1573011, 0, 1, 1573007, 0, 1, 1310863, 0, 1, 1048719, 0, 1, 786575, 0, 1, 524431, 0, 1, 262287, 0, 1, 262283, 0, 1, 524427, 0, 1, 786571, 0, 1, 1048715, 0, 1, 1310859, 0, 1, 1573003, 0, 1, -1048429, 0, 1, -1048433, 0, 1, -1048437, 0, 1, -1048441, 0, 1, -1048445, 0, 1, -1048449, 0, 1, -1048453, 0, 1, -1048457, 0, 1, -1048461, 0, 1, -1048465, 0, 1, -1048469, 0, 1, -1048473, 0, 1, -1048477, 0, 1, -1048481, 0, 1, -1048485, 0, 1, -1048489, 0, 1, -1048493, 0, 1, -1048497, 0, 1, -1048501, 0, 1, -1048505, 0, 1, -1048509, 0, 1, -1048513, 0, 1, -1048517, 0, 1, -1048521, 0, 1, -1048525, 0, 1, -1048529, 0, 1, -1048533, 0, 1, -1048537, 0, 1, -1048541, 0, 1, -1048545, 0, 1, -1048549, 0, 1, -1048553, 0, 1, -1048557, 0, 1, -1048561, 0, 1, -1048565, 0, 1, -1048569, 0, 1, -1048573, 0, 1, -983041, 0, 1, -983045, 0, 1, -983049, 0, 1, -983053, 0, 1, -983057, 0, 1, -262069, 0, 1, -262065, 0, 1, -262061, 0, 1, -262057, 0, 1, -262053, 0, 1, -262049, 0, 1, -262045, 0, 1, -262041, 0, 1, 63, 0, 1, 786497, 0, 1, 786501, 0, 1, 786505, 0, 1, 786509, 0, 1, 786513, 0, 1, 786517, 0, 1, 1048661, 0, 1, 1048657, 0, 1, 1310805, 0, 1, 1310809, 0, 1, 1310813, 0, 1, 1048665, 0, 1, 1310817, 0, 1, 1310821, 0, 1, 1310825, 0, 1, 1310829, 0, 1, 1310833, 0, 1, 1572977, 0, 1, 1572953, 0, 1, 67, 0, 1, 262243, 0, 1, 524387, 0, 1, 327755, 0, 3, 327764, 0, 3, 524380, 0, 3, 1572981, 0, 3, 1376378, 0, 3, 1114240, 0, 3, 60, 0, 4, 1048654, 0, 4, 1572950, 0, 4, 917640, 0, 4, 852026, 0, 3, 589874, 0, 3, 393271, 0, 3, 262247, 0, 1, 524391, 0, 1, 524395, 0, 1, 262251, 0, 1, 524399, 0, 1, 262255, 0, 1, 7, 0, 1, 3, 0, 1, 262151, 0, 1, 65535, 0, 1, 262147, 0, 1, 524291, 0, 1, 524295, 0, 1, 786439, 0, 1, 786435, 0, 1, 327679, 0, 1, 327675, 0, 1, 65531, 0, 1, 65527, 0, 1, 65523, 0, 1, 65519, 0, 1, 327663, 0, 1, 327667, 0, 1, 327671, 0, 1, 589823, 0, 1, 851967, 0, 1, 851963, 0, 1, 589819, 0, 1, 589815, 0, 1, 851959, 0, 1, 851955, 0, 1, 589811, 0, 1, 589807, 0, 1, 851951, 0, 1)
+"cells": PackedInt32Array(-196617, 0, 1, -196613, 0, 1, -196609, 0, 1, -262141, 0, 1, -262121, 0, 1, -262117, 0, 1, -196621, 0, 1, 65523, 0, 1, -720909, 0, 1, -720905, 0, 1, -720901, 0, 1, -720897, 0, 1, -786429, 0, 1, -786425, 0, 1, -786413, 0, 1, -524265, 0, 1, -786409, 0, 1, -262137, 0, 1, -262113, 0, 1, -262109, 0, 1, -524249, 0, 1, -524253, 0, 1, -786397, 0, 1, -786393, 0, 1, -262106, 0, 4, -524245, 0, 1, -524241, 0, 1, -524237, 0, 1, -524233, 0, 1, -524229, 0, 1, -524225, 0, 1, -524221, 0, 1, -786365, 0, 1, -786361, 0, 1, -524217, 0, 1, -524213, 0, 1, -786357, 0, 1, -786353, 0, 1, -524209, 0, 1, -524205, 0, 1, -524201, 0, 1, -786349, 0, 1, -786345, 0, 1, -524197, 0, 1, -786341, 0, 1, -786337, 0, 1, -786333, 0, 1, -786329, 0, 1, -786325, 0, 1, -786321, 0, 1, -720913, 0, 1, -786317, 0, 1, 119, 0, 1, -262025, 0, 1, -524169, 0, 1, -786313, 0, 1, 123, 0, 1, -524165, 0, 1, -786309, 0, 1, 127, 0, 1, 131, 0, 1, 135, 0, 1, 139, 0, 1, 143, 0, 1, 147, 0, 1, -261997, 0, 1, -524141, 0, 1, -786301, 0, 1, -786305, 0, 1, -524161, 0, 1, -262005, 0, 1, -262001, 0, 1, -524145, 0, 1, -1048429, 0, 1, -1048433, 0, 1, -1048437, 0, 1, -1048441, 0, 1, -1048445, 0, 1, -1048449, 0, 1, -1048453, 0, 1, -1048457, 0, 1, -1048461, 0, 1, -1048465, 0, 1, -1048469, 0, 1, -1048473, 0, 1, -1048477, 0, 1, -1048481, 0, 1, -1048485, 0, 1, -1048489, 0, 1, -1048493, 0, 1, -1048497, 0, 1, -1048501, 0, 1, -1048505, 0, 1, -1048509, 0, 1, -1048513, 0, 1, -1048517, 0, 1, -1048521, 0, 1, -1048525, 0, 1, -1048529, 0, 1, -1048533, 0, 1, -1048537, 0, 1, -1048541, 0, 1, -1048545, 0, 1, -1048549, 0, 1, -1048553, 0, 1, -1048557, 0, 1, -1048561, 0, 1, -1048565, 0, 1, -1048569, 0, 1, -1048573, 0, 1, -983041, 0, 1, -983045, 0, 1, -983049, 0, 1, -983053, 0, 1, -983057, 0, 1, -1048425, 0, 1, -1048421, 0, 1, -1048417, 0, 1, -1048413, 0, 1, -1048409, 0, 1, -1048405, 0, 1, -1048401, 0, 1, -1048397, 0, 1, -1048393, 0, 1, -1048389, 0, 1, -1048385, 0, 1, -786241, 0, 1, -786245, 0, 1, -786249, 0, 1, -786253, 0, 1, -786257, 0, 1, -786261, 0, 1, -786265, 0, 1, -786269, 0, 1, -786273, 0, 1, -786277, 0, 1, -786281, 0, 1, -524137, 0, 1, -524133, 0, 1, -524129, 0, 1, -524125, 0, 1, -524121, 0, 1, -524117, 0, 1, -524113, 0, 1, -524109, 0, 1, -524105, 0, 1, -524101, 0, 1, -524097, 0, 1, -261953, 0, 1, -261957, 0, 1, -261985, 0, 1, -261989, 0, 1, -261993, 0, 1, 151, 0, 1, 155, 0, 1, 159, 0, 1, 187, 0, 1, 191, 0, 1, 327667, 0, 1, -786421, 0, 1, -786417, 0, 1, -262129, 0, 3, -720917, 0, 1, -720921, 0, 1, -720925, 0, 1, -720929, 0, 1, -720933, 0, 1, -720937, 0, 1, -720941, 0, 1, -458801, 0, 1, -720945, 0, 1, -196657, 0, 1, 65487, 0, 1, 327631, 0, 1, 589775, 0, 1, 851919, 0, 1, -65553, 0, 2, -65556, 0, 4, -65558, 0, 4, -65560, 0, 4, -65562, 0, 4, -65564, 0, 4, -65566, 0, 4, -65568, 0, 4, -65570, 0, 4, -65572, 0, 4, 65500, 0, 4, -458798, 0, 4, -65575, 0, 3, 458728, 0, 3, 589784, 0, 3, 589781, 0, 4, 851922, 0, 4, 1114073, 0, 4, 1114075, 0, 4, 1245168, 0, 4, 1245166, 0, 4, 1245164, 0, 4, 1245162, 0, 4, 1245160, 0, 4, 1245158, 0, 4, 1245156, 0, 4, 1245154, 0, 4, 983054, 0, 3, 1441802, 0, 4, 1572874, 0, 4, 1703946, 0, 4, 1835018, 0, 4, 983057, 0, 4, 1048595, 0, 4, 1114144, 0, 2, 1114148, 0, 1, 1114152, 0, 1, 1376298, 0, 1, 917509, 0, 3, 589792, 0, 3, 851915, 0, 1, 851911, 0, 1, 1638352, 0, 4, 1703890, 0, 4, 1769428, 0, 4, 1769430, 0, 4, 1769432, 0, 4, 1376206, 0, 1, 1507275, 0, 4, 1507273, 0, 4, 1507271, 0, 4, 1507269, 0, 4, 1507267, 0, 4, 1507265, 0, 4, 1507263, 0, 4, 1507261, 0, 4, 1507259, 0, 4, 851908, 0, 4, 851906, 0, 4, 851904, 0, 4, 851902, 0, 4, 851900, 0, 4, 851898, 0, 4, 851896, 0, 4, 851894, 0, 4, 851892, 0, 4, 851889, 0, 2, 851885, 0, 1, 851881, 0, 1, 851877, 0, 1, 851873, 0, 1, 1114017, 0, 1, 1376161, 0, 1, 1638305, 0, 1, 1900449, 0, 1, 1114020, 0, 4, 1114022, 0, 4, 1245092, 0, 4, 1245094, 0, 4, 1376165, 0, 4, 1114024, 0, 4, 1507257, 0, 4, 1507255, 0, 4, 1507253, 0, 4, 1507251, 0, 4, 1507249, 0, 4, 1638321, 0, 4, 1900471, 0, 1, 1900475, 0, 3, 1900479, 0, 3, 1638345, 0, 4, 1638318, 0, 3, 1900483, 0, 3, 2031540, 0, 4, 2293680, 0, 4, 2162608, 0, 4, 2031524, 0, 4, 2162594, 0, 4, 2162614, 0, 4, 2162611, 0, 1, 2162597, 0, 1, 2162601, 0, 1, 2162605, 0, 1, 2424747, 0, 3, 2424751, 0, 3, 1900474, 0, 4, 1900484, 0, 4, 2031556, 0, 4, 2162628, 0, 4, 2293699, 0, 2, 2555844, 0, 4, 1245174, 0, 4, 1966090, 0, 3, 1376302, 0, 1, 1376306, 0, 1, 1376310, 0, 1, 1638458, 0, 1, 1900602, 0, 1, 2162742, 0, 1, 2162738, 0, 1, 2162734, 0, 1, 2162730, 0, 1, 2162726, 0, 1, 2162723, 0, 4, 2097185, 0, 4, 2031647, 0, 4, 2031645, 0, 4, 2031643, 0, 4, 2031637, 0, 4, 2031635, 0, 4, 2031633, 0, 4, 1966095, 0, 4, 1966093, 0, 4, 2031639, 0, 4, 2031641, 0, 4, -261982, 0, 4, -130910, 0, 4, 196776, 0, 4, 196783, 0, 4, 262329, 0, 3, -261949, 0, 1, -261945, 0, 1, -261941, 0, 1, -261937, 0, 1, -261933, 0, 1, -261929, 0, 1, -786237, 0, 1, -1048381, 0, 1, -1048377, 0, 1, -786233, 0, 1, -786229, 0, 1, -1048373, 0, 1, -1048369, 0, 1, -786225, 0, 1, -786221, 0, 1, -1048365, 0, 1, -1048361, 0, 1, -786217, 0, 1, -261925, 0, 1, -524069, 0, 1, -786213, 0, 1, -1048357, 0, 1, -1048353, 0, 1, -786209, 0, 1, -524065, 0, 1, -261921, 0, 1, 223, 0, 1, 262367, 0, 1, 524511, 0, 1, 786655, 0, 1, 1048799, 0, 1, 131275, 65534, 786435, -130869, 65534, 786435, 131291, 65534, 786435, -130853, 65534, 786435, 131295, 65534, 786435, -130849, 65534, 786435, -262080, 0, 1048580, -262077, 0, 1048577, -262073, 0, 1048577, -262069, 0, 1048577, 75, 0, 1048577, 72, 0, 1048580, -130994, 0, 1048580, -262066, 0, 1048580, 262225, 0, 1048580, 589915, 0, 1048580, 327771, 0, 1048580, 196699, 0, 1048580, 65627, 0, 1048580, 327771, 65534, 1048580, 589915, 65534, 1048580, 327771, 65532, 1048580, 589915, 65532, 1048580, 458843, 65532, 1048580, -524197, 65532, 1048577, -262053, 65532, 1048577, 91, 65532, 1048577, 91, 65534, 1048580, 262287, 0, 1048580, 262267, 0, 1048580, 262265, 0, 1048580, 393338, 0, 1048580, 262289, 0, 1048580, 721006, 0, 1048577, 983150, 0, 1048577, 116, 0, 1048580, -524194, 0, 1048580, -786341, 65532, 1048577, -1048485, 65532, 1048577, 65643, 0, 1048579, 589932, 0, 1048580, 458860, 0, 1048580, 983154, 0, 1048579, 852084, 0, 1048580, 721013, 0, 1048580, -983061, 0, 1048577, -983065, 0, 1048577, -983069, 0, 1048577, -983073, 0, 1048577, -983077, 0, 1048577, -983081, 0, 1048577, -983085, 0, 1048577, -983089, 0, 1048577, -720949, 0, 1048577, -458805, 0, 1048577, -196661, 0, 1048577, 65483, 0, 1048577, 327627, 0, 1048577, 589771, 0, 1048577, 589767, 0, 1048577, 458696, 0, 1048580, 720836, 0, 1048580, 720802, 0, 1048580, 1769374, 0, 1048580, 1638302, 0, 1048580, 1507230, 0, 1048580, 1376158, 0, 1048580, 1245086, 0, 1048580, 1114014, 0, 1048580, 982942, 0, 1048580, 589733, 0, 1048577, 589737, 0, 1048577, 589741, 0, 1048577, 720816, 0, 1048580, 1900482, 0, 1048580, 2555842, 0, 1048580, 2555840, 0, 1048580, 2686914, 0, 1048580, 2686912, 0, 1048580, 2686910, 0, 1048580, -852020, 0, 1048580, 65526, 0, 1048580, -131062, 0, 1048580, -131052, 0, 1048580, 26, 0, 1048580, 28, 0, 1048580, 30, 0, 1048580, 32, 0, 1048580, -393190, 0, 1048580, -393184, 0, 1048580, -786400, 0, 1048580, -786406, 0, 1048580, -655318, 0, 1048580, -786368, 0, 1048580, -655298, 0, 1048580, -786372, 0, 1048580, -655302, 0, 1048580, -786376, 0, 1048580, -655306, 0, 1048580, -786380, 0, 1048580, -655310, 0, 1048580, -786384, 0, 1048580, -655314, 0, 1048580, -786388, 0, 1048580, -524172, 0, 1048580, -524192, 0, 1048580, -262064, 0, 1048580, -786298, 0, 1048580, -130936, 0, 1048580, -655212, 0, 1048580, -262022, 0, 1048580, -524156, 0, 1048580, -524158, 0, 1048580, -393086, 0, 1048580, -393078, 0, 1048580, -393076, 0, 1048580, -524148, 0, 1048580, -655217, 0, 1048580, -458618, 0, 1048580, -393080, 0, 1048580, -720760, 0, 1048580, -655222, 0, 1048580, -262013, 0, 1048580, -130940, 0, 1048580, -130946, 0, 1048580, -196484, 0, 1048580, -786288, 0, 1048580, -1048349, 0, 1048577, -1048345, 0, 1048577, -786201, 0, 1048577, -524057, 0, 1048577, -261913, 0, 1048577, 231, 0, 1048577, 262375, 0, 1048577, 524519, 0, 1048577, 786663, 0, 1048577, 1048807, 0, 1048577, 1310951, 0, 1048577, 1310947, 0, 1048577, 1310943, 0, 1048577, 1179875, 0, 1048580, 983267, 0, 1048580, 786659, 0, 1048580, 590051, 0, 1048580, 393443, 0, 1048580, 196835, 0, 1048580, 227, 0, 1048580, -196381, 0, 1048580, -392989, 0, 1048580, -589597, 0, 1048580, -786205, 0, 1048580, -458558, 0, 1048580, -458555, 0, 1048580, -458552, 0, 1048580, -458549, 0, 1048580, -458536, 0, 1048580, -458539, 0, 1048580, -458542, 0, 1048580, -458545, 0, 1048580, -524083, 0, 1048580, -393011, 0, 1048580, 1245227, 0, 1048580, 1507385, 0, 1048580, 2162745, 0, 1048580, 1900605, 0, 1048580, 1769533, 0, 1048580, 1245229, 0, 1048580, 1245231, 0, 1048580, 1376295, 0, 1048580, 983074, 0, 1048580, 983076, 0, 1048580, 983078, 0, 1048580, 851952, 0, 1048580, 720880, 0, 1048580, 851954, 0, 1048580, 1245170, 0, 1048580, 1245172, 0, 1048580, 589810, 0, 1048580, 720882, 0, 1048580, 589812, 0, 1048580, 1114100, 0, 4, 983028, 0, 4, 851956, 0, 4, 720884, 0, 4, 1114102, 0, 4, 1114098, 0, 4, 983026, 0, 4, 1114096, 0, 4, 983024, 0, 4, 1114094, 0, 4, 1114092, 0, 4)
 }
+metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=174136183]
 transform = Transform3D(0.788557, 0.228263, 0.571029, -0.54107, 0.69884, 0.467831, -0.29227, -0.677878, 0.674581, 5.47366, 0, 11.0101)
 
-[node name="Dummy" parent="." instance=ExtResource("3_8gp1p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3624, 0.825784, 0)
-
-[node name="UI" parent="." node_paths=PackedStringArray("dummy") instance=ExtResource("4_yybfe")]
-dummy = NodePath("../Dummy")
-
-[node name="PracticeDummy" parent="." instance=ExtResource("5_vq2h6")]
-transform = Transform3D(0.881097, 0, 0.472935, 0, 1, 0, -0.472935, 0, 0.881097, 11.5151, 0.438681, 0)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1473313123]
 environment = ExtResource("6_f6u1m")
 
-[node name="Clouds" type="Node3D" parent="."]
+[node name="UI" parent="." unique_id=218875459 node_paths=PackedStringArray("dummy") instance=ExtResource("4_yybfe")]
+dummy = NodePath("../Dummy")
 
-[node name="cloud" parent="Clouds" instance=ExtResource("7_efh70")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.926, 19.008, -23.9326)
+[node name="spawnCoords" type="Marker3D" parent="." unique_id=2022432509]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4206686, 0.8957819, 0)
 
-[node name="cloud4" parent="Clouds" instance=ExtResource("7_efh70")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.6675, 19.008, -13.167)
+[node name="Dummy" parent="." unique_id=802473913 instance=ExtResource("3_8gp1p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.453085, 0.9471073, 0)
 
-[node name="cloud2" parent="Clouds" instance=ExtResource("8_xbslt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.635787, 18.747, -10.678)
+[node name="Clouds" type="Node3D" parent="." unique_id=631474717]
 
-[node name="cloud5" parent="Clouds" instance=ExtResource("8_xbslt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.4232, 18.747, -15.6739)
+[node name="cloud" parent="Clouds" unique_id=982727244 instance=ExtResource("7_efh70")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.926, 11.263075, -23.9326)
 
-[node name="cloud8" parent="Clouds" instance=ExtResource("7_efh70")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.6477, 27.2575, -23.9326)
+[node name="cloud4" parent="Clouds" unique_id=60390382 instance=ExtResource("7_efh70")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.6675, 11.263075, -13.167)
 
-[node name="cloud9" parent="Clouds" instance=ExtResource("7_efh70")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.8028, 25.3761, -13.167)
+[node name="cloud2" parent="Clouds" unique_id=338883709 instance=ExtResource("8_xbslt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.635787, 11.002075, -10.678)
 
-[node name="cloud10" parent="Clouds" instance=ExtResource("8_xbslt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.5107, 26.7996, -10.678)
+[node name="cloud5" parent="Clouds" unique_id=1122044411 instance=ExtResource("8_xbslt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.4232, 11.002075, -15.6739)
 
-[node name="cloud11" parent="Clouds" instance=ExtResource("8_xbslt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.2515, 30.8262, -15.6739)
+[node name="cloud3" parent="Clouds" unique_id=161857762 instance=ExtResource("9_q8wyw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8832, 10.553076, -5.13726)
 
-[node name="cloud12" parent="Clouds" instance=ExtResource("7_efh70")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.79, 38.5463, -23.9326)
+[node name="cloud38" parent="Clouds" unique_id=1061509849 instance=ExtResource("7_efh70")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.15979, 24.174454, -23.9326)
 
-[node name="cloud13" parent="Clouds" instance=ExtResource("7_efh70")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.1964, 38.5463, -13.167)
+[node name="cloud39" parent="Clouds" unique_id=645026360 instance=ExtResource("8_xbslt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.662594, 23.913456, -15.6739)
 
-[node name="cloud14" parent="Clouds" instance=ExtResource("8_xbslt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.2281, 38.2853, -10.678)
+[node name="cloud40" parent="Clouds" unique_id=58166313 instance=ExtResource("9_q8wyw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -83.20259, 23.464455, -5.13726)
 
-[node name="cloud17" parent="Clouds" instance=ExtResource("8_xbslt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.8504, 37.9477, -6.96416)
+[node name="cloud41" parent="Clouds" unique_id=292530689 instance=ExtResource("7_efh70")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9494095, 34.29351, -23.9326)
 
-[node name="cloud15" parent="Clouds" instance=ExtResource("8_xbslt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 114.287, 38.2853, -15.6739)
+[node name="cloud42" parent="Clouds" unique_id=1516142135 instance=ExtResource("8_xbslt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.446606, 34.03251, -15.6739)
 
-[node name="cloud16" parent="Clouds" instance=ExtResource("7_efh70")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 127.324, 38.908, -23.9326)
+[node name="cloud43" parent="Clouds" unique_id=1617354822 instance=ExtResource("9_q8wyw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0933914, 33.58351, -5.13726)
 
-[node name="cloud20" parent="Clouds" instance=ExtResource("7_efh70")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 147.167, 38.908, -10.6449)
+[node name="cloud6" parent="Clouds" unique_id=1758154828 instance=ExtResource("9_q8wyw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.3138, 28.320847, -22.1598)
 
-[node name="cloud18" parent="Clouds" instance=ExtResource("8_xbslt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105.45, 38.1406, -10.678)
+[node name="cloud7" parent="Clouds" unique_id=1390100721 instance=ExtResource("9_q8wyw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.91464, 10.894764, -28.0248)
 
-[node name="cloud19" parent="Clouds" instance=ExtResource("8_xbslt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142.509, 38.1406, -15.6739)
+[node name="cloud8" parent="Clouds" unique_id=847034241 instance=ExtResource("7_efh70")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.8169, 12.631283, -23.9326)
 
-[node name="cloud3" parent="Clouds" instance=ExtResource("9_q8wyw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8832, 18.298, -5.13726)
+[node name="cloud23" parent="Clouds" unique_id=1477151184 instance=ExtResource("7_efh70")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.3138, 13.970755, -18.569)
 
-[node name="cloud6" parent="Clouds" instance=ExtResource("9_q8wyw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.204, 33.1802, -21.8055)
+[node name="cloud9" parent="Clouds" unique_id=450812502 instance=ExtResource("8_xbslt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.5749, 13.87719, -10.678)
 
-[node name="cloud7" parent="Clouds" instance=ExtResource("9_q8wyw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.91464, 18.298, -28.0248)
+[node name="cloud10" parent="Clouds" unique_id=42904696 instance=ExtResource("8_xbslt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.7874, 13.87719, -15.6739)
 
-[node name="Stars" type="Node3D" parent="."]
+[node name="cloud11" parent="Clouds" unique_id=328690062 instance=ExtResource("9_q8wyw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.9271, 11.921284, -5.13726)
 
-[node name="Star1" parent="Stars" instance=ExtResource("10_rq6k0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.9161, 5.45326, 0)
+[node name="cloud12" parent="Clouds" unique_id=1226680030 instance=ExtResource("9_q8wyw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.9586, 11.921284, -28.0248)
 
-[node name="Star2" parent="Stars" instance=ExtResource("10_rq6k0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.5272, 13.6479, 0)
+[node name="cloud32" parent="Clouds" unique_id=934527843 instance=ExtResource("7_efh70")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.572247, 29.75441, -23.9326)
 
-[node name="Star3" parent="Stars" instance=ExtResource("10_rq6k0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 122.363, 23.4182, 0)
+[node name="cloud33" parent="Clouds" unique_id=1631856267 instance=ExtResource("7_efh70")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.157227, 29.954922, -18.569)
 
-[node name="Enemies" type="Node3D" parent="."]
+[node name="cloud34" parent="Clouds" unique_id=622220656 instance=ExtResource("8_xbslt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.418327, 29.861359, -10.678)
 
-[node name="Enemy1" parent="Enemies" instance=ExtResource("13_sucmb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.1577, -2.78719, 0)
+[node name="cloud35" parent="Clouds" unique_id=1319790632 instance=ExtResource("8_xbslt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.63083, 29.861359, -15.6739)
 
-[node name="Enemy2" parent="Enemies" instance=ExtResource("13_sucmb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.9888, 1.48217, 0)
+[node name="cloud36" parent="Clouds" unique_id=2060376980 instance=ExtResource("9_q8wyw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.214691, 29.044407, -5.13726)
 
-[node name="Enemy3" parent="Enemies" instance=ExtResource("13_sucmb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96.4422, 25.3308, 0)
+[node name="cloud37" parent="Clouds" unique_id=365463395 instance=ExtResource("9_q8wyw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.430546, 29.04441, -28.0248)
 
-[node name="FinalObjective" parent="." instance=ExtResource("14_go0cy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125.5, 4.5, 0)
+[node name="cloud13" parent="Clouds" unique_id=1764223140 instance=ExtResource("7_efh70")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 121.802, 17.506107, -23.9326)
 
-[connection signal="tree_exiting" from="Enemies/Enemy1" to="Enemies" method="_on_enemy_1_tree_exiting"]
-[connection signal="tree_exiting" from="Enemies/Enemy2" to="Enemies" method="_on_enemy_1_tree_exiting"]
-[connection signal="tree_exiting" from="Enemies/Enemy3" to="Enemies" method="_on_enemy_1_tree_exiting"]
+[node name="cloud14" parent="Clouds" unique_id=1253239419 instance=ExtResource("8_xbslt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.21212, 17.57496, -10.678)
+
+[node name="cloud15" parent="Clouds" unique_id=1646135636 instance=ExtResource("8_xbslt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 135.3, 17.246395, -15.6739)
+
+[node name="cloud16" parent="Clouds" unique_id=1839704077 instance=ExtResource("9_q8wyw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110.76, 17.2934, -5.13726)
+
+[node name="cloud17" parent="Clouds" unique_id=1460483519 instance=ExtResource("9_q8wyw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98.01914, 16.623661, -28.0248)
+
+[node name="cloud18" parent="Clouds" unique_id=1341803772 instance=ExtResource("7_efh70")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 156.654, 18.318094, -23.9326)
+
+[node name="cloud19" parent="Clouds" unique_id=1724233714 instance=ExtResource("8_xbslt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 176.301, 18.057095, -10.678)
+
+[node name="cloud20" parent="Clouds" unique_id=1987596159 instance=ExtResource("8_xbslt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 185.29, 17.450285, -15.6739)
+
+[node name="cloud21" parent="Clouds" unique_id=149238244 instance=ExtResource("9_q8wyw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 166.427, 17.608093, -5.13726)
+
+[node name="cloud22" parent="Clouds" unique_id=1611766447 instance=ExtResource("9_q8wyw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 143.95, 17.608093, -28.0248)
+
+[node name="cloud24" parent="Clouds" unique_id=1756473224 instance=ExtResource("7_efh70")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 202.64597, 15.366701, -23.9326)
+
+[node name="cloud25" parent="Clouds" unique_id=396755776 instance=ExtResource("8_xbslt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 222.29295, 15.105701, -10.678)
+
+[node name="cloud26" parent="Clouds" unique_id=1031159323 instance=ExtResource("8_xbslt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 231.28195, 16.1854, -15.6739)
+
+[node name="cloud27" parent="Clouds" unique_id=1119680643 instance=ExtResource("9_q8wyw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 212.41896, 14.6567, -5.13726)
+
+[node name="cloud28" parent="Clouds" unique_id=1114714468 instance=ExtResource("9_q8wyw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 189.94196, 14.6567, -28.0248)
+
+[node name="cloud29" parent="Clouds" unique_id=1635532200 instance=ExtResource("8_xbslt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 240.65068, 15.105701, -10.678)
+
+[node name="cloud30" parent="Clouds" unique_id=1228775353 instance=ExtResource("8_xbslt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 249.63968, 16.1854, -15.6739)
+
+[node name="cloud31" parent="Clouds" unique_id=495598024 instance=ExtResource("9_q8wyw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 254.29164, 14.6567, -28.0248)
+
+[node name="Stars" type="Node3D" parent="." unique_id=343184993]
+
+[node name="Star1" parent="Stars" unique_id=333619243 instance=ExtResource("10_rq6k0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 175.44931, 0.6927055, 0)
+
+[node name="Star2" parent="Stars" unique_id=824081189 instance=ExtResource("10_rq6k0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.43796, 29.857977, 0)
+
+[node name="Star3" parent="Stars" unique_id=1315227851 instance=ExtResource("10_rq6k0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8286915, 27.374666, 0)
+
+[node name="Cartells" type="Node3D" parent="." unique_id=127986037]
+
+[node name="cartell_combat" parent="Cartells" unique_id=1144255963 instance=ExtResource("11_f6u1m")]
+transform = Transform3D(0.99498445, -0.1000298, 0, 0.1000298, 0.99498445, 0, 0, 0, 1, -52.41805, 16.274767, -1.5327148)
+
+[node name="CartellDireccio" parent="Cartells" unique_id=1341410358 instance=ExtResource("12_efh70")]
+transform = Transform3D(0.9879922, -0.15450372, 0, 0.15450372, 0.9879922, 0, 0, 0, 1, -36.715176, 18.194942, -0.8868408)
+
+[node name="CartellDireccio3" parent="Cartells" unique_id=1144249618 instance=ExtResource("12_efh70")]
+transform = Transform3D(-0.9960185, 0.0017121432, -0.08913113, -0.0017189856, -0.9999986, 7.792091e-09, -0.089131, 0.00015322288, 0.99602, 0.19276524, -2.3449678, 1.7650757)
+
+[node name="CartellDireccio2" parent="Cartells" unique_id=1439639532 instance=ExtResource("12_efh70")]
+transform = Transform3D(0.9974894, -0.07081627, 0, 0.07081627, 0.9974894, 0, 0, 0, 1, 155.50444, 4.4069643, -1.5122833)
+
+[node name="SpawnPoints" type="Node3D" parent="." unique_id=69165704]
+
+[node name="RespawnPoint" parent="SpawnPoints" unique_id=656772893 instance=ExtResource("13_efh70")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 151.52019, 4.4793067, 0)
+
+[node name="RespawnPoint2" parent="SpawnPoints" unique_id=269351374 instance=ExtResource("13_efh70")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.506836, -7.547887, 0)
+
+[node name="Enemies" type="Node3D" parent="." unique_id=1814530774 node_paths=PackedStringArray("key")]
+script = ExtResource("11_yybfe")
+key = NodePath("../key")
+
+[node name="GoblinKey" parent="Enemies" unique_id=1459477055 instance=ExtResource("13_sucmb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 196.109, 1.1278844, 0)
+
+[node name="Goblin" parent="Enemies" unique_id=1506371082 instance=ExtResource("13_sucmb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.55033, 15.183783, 0)
+
+[node name="Goblin6" parent="Enemies" unique_id=1790264246 instance=ExtResource("13_sucmb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.774054, 1.2010164, 0)
+
+[node name="Goblin2" parent="Enemies" unique_id=2068715453 instance=ExtResource("13_sucmb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.744232, 25.233711, 0)
+
+[node name="Goblin3" parent="Enemies" unique_id=1904930650 instance=ExtResource("13_sucmb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 179.1301, -2.8173475, 0)
+
+[node name="Goblin4" parent="Enemies" unique_id=229962935 instance=ExtResource("13_sucmb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.0511, 5.282434, 0)
+
+[node name="Goblin5" parent="Enemies" unique_id=621906732 instance=ExtResource("13_sucmb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.16645, -2.7621665, 0)
+
+[node name="Bee" parent="Enemies" unique_id=2131363581 node_paths=PackedStringArray("target") instance=ExtResource("16_q8wyw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 211.41591, 3.0728712, -10.280533)
+target = NodePath("../../Dummy")
+
+[node name="FinalObjective" parent="." unique_id=2030363637 instance=ExtResource("14_go0cy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.540718, 25.493267, 0)
+
+[node name="Door" parent="." unique_id=1968068067 node_paths=PackedStringArray("activationArea") instance=ExtResource("14_f6u1m")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.9309769, -5.476944, 0)
+activationArea = NodePath("Area3D")
+
+[node name="Area3D" type="Area3D" parent="Door" unique_id=2126974279]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door/Area3D" unique_id=237405213]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.73436, -1.50845, 0.00384521)
+shape = SubResource("BoxShape3D_xd5wc")
+
+[node name="key" parent="." unique_id=878293172 node_paths=PackedStringArray("target") instance=ExtResource("15_efh70")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 195.12091, 7.003531, 0)
+target = NodePath("../Enemies/GoblinKey")
+
+[node name="Plataformes" type="Node3D" parent="." unique_id=630099765]
+script = ExtResource("16_xbslt")
+
+[node name="Plataforma movil" parent="Plataformes" unique_id=1581219639 instance=ExtResource("17_q8wyw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8639536, 21.194115, 0)
+curve = SubResource("Curve3D_efh70")
+
+[node name="Plataforma movil2" parent="Plataformes" unique_id=1549613005 instance=ExtResource("17_q8wyw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.5197, 8.116038, 0)
+curve = SubResource("Curve3D_xbslt")
+
+[node name="Stopwatch" parent="." unique_id=2100186060 instance=ExtResource("18_rq6k0")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1152817690]
+
+[node name="PauseMenu" parent="CanvasLayer" unique_id=1948944151 instance=ExtResource("19_0ouaf")]
+visible = false
+
+[connection signal="tree_exiting" from="Enemies/GoblinKey" to="Enemies" method="_on_GoblinKey_killed"]

@@ -21,7 +21,7 @@ func _ready() -> void:
 	max_health = GlobalVariables.enemyStats[GlobalVariables.difficulty]["health"]
 	damage = GlobalVariables.enemyStats[GlobalVariables.difficulty]["damage"]
 	speed = GlobalVariables.enemyStats[GlobalVariables.difficulty]["speed"]
-	bullet_speed = GlobalVariables.enemyStats[GlobalVariables.difficulty]["bullet_speed"]
+	bullet_speed = GlobalVariables.enemyStats[GlobalVariables.difficulty_types["combat"]]["bullet_speed"]
 	current_health = max_health
 
 func _process(_delta: float) -> void:

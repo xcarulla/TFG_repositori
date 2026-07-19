@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cgeeaexqr6t28"]
+
+[ext_resource type="PackedScene" uid="uid://cjk3crltmixim" path="res://Assets/LevelElements/cartell.glb" id="1_drj2s"]
+[ext_resource type="PackedScene" uid="uid://ck6afxtrvix40" path="res://Assets/LevelElements/Espases.glb" id="2_ajyhq"]
+
+[node name="cartell_combat" type="Node3D" unique_id=1144255963]
+
+[node name="cartell" parent="." unique_id=982857736 instance=ExtResource("1_drj2s")]
+
+[node name="Espases" parent="cartell" unique_id=840733279 instance=ExtResource("2_ajyhq")]

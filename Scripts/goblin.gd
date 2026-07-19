@@ -8,7 +8,7 @@ var turning := false
 func _ready() -> void:
 	max_health = GlobalVariables.enemyStats[GlobalVariables.difficulty]["health"]
 	damage = GlobalVariables.enemyStats[GlobalVariables.difficulty]["damage"]
-	speed = GlobalVariables.enemyStats[GlobalVariables.difficulty]["speed"]
+	speed = GlobalVariables.enemyStats[GlobalVariables.difficulty_types["combat"]]["speed"]
 	current_health = max_health
 
 func _process(_delta: float) -> void:

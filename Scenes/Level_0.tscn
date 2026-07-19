@@ -84,7 +84,7 @@ dummy = NodePath("../Dummy")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4699078, 0.592151, 0)
 
 [node name="Dummy" parent="." unique_id=1233296160 instance=ExtResource("5_wn8lt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 226.9554, 4.9007254, -0.00012207031)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.634428, 0.7224312, -0.00012207031)
 
 [node name="Clouds" type="Node3D" parent="." unique_id=1117836294]
 
@@ -235,10 +235,10 @@ curve = SubResource("Curve3D_nm1ig")
 
 [node name="Cartells" type="Node3D" parent="." unique_id=564799004]
 
-[node name="cartell" parent="Cartells" unique_id=982857736 instance=ExtResource("14_b8dk4")]
+[node name="cartell_direccio" parent="Cartells" unique_id=982857736 instance=ExtResource("14_b8dk4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 121.995544, 13.245766, -1.0037231)
 
-[node name="fletxa" parent="Cartells/cartell" unique_id=509388810 instance=ExtResource("15_okqog")]
+[node name="fletxa" parent="Cartells/cartell_direccio" unique_id=509388810 instance=ExtResource("15_okqog")]
 
 [node name="cartell2" parent="Cartells" unique_id=1071741832 instance=ExtResource("14_b8dk4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.466036, 0.41447306, -1.2739134)
@@ -340,7 +340,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 219.50255, 4.4591417, 0)
 [node name="PauseMenu" parent="CanvasLayer" unique_id=1948944151 instance=ExtResource("20_qq301")]
 visible = false
 
-[connection signal="tree_exiting" from="Enemies/Goblin" to="Enemies" method="_on_enemy_1_tree_exiting"]
 [connection signal="body_entered" from="Tutorial attack" to="Tutorial attack" method="body_entered_area_attack"]
 [connection signal="body_entered" from="Tutorial jump" to="Tutorial jump" method="body_entered_area"]
 [connection signal="body_entered" from="TutorialManager/startTimer" to="TutorialManager" method="parkour_start"]

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cjetncgu368a0"]
+
+[ext_resource type="PackedScene" uid="uid://cjk3crltmixim" path="res://Assets/LevelElements/cartell.glb" id="1_bxnay"]
+[ext_resource type="PackedScene" uid="uid://c7m63o0jqaxfj" path="res://Assets/LevelElements/fletxa.glb" id="2_seeow"]
+
+[node name="CartellDireccio" type="Node3D" unique_id=1341410358]
+
+[node name="cartell" parent="." unique_id=982857736 instance=ExtResource("1_bxnay")]
+
+[node name="fletxa" parent="cartell" unique_id=509388810 instance=ExtResource("2_seeow")]

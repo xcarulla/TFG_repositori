@@ -5,8 +5,12 @@ extends Node
 # -------------------------------
 
 var difficulty := "normal" # easy normal hard
-var current_level
 var deaths_count : int = 0
+
+var difficulty_types = {
+	"parkour": "normal",
+	"combat": "normal",
+}
 
 var enemyStats = {
 	"easy": {
@@ -42,7 +46,7 @@ var playerStats = {
 		"coyote_time": 0.15,
 	},
 	"normal": {
-		"health": 5,
+		"health": 6,
 		"invul_time": 0.8,
 		"coyote_time": 0.1,
 	},
@@ -57,10 +61,12 @@ var playerStats = {
 # LEVEL RELATED GLOBAL VARS:
 # -------------------------------
 
+var current_level
+
 var gameLevels = {
 	"Level_0": {
 		"cleared": false,
-		"bestTime": 0.0
+		"bestTime": "00:00:000"
 	},
 	"Level_1": {
 		"cleared": false,
@@ -69,7 +75,7 @@ var gameLevels = {
 			"Star2" : false,
 			"Star3" : false
 		},
-		"bestTime": 0.0
+		"bestTime": "00:00:000"
 	},
 	"Level_2": {
 		"cleared": false,
@@ -78,7 +84,7 @@ var gameLevels = {
 			"Star2" : false,
 			"Star3" : false
 		},
-		"bestTime": 0.0
+		"bestTime": "00:00:000"
 	},
 	"Level_3": {
 		"cleared": false,
@@ -87,7 +93,7 @@ var gameLevels = {
 			"Star2" : false,
 			"Star3" : false
 		},
-		"bestTime": 0.0
+		"bestTime": "00:00:000"
 	}
 }
 
@@ -104,6 +110,7 @@ func resetLevel(nLevel: String):
 		"Star2" : false,
 		"Star3" : false
 	}
+	gameLevels[nLevel]["bestTime"] = "00:00:000"
 	
 func addStar(nLevel: String, nStar: String):
 	gameLevels[nLevel]["Stars"][nStar] = true
@@ -113,3 +120,14 @@ func getStars(nLevel: String):
 
 func updateSpawnPoint(_coords : Vector3) -> void:
 	current_spawn_point = _coords
+
+func change_diff(_diff_type : String, direction : String) -> void: # combat/parkour up/down
+	var diff : String = difficulty_types[_diff_type]
+	if direction == "down" and (diff == "normal" or diff == "easy"):
+		difficulty_types[_diff_type] = "easy"
+	elif (direction == "down" and diff == "hard") or (direction == "up" and diff == "easy"): 
+		difficulty_types[_diff_type] = "normal"
+	elif direction == "up" and (diff == "normal" or diff == "hard"):
+		difficulty_types[_diff_type] = "hard"
+	
+	

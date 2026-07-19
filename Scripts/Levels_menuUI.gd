@@ -1,11 +1,14 @@
 extends Control
 
 var starsDict
+var bestTime : String
 
 func _ready():
 	if name != "Level_0":
 		starsDict = GlobalVariables.getStars(name)
+		bestTime = GlobalVariables.gameLevels[name]["bestTime"]
 		setStarsVisibility()
+		setBestTime()
 
 
 func setStarsVisibility():
@@ -28,7 +31,8 @@ func setStarsVisibility():
 		star.self_modulate = "#195598"
 
 func setBestTime():
-	pass
+	var best_time_label = find_child("BestTimeLabel")
+	best_time_label.text = bestTime
 
 func _playLevel():
 	get_tree().change_scene_to_file("res://Scenes/" + name + ".tscn")

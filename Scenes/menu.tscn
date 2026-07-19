@@ -502,7 +502,6 @@ self_modulate = Color(0.254902, 0.596078, 1, 1)
 layout_mode = 1
 
 [node name="Level_1" type="Control" parent="CanvasLayer/Play Menu/Panel" unique_id=761475748]
-visible = false
 anchors_preset = 0
 offset_left = 310.0
 offset_top = 236.0
@@ -693,6 +692,25 @@ layout_mode = 2
 texture = ExtResource("8_s6lar")
 stretch_mode = 4
 
+[node name="BestTimeLabel" type="RichTextLabel" parent="CanvasLayer/Play Menu/Panel/Level_2/Panel" unique_id=2045540029]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.13452
+offset_top = 19.0
+offset_right = 80.13452
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.03137255, 0.2509804, 0.52156866, 1)
+theme_override_font_sizes/normal_font_size = 24
+text = "00:00:000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="ButtonPlayLevel" type="Button" parent="CanvasLayer/Play Menu/Panel/Level_2/Panel" unique_id=780206929]
 layout_mode = 1
 anchors_preset = 7
@@ -786,6 +804,25 @@ self_modulate = Color(0.0980392, 0.333333, 0.596078, 1)
 layout_mode = 2
 texture = ExtResource("8_s6lar")
 stretch_mode = 4
+
+[node name="BestTimeLabel" type="RichTextLabel" parent="CanvasLayer/Play Menu/Panel/Level_3/Panel" unique_id=1233317821]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.13452
+offset_top = 19.0
+offset_right = 80.13452
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.03137255, 0.2509804, 0.52156866, 1)
+theme_override_font_sizes/normal_font_size = 24
+text = "00:00:000"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ButtonPlayLevel" type="Button" parent="CanvasLayer/Play Menu/Panel/Level_3/Panel" unique_id=415596789]
 layout_mode = 1
@@ -969,7 +1006,6 @@ grow_vertical = 2
 text = "Play level"
 
 [node name="Credits Menu" type="Control" parent="CanvasLayer" unique_id=1718804436]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1039,7 +1075,7 @@ Antonio Rodríguez Benítez
 Dummys and Level building blocks:
 Kay Lousberg
 
-Green enemy:
+Goblin and Bee:
 Quaternius"
 horizontal_alignment = 1
 

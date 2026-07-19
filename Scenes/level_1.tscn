@@ -40,8 +40,9 @@ _data = {
 }
 point_count = 2
 
-[node name="Level_1" type="Node3D" unique_id=1398144571]
+[node name="Level_1" type="Node3D" unique_id=1398144571 node_paths=PackedStringArray("spawnPoint")]
 script = ExtResource("1_6l3gm")
+spawnPoint = NodePath("spawnCoords")
 
 [node name="GridMap" type="GridMap" parent="." unique_id=1824956162]
 mesh_library = ExtResource("2_v5thc")
@@ -62,8 +63,11 @@ environment = ExtResource("6_28tsq")
 [node name="UI" parent="." unique_id=1639616763 node_paths=PackedStringArray("dummy") instance=ExtResource("4_yhhpr")]
 dummy = NodePath("../Dummy")
 
+[node name="spawnCoords" type="Marker3D" parent="." unique_id=1865936485]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4169979, 1.1318507, 0)
+
 [node name="Dummy" parent="." unique_id=1233296160 instance=ExtResource("3_8rcsi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.54014, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36888695, 0.84711814, 0)
 
 [node name="PracticeDummy" parent="." unique_id=1300403095 instance=ExtResource("5_vgsmv")]
 transform = Transform3D(0.881097, 0, 0.472935, 0, 1, 0, -0.472935, 0, 0.881097, -8.50566, 0.438681, 0)

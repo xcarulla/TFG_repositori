@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=4 uid="uid://cr43qb8btncs6"]
+[gd_scene format=4 uid="uid://cr43qb8btncs6"]
 
 [ext_resource type="Script" uid="uid://1k0ewmyqakas" path="res://Scripts/door.gd" id="1_w6aom"]
 
@@ -46,15 +46,15 @@ shadow_mesh = SubResource("ArrayMesh_6rwrn")
 [sub_resource type="BoxShape3D" id="BoxShape3D_w6aom"]
 size = Vector3(0.6, 4, 4)
 
-[node name="Door" type="StaticBody3D"]
+[node name="Door" type="StaticBody3D" unique_id=1733607908]
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_w6aom")
 
-[node name="doormesh" type="MeshInstance3D" parent="."]
+[node name="doormesh" type="MeshInstance3D" parent="." unique_id=257758643]
 transform = Transform3D(0.875, 0, 0, 0, 0.517, 0, 0, 0, 0.507, 0, -1.93955, 0)
 mesh = SubResource("ArrayMesh_w6aom")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=276253577]
 shape = SubResource("BoxShape3D_w6aom")
